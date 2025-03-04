@@ -20,3 +20,9 @@ These features are currently available on https://dex.radicalred.net but will be
 - Filter Pokemon by moves
 - Filter Pokemon by abilities
 - More to come as the project progresses
+
+## Shout Out
+
+This project would not be possible without the original [Pokedex for Radical Red](https://dex.radicalred.net/). Please check out the original project at the link below.
+
+- [Github - JwowSquared/Radical-Red-Pokedex](https://github.com/JwowSquared/Radical-Red-Pokedex)
