@@ -7,7 +7,7 @@ import {
   DropdownMenuTrigger,
 } from "../ui/dropdown-menu";
 
-export function ColumnFilters<TData>(props: { table: Table<TData> }) {
+export function ColumnFilters<TData>({ table }: { table: Table<TData> }) {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
@@ -16,7 +16,7 @@ export function ColumnFilters<TData>(props: { table: Table<TData> }) {
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">
-        {props.table
+        {table
           .getAllColumns()
           .filter((column) => column.getCanHide())
           .map((column) => {

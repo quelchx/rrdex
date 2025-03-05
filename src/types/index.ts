@@ -23,7 +23,7 @@ type Pokemon = {
   eggMoves: number[];
 };
 
-type Moves = {
+type PokemonMoves = {
   ID: number;
   name: string;
   type: number;
@@ -40,7 +40,7 @@ type Moves = {
 export type RadicalRedPokedex = {
   species: { [key: string]: Pokemon };
   types: { [key: string]: PokemonType };
-  moves: { [key: string]: Moves };
+  moves: { [key: string]: PokemonMoves };
 };
 
 export type PokemonColumns = {

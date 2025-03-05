@@ -1,5 +1,5 @@
-import { filterAtom } from "@/store";
 import { useAtom } from "jotai";
+import { filterAtom } from "@/store";
 
 export const useFilters = () => {
   const [filter, setFilter] = useAtom(filterAtom);

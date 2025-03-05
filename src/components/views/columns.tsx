@@ -28,30 +28,35 @@ export const columns: ColumnDef<PokemonColumns>[] = [
   },
   {
     accessorKey: "stats.hp",
+    id: "HP",
     header: ({ column }) => {
       return <SortColumnButton column={column}>HP</SortColumnButton>;
     },
   },
   {
     accessorKey: "stats.attack",
+    id: "Attack",
     header: ({ column }) => {
       return <SortColumnButton column={column}>Attack</SortColumnButton>;
     },
   },
   {
     accessorKey: "stats.defense",
+    id: "Defense",
     header: ({ column }) => {
       return <SortColumnButton column={column}>Defense</SortColumnButton>;
     },
   },
   {
     accessorKey: "stats.specialAttack",
+    id: "Special Attack",
     header: ({ column }) => {
       return <SortColumnButton column={column}>Sp. Attack</SortColumnButton>;
     },
   },
   {
     accessorKey: "stats.specialDefense",
+    id: "Special Defense",
     header: ({ column }) => {
       return <SortColumnButton column={column}>Sp. Defense</SortColumnButton>;
     },
@@ -59,12 +64,14 @@ export const columns: ColumnDef<PokemonColumns>[] = [
 
   {
     accessorKey: "stats.speed",
+    id: "Speed",
     header: ({ column }) => {
       return <SortColumnButton column={column}>Speed</SortColumnButton>;
     },
   },
   {
     accessorKey: "stats.total",
+    id: "Total",
     header: ({ column }) => {
       return <SortColumnButton column={column}>Total</SortColumnButton>;
     },

@@ -3,13 +3,11 @@ import { Button } from "../ui/button";
 import { Column } from "@tanstack/react-table";
 import { ArrowUp } from "lucide-react";
 
-export function SortColumnButton({
-  column,
-  children,
-}: {
+type SortColumnButtonProps = {
   column: Column<PokemonColumns>;
   children: React.ReactNode;
-}) {
+};
+export function SortColumnButton({ column, children }: SortColumnButtonProps) {
   return (
     <Button
       variant="ghost"

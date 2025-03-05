@@ -1,26 +1,16 @@
 import { ModeToggle } from "@/components/views/mode-toggle";
 import { ThemeProvider } from "@/components/views/theme-provider";
 import { columns } from "./components/views/columns";
-import { DataTable } from "./components/views/data-table";
-
-// import { useEffect, useState } from "react";
-// import { RadicalRedPokedex } from "./types";
-// import { getPokedex } from "./lib/utils";
+import { PokemonTable } from "./components/views/pokemon-table";
 
 function App() {
-  // const [pokedex, setPokedex] = useState<RadicalRedPokedex[]>([]);
-
-  // useEffect(() => {
-  //   getPokedex().then((data) => setPokedex(data));
-  // }, []);
-
   return (
     <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
       <div className="fixed top-4 right-4">
         <ModeToggle />
       </div>
-      <div className="flex flex-col items-center justify-center min-h-screen dark:text-white dark:bg-neutral-900 transition-colors duration-200">
-        <div className="max-w-5xl text-center mx-auto pb-8">
+      <div className="mx-auto max-w-5xl flex flex-col items-center justify-center min-h-screen">
+        <div className="text-center container py-4 px-3">
           <h1 className="text-4xl font-bold bg-gradient-to-r from-red-400 to-black dark:to-gray-400 bg-clip-text text-transparent">
             Radical Red Dex
           </h1>
@@ -33,7 +23,7 @@ function App() {
               <code>{JSON.stringify(pokedex, null, 2)}</code>
             </pre>
           )} */}
-          <DataTable columns={columns} data={[]} />
+          <PokemonTable columns={columns} data={[]} />
         </div>
 
         <footer className="flex items-center justify-center gap-2 fixed bottom-4 left-0 right-0 text-center text-sm text-gray-600 dark:text-gray-400">

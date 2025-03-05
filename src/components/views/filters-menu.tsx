@@ -11,14 +11,14 @@ import { filters } from "@/constants";
 import { useFilters } from "@/hooks/useFilters";
 import { ChevronsUpDown } from "lucide-react";
 
-export function DataFiltersMenu() {
+export function FiltersMenu() {
   const { filter, setFilter } = useFilters();
 
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
         <Button variant="outline" className="justify-between">
-          Filter by {filter}
+          <span>{filter}</span>
           <ChevronsUpDown className="opacity-50" />
         </Button>
       </DropdownMenuTrigger>
