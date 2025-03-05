@@ -1,4 +1,5 @@
 import {
+  LearnedMoves,
   Pokemon,
   PokemonAbilities,
   PokemonColumns,
@@ -35,12 +36,24 @@ function getPokemonAbilities(
     .filter(Boolean);
 }
 
-export function shapeTableData(data: RadicalRedPokedex): PokemonColumns[] {
+export function getPokemonMoves(
+  pokemon: Pokemon,
+  moves: { [key: string]: LearnedMoves }
+): string[] {
+  return pokemon.levelupMoves
+    .flatMap((move) => (move[0] === 0 ? [] : moves[move[0]].name))
+    .filter(Boolean);
+}
+
+export function structurePokemonData(
+  data: RadicalRedPokedex
+): PokemonColumns[] {
   return Object.values(data.species).map((pokemon) => ({
     ID: pokemon.ID,
     name: pokemon.name,
     type: getPokemonTypes(pokemon, data.types),
     abilities: getPokemonAbilities(pokemon, data.abilities).reverse(),
+    moves: getPokemonMoves(pokemon, data.moves),
     stats: {
       hp: pokemon.stats[0],
       attack: pokemon.stats[1],

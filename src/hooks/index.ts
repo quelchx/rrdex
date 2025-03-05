@@ -24,7 +24,7 @@ export const useCurrentSearch = () => {
   };
 };
 
-export const useFilters = () => {
+export const useCurrentFilter = () => {
   const [filter, setFilter] = useAtom(filterAtom);
   return { filter, setFilter };
 };

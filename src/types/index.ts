@@ -31,6 +31,7 @@ export type PokemonColumns = {
     speed: number;
     total: number;
   };
+  moves: string[];
 };
 
 export type PokemonType = {

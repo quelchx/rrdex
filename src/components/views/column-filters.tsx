@@ -1,11 +1,12 @@
 import { Table } from "@tanstack/react-table";
-import { Button } from "../ui/button";
+
+import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
   DropdownMenuCheckboxItem,
   DropdownMenuContent,
   DropdownMenuTrigger,
-} from "../ui/dropdown-menu";
+} from "@/components/ui/dropdown-menu";
 
 export function ColumnFilters<TData>({ table }: { table: Table<TData> }) {
   return (

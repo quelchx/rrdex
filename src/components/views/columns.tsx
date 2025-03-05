@@ -1,6 +1,7 @@
 import { ColumnDef } from "@tanstack/react-table";
-import { SortColumnButton } from "./sort-column-button";
 import { PokemonColumns } from "@/types";
+
+import { SortColumnButton } from "./sort-column-button";
 
 export const columns: ColumnDef<PokemonColumns>[] = [
   {

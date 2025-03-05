@@ -21,10 +21,10 @@ import {
   TableRow,
 } from "@/components/ui/table";
 
+import { SearchBar } from "./search-bar";
 import { FiltersMenu } from "./filters-menu";
 import { ColumnFilters } from "./column-filters";
 import { DataPagination } from "./data-pagination";
-import { SearchBar } from "./search-bar";
 
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[];

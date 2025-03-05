@@ -8,11 +8,11 @@ import {
 } from "@/components/ui/dropdown-menu";
 
 import { filters } from "@/constants";
-import { useFilters } from "@/hooks";
+import { useCurrentFilter } from "@/hooks";
 import { ChevronsUpDown } from "lucide-react";
 
 export function FiltersMenu() {
-  const { filter, setFilter } = useFilters();
+  const { filter, setFilter } = useCurrentFilter();
 
   return (
     <DropdownMenu>
