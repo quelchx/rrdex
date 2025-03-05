@@ -22,7 +22,7 @@ import {
 } from "@/components/ui/table";
 
 import { SearchBar } from "./search-bar";
-import { FiltersMenu } from "./filters-menu";
+import { SearchFiltersMenu } from "./filters-menu";
 import { ColumnFilters } from "./column-filters";
 import { DataPagination } from "./data-pagination";
 
@@ -57,7 +57,7 @@ function DataTable<TData, TValue>({
       <div className="w-full justify-end space-x-2 flex items-center py-4">
         <SearchBar />
         <div className="flex items-center gap-2">
-          <FiltersMenu />
+          <SearchFiltersMenu />
           <ColumnFilters table={table} />
         </div>
       </div>
@@ -118,6 +118,6 @@ function DataTable<TData, TValue>({
   );
 }
 
-DataTable.displayName = "PokemonTable";
+DataTable.displayName = "PokedexTable";
 
-export const PokemonTable = memo(DataTable) as typeof DataTable;
+export const PokedexTable = memo(DataTable) as typeof DataTable;

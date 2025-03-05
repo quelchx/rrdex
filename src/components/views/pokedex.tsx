@@ -1,6 +1,6 @@
 import { useMemo } from "react";
-import { columns } from "./columns";
-import { PokemonTable } from "./pokemon-table";
+import { PokedexTable } from "./pokedex-table";
+import { pokedexColumns } from "./pokedex-columns";
 
 import { structurePokemonData } from "@/lib/utils";
 import { useCurrentSearch, useCurrentFilter, usePokedex } from "@/hooks";
@@ -55,5 +55,5 @@ export function Pokedex() {
     return <p>Error</p>;
   }
 
-  return <PokemonTable columns={columns} data={filteredPokemon} />;
+  return <PokedexTable columns={pokedexColumns} data={filteredPokemon} />;
 }

@@ -11,7 +11,7 @@ import { filters } from "@/constants";
 import { useCurrentFilter } from "@/hooks";
 import { ChevronsUpDown } from "lucide-react";
 
-export function FiltersMenu() {
+export function SearchFiltersMenu() {
   const { filter, setFilter } = useCurrentFilter();
 
   return (
