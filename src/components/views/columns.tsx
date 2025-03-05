@@ -1,7 +1,6 @@
 import { ColumnDef } from "@tanstack/react-table";
-
-import { PokemonColumns } from "@/types";
 import { SortColumnButton } from "./sort-column-button";
+import { PokemonColumns } from "@/types";
 
 export const columns: ColumnDef<PokemonColumns>[] = [
   {
@@ -19,11 +18,40 @@ export const columns: ColumnDef<PokemonColumns>[] = [
   {
     accessorKey: "type",
     header: "Type",
+    cell: (info) => {
+      return (info.getValue() as { name: string; color: string }[]).map(
+        (type) => (
+          <span
+            key={type.name}
+            style={{ backgroundColor: type.color }}
+            className="px-2 py-1 text-white rounded mr-1"
+          >
+            {type.name}
+          </span>
+        )
+      );
+    },
   },
   {
     accessorKey: "abilities",
     header: ({ column }) => {
       return <SortColumnButton column={column}>Abilities</SortColumnButton>;
+    },
+    cell: (info) => {
+      return (info.getValue() as string[]).map(
+        (ability: string, index: number) => (
+          <span
+            key={ability}
+            className="flex flex-col items-center"
+            // if there is a 3rd ability make it purple
+            style={{
+              color: index === 2 ? "rgb(255 107 188)" : "inherit",
+            }}
+          >
+            {ability}
+          </span>
+        )
+      );
     },
   },
   {

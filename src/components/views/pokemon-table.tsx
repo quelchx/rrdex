@@ -21,12 +21,10 @@ import {
   TableRow,
 } from "@/components/ui/table";
 
-import { Input } from "@/components/ui/input";
-
-import { DataPagination } from "./data-pagination";
-import { ColumnFilters } from "./column-filters";
-import { useFilters } from "@/hooks/useFilters";
 import { FiltersMenu } from "./filters-menu";
+import { ColumnFilters } from "./column-filters";
+import { DataPagination } from "./data-pagination";
+import { SearchBar } from "./search-bar";
 
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[];
@@ -37,8 +35,6 @@ function DataTable<TData, TValue>({
   data,
   columns,
 }: DataTableProps<TData, TValue>) {
-  const { filter } = useFilters();
-
   const [sorting, setSorting] = useState<SortingState>([]);
   const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([]);
   const [columnVisibility, setColumnVisibility] = useState<VisibilityState>({});
@@ -56,24 +52,11 @@ function DataTable<TData, TValue>({
     state: { sorting, columnFilters, columnVisibility },
   });
 
-  function handleSearchEvent(event: React.ChangeEvent<HTMLInputElement>) {
-    table.getColumn(filter.toLowerCase())?.setFilterValue(event.target.value);
-  }
-
   return (
     <>
-      <div className="w-full justify-between space-x-2 flex items-center py-4">
-        <Input
-          placeholder={`Search Pokemon by ${filter}`}
-          value={
-            (table
-              .getColumn(filter.toLowerCase())
-              ?.getFilterValue() as string) ?? ""
-          }
-          onChange={handleSearchEvent}
-          className="max-w-sm"
-        />
-        <div className="flex space-x-0.5">
+      <div className="w-full justify-end space-x-2 flex items-center py-4">
+        <SearchBar />
+        <div className="flex items-center gap-2">
           <FiltersMenu />
           <ColumnFilters table={table} />
         </div>
@@ -86,7 +69,7 @@ function DataTable<TData, TValue>({
               <TableRow key={headerGroup.id}>
                 {headerGroup.headers.map((header) => {
                   return (
-                    <TableHead key={header.id}>
+                    <TableHead className="text-center" key={header.id}>
                       {header.isPlaceholder
                         ? null
                         : flexRender(
@@ -107,7 +90,7 @@ function DataTable<TData, TValue>({
                   data-state={row.getIsSelected() && "selected"}
                 >
                   {row.getVisibleCells().map((cell) => (
-                    <TableCell className="h-12" key={cell.id}>
+                    <TableCell className="h-16" key={cell.id}>
                       {flexRender(
                         cell.column.columnDef.cell,
                         cell.getContext()

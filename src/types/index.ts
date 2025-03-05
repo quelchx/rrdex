@@ -1,11 +1,5 @@
-type PokemonType = {
-  ID: number;
-  name: string;
-  color: string;
-  matchup: number[];
-};
-
-type Pokemon = {
+// Pokemon related types
+export type Pokemon = {
   ID: number;
   name: string;
   stats: number[];
@@ -23,7 +17,37 @@ type Pokemon = {
   eggMoves: number[];
 };
 
-type PokemonMoves = {
+export type PokemonColumns = {
+  ID: number;
+  name: string;
+  type: { name: string; color: string }[];
+  abilities: string[];
+  stats: {
+    hp: number;
+    attack: number;
+    defense: number;
+    specialAttack: number;
+    specialDefense: number;
+    speed: number;
+    total: number;
+  };
+};
+
+export type PokemonType = {
+  ID: number;
+  name: string;
+  color: string;
+  matchup: number[];
+};
+
+export type PokemonAbilities = {
+  ID: number;
+  names: string[];
+  description: string;
+};
+
+// Moves related types
+export type LearnedMoves = {
   ID: number;
   name: string;
   type: number;
@@ -37,25 +61,24 @@ type PokemonMoves = {
   description: string;
 };
 
-export type RadicalRedPokedex = {
-  species: { [key: string]: Pokemon };
-  types: { [key: string]: PokemonType };
-  moves: { [key: string]: PokemonMoves };
+export type TeachableMoves = {
+  [key: string]: number;
 };
 
-export type PokemonColumns = {
+// Items related types
+export type PokemonItems = {
   ID: number;
-  sprite: string;
   name: string;
-  type: string[];
-  abilities: string[];
-  stats: {
-    hp: number;
-    attack: number;
-    defense: number;
-    specialAttack: number;
-    specialDefense: number;
-    speed: number;
-    total: number;
-  };
+  description: string;
+};
+
+// Main Pokedex type
+export type RadicalRedPokedex = {
+  species: { [key: string]: Pokemon };
+  moves: { [key: string]: LearnedMoves };
+  tmMoves: { [key: string]: TeachableMoves };
+  tutorMoves: { [key: string]: TeachableMoves };
+  types: { [key: string]: PokemonType };
+  abilities: { [key: string]: PokemonAbilities };
+  items: { [key: string]: PokemonItems };
 };
