@@ -1,11 +1,11 @@
 import { usePokedex } from "@/hooks/usePokedex";
-import { DataTable } from "./pokemon-table";
-import { pokemonColumns } from "./pokemon-columns";
-import { useMemo } from "react";
-import { LoadingSpinner } from "./loading-spinner";
+import { PokedexTable } from "./pokedex-table";
+import { pokemonColumns } from "./pokedex-columns";
+import { memo, useMemo } from "react";
+import { LoadingSpinner } from "../theme/loading-spinner";
 import { useSearchStore } from "@/store";
 
-export function Pokedex() {
+export const Pokedex = memo(() => {
   const { search } = useSearchStore();
   const { data, isLoading, isError } = usePokedex();
 
@@ -33,5 +33,7 @@ export function Pokedex() {
     );
   }
 
-  return <DataTable columns={columns} data={filteredPokemon} />;
-}
+  return <PokedexTable columns={columns} data={filteredPokemon} />;
+});
+
+Pokedex.displayName = "Pokedex";

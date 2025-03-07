@@ -15,13 +15,13 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 
-type DataTablePaginationProps<TData> = {
+type PokedexPaginationProps<TData> = {
   table: Table<TData>;
 };
 
-export function DataTablePagination<TData>({
+export function PokedexPagination<TData>({
   table,
-}: DataTablePaginationProps<TData>) {
+}: PokedexPaginationProps<TData>) {
   return (
     <div className="flex items-center justify-between px-1.5">
       <div className="flex-1 text-sm text-muted-foreground">

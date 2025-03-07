@@ -1,10 +1,18 @@
 import { ColumnDef, Row } from "@tanstack/react-table";
 
+import { cn, getTypeColor } from "@/lib/utils";
 import type { Pokemon, Stat } from "@/constants/types";
-import { DataTableColumnHeader } from "@/components/data-column-header";
-import { UNKNOWN_SPRITE_URL, POKEMON_TYPES } from "@/constants";
-import { cn } from "@/lib/utils";
-import { StatCell } from "./stat-cell";
+import { UNKNOWN_SPRITE_URL } from "@/constants";
+
+import { PokedexColumnHeader } from "@/components/pokedex/pokedex-column-header";
+import { StatCell } from "@/components/pokedex/pokedex-stat";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
+import { Badge } from "../ui/badge";
 
 function sortStats(stat: Stat["title"], a: Row<Pokemon>, b: Row<Pokemon>) {
   const aValue = a.original.stats.find((s) => s.title === stat)?.value ?? "";
@@ -18,7 +26,7 @@ export const pokemonColumns: ColumnDef<Pokemon>[] = [
     accessorKey: "idx",
     header: ({ column }) => {
       return (
-        <DataTableColumnHeader
+        <PokedexColumnHeader
           column={column}
           title="No."
           className="flex items-center justify-center ml-3"
@@ -45,30 +53,23 @@ export const pokemonColumns: ColumnDef<Pokemon>[] = [
   {
     accessorKey: "name",
     header: ({ column }) => {
-      return <DataTableColumnHeader column={column} title="Name" />;
+      return <PokedexColumnHeader column={column} title="Name" />;
     },
     cell: ({ row }) => <span>{row.original.name}</span>,
   },
   {
     accessorKey: "type",
     header: ({ column }) => {
-      return <DataTableColumnHeader column={column} title="Type" />;
+      return <PokedexColumnHeader column={column} title="Type" />;
     },
     cell: ({ row }) => {
       return (
         <div className="flex flex-col justify-start items-start gap-0.5">
           {row.original.type.map((type) => {
-            const typeData = POKEMON_TYPES.find(
-              (t) => t.name.toLowerCase() === type.toLowerCase()
-            );
             return (
-              <span
-                key={type}
-                className={`px-2 py-1 text-xs font-semibold text-white rounded-md`}
-                style={{ backgroundColor: typeData?.color }}
-              >
+              <Badge key={type} className={`${getTypeColor(type)}`}>
                 {type}
-              </span>
+              </Badge>
             );
           })}
         </div>
@@ -78,7 +79,7 @@ export const pokemonColumns: ColumnDef<Pokemon>[] = [
   {
     accessorKey: "abilities",
     header: ({ column }) => {
-      return <DataTableColumnHeader column={column} title="Abilities" />;
+      return <PokedexColumnHeader column={column} title="Abilities" />;
     },
     sortingFn: (a, b) => {
       const aAbility = a.original.abilities[0] ?? null;
@@ -89,20 +90,28 @@ export const pokemonColumns: ColumnDef<Pokemon>[] = [
         : aAbility.localeCompare(bAbility);
     },
     cell: ({ row }) => (
-      <div className="flex flex-col gap-1">
+      <div className="flex flex-col gap-1.5">
         {row.original.abilities.map((ability) => (
-          <span
-            key={ability}
-            className={cn(
-              `text-xs font-semibold ${
-                row.original.abilities.indexOf(ability) === 2
-                  ? "text-purple-500"
-                  : ""
-              }`
-            )}
-          >
-            {ability.split("-")[0]}
-          </span>
+          <TooltipProvider key={ability}>
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <span
+                  className={cn(
+                    `text-xs font-semibold ${
+                      row.original.abilities.indexOf(ability) === 2
+                        ? "text-purple-500"
+                        : ""
+                    }`
+                  )}
+                >
+                  {ability.split("-")[0]}
+                </span>
+              </TooltipTrigger>
+              <TooltipContent side="bottom">
+                {ability.split("-").slice(1).join(" ")}
+              </TooltipContent>
+            </Tooltip>
+          </TooltipProvider>
         ))}
       </div>
     ),
@@ -112,7 +121,7 @@ export const pokemonColumns: ColumnDef<Pokemon>[] = [
     id: "HP",
     sortingFn: (a, b) => sortStats("HP", a, b),
     header: ({ column }) => {
-      return <DataTableColumnHeader column={column} title="HP" />;
+      return <PokedexColumnHeader column={column} title="HP" />;
     },
     cell: ({ row }) => {
       return <StatCell row={row} target="HP" />;
@@ -123,7 +132,7 @@ export const pokemonColumns: ColumnDef<Pokemon>[] = [
     id: "Atk",
     sortingFn: (a, b) => sortStats("Atk", a, b),
     header: ({ column }) => {
-      return <DataTableColumnHeader column={column} title="Atk" />;
+      return <PokedexColumnHeader column={column} title="Atk" />;
     },
     cell: ({ row }) => {
       return <StatCell row={row} target="Atk" />;
@@ -134,7 +143,7 @@ export const pokemonColumns: ColumnDef<Pokemon>[] = [
     id: "Def",
     sortingFn: (a, b) => sortStats("Def", a, b),
     header: ({ column }) => {
-      return <DataTableColumnHeader column={column} title="Def" />;
+      return <PokedexColumnHeader column={column} title="Def" />;
     },
     cell: ({ row }) => {
       return <StatCell row={row} target="Def" />;
@@ -145,7 +154,7 @@ export const pokemonColumns: ColumnDef<Pokemon>[] = [
     id: "SpA",
     sortingFn: (a, b) => sortStats("SpA", a, b),
     header: ({ column }) => {
-      return <DataTableColumnHeader column={column} title="SpA" />;
+      return <PokedexColumnHeader column={column} title="SpA" />;
     },
     cell: ({ row }) => {
       return <StatCell row={row} target="SpA" />;
@@ -156,7 +165,7 @@ export const pokemonColumns: ColumnDef<Pokemon>[] = [
     id: "SpD",
     sortingFn: (a, b) => sortStats("SpD", a, b),
     header: ({ column }) => {
-      return <DataTableColumnHeader column={column} title="SpD" />;
+      return <PokedexColumnHeader column={column} title="SpD" />;
     },
     cell: ({ row }) => {
       return <StatCell row={row} target="SpD" />;
@@ -167,7 +176,7 @@ export const pokemonColumns: ColumnDef<Pokemon>[] = [
     id: "Spe",
     sortingFn: (a, b) => sortStats("Spe", a, b),
     header: ({ column }) => {
-      return <DataTableColumnHeader column={column} title="Spe" />;
+      return <PokedexColumnHeader column={column} title="Spe" />;
     },
     cell: ({ row }) => {
       return <StatCell row={row} target="Spe" />;
@@ -178,7 +187,7 @@ export const pokemonColumns: ColumnDef<Pokemon>[] = [
     id: "BST",
     sortingFn: (a, b) => sortStats("BST", a, b),
     header: ({ column }) => {
-      return <DataTableColumnHeader column={column} title="BST" />;
+      return <PokedexColumnHeader column={column} title="BST" />;
     },
     cell: ({ row }) => {
       return (

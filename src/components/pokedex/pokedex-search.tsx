@@ -3,7 +3,7 @@ import { Input } from "@/components/ui/input";
 
 import { useSearchStore } from "@/store";
 
-export function PokemonSearch() {
+export function PokedexSearch() {
   const { search, setSearch } = useSearchStore();
   return (
     <div className="relative flex-grow">

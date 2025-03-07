@@ -20,21 +20,26 @@ import {
   TableRow,
 } from "@/components/ui/table";
 
-import { PokemonSearch } from "./pokemon-search";
-import { DataTablePagination } from "./data-table-pagination";
-import { DataTableViewOptions } from "./data-table-view-options";
+import { PokedexSearch } from "./pokedex-search";
+import { PokedexPagination } from "./pokedex-pagination";
+import { PokedexViewOptions } from "./pokedex-view-options";
 
-type DataTableProps<TData, TValue> = {
+import { useSelectedPokemonStore } from "@/store";
+import { Pokemon } from "@/constants/types";
+
+type PokedexTableProps<TData, TValue> = {
   data: TData[];
   columns: ColumnDef<TData, TValue>[];
 };
 
-export function DataTable<TData, TValue>({
+export function PokedexTable<TData, TValue>({
   data,
   columns,
-}: DataTableProps<TData, TValue>) {
+}: PokedexTableProps<TData, TValue>) {
   const [sorting, setSorting] = useState<SortingState>([]);
   const [columnVisibility, setColumnVisibility] = useState<VisibilityState>({});
+
+  const { setSelectedPokemon } = useSelectedPokemonStore();
 
   const table = useReactTable({
     data,
@@ -51,10 +56,10 @@ export function DataTable<TData, TValue>({
   });
 
   return (
-    <div className="w-full">
+    <>
       <div className="flex items-center gap-3 pb-4 pt-2">
-        <PokemonSearch />
-        <DataTableViewOptions table={table} />
+        <PokedexSearch />
+        <PokedexViewOptions table={table} />
       </div>
       {/* make height half the page */}
       <div
@@ -89,7 +94,12 @@ export function DataTable<TData, TValue>({
                   data-state={row.getIsSelected() && "selected"}
                 >
                   {row.getVisibleCells().map((cell) => (
-                    <TableCell key={cell.id}>
+                    <TableCell
+                      key={cell.id}
+                      onClick={() =>
+                        setSelectedPokemon(row.original as Pokemon)
+                      }
+                    >
                       {flexRender(
                         cell.column.columnDef.cell,
                         cell.getContext()
@@ -111,9 +121,9 @@ export function DataTable<TData, TValue>({
           </TableBody>
         </Table>
       </div>
-      <div className="py-2">
-        <DataTablePagination table={table} />
+      <div className="py-4">
+        <PokedexPagination table={table} />
       </div>
-    </div>
+    </>
   );
 }

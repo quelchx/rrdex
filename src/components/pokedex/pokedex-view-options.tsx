@@ -1,5 +1,3 @@
-"use client";
-
 import { DropdownMenuTrigger } from "@radix-ui/react-dropdown-menu";
 import { Table } from "@tanstack/react-table";
 import { Settings2 } from "lucide-react";
@@ -13,13 +11,13 @@ import {
   DropdownMenuSeparator,
 } from "@/components/ui/dropdown-menu";
 
-interface DataTableViewOptionsProps<TData> {
+type PokedexViewOptionsProps<TData> = {
   table: Table<TData>;
-}
+};
 
-export function DataTableViewOptions<TData>({
+export function PokedexViewOptions<TData>({
   table,
-}: DataTableViewOptionsProps<TData>) {
+}: PokedexViewOptionsProps<TData>) {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
