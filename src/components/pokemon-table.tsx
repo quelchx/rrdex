@@ -51,7 +51,7 @@ export function DataTable<TData, TValue>({
   });
 
   return (
-    <>
+    <div className="w-full">
       <div className="flex items-center gap-3 pb-4 pt-2">
         <PokemonSearch />
         <DataTableViewOptions table={table} />
@@ -109,6 +109,6 @@ export function DataTable<TData, TValue>({
       <div className="py-2">
         <DataTablePagination table={table} />
       </div>
-    </>
+    </div>
   );
 }
