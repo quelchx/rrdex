@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 import { Theme } from "@/constants/types";
-import { ThemeProviderContext } from "@/store";
+import { ThemeProviderContext } from "@/context";
 import { THEME_STORAGE_KEY } from "@/constants";
 
 type ThemeProviderProps = {

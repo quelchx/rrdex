@@ -1,7 +1,14 @@
 import { Pokedex } from "@/components/pokedex";
 import { ModeToggle } from "./components/mode-toggle";
+import { PokemonInfo } from "./components/pokemon-info";
+import { useSelectedPokemonStore } from "./store";
+import { StepBack } from "lucide-react";
+import { Button } from "./components/ui/button";
 
 export default function App() {
+  const { selectedPokemon, isDialogOpen, setPokemonDialog } =
+    useSelectedPokemonStore();
+
   return (
     <div className="w-full max-w-screen-xl px-4 py-8 mx-auto">
       <header className="absolute top-2 right-2 z-10 p-4">
@@ -20,7 +27,22 @@ export default function App() {
 
         {/* Placeholder for the future table */}
         <div className="w-full max-w-5xl mx-auto">
-          <Pokedex />
+          {isDialogOpen && selectedPokemon ? (
+            <>
+              <PokemonInfo />
+              <div className="absolute bottom-12 right-12">
+                <Button
+                  className="flex items-center"
+                  onClick={() => setPokemonDialog(false)}
+                >
+                  <StepBack />
+                  <span className="ml-2">Back</span>
+                </Button>
+              </div>
+            </>
+          ) : (
+            <Pokedex />
+          )}
         </div>
       </div>
       <footer className="fixed bottom-4 left-0 right-0 text-center text-muted-foreground">

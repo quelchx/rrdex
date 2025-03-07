@@ -1,10 +1,17 @@
 import { ColumnDef, Row } from "@tanstack/react-table";
 
-import type { Pokemon, Stat } from "@/constants/types";
-import { DataTableColumnHeader } from "@/components/data-column-header";
-import { UNKNOWN_SPRITE_URL, POKEMON_TYPES } from "@/constants";
 import { cn } from "@/lib/utils";
-import { StatCell } from "./stat-cell";
+import type { Pokemon, Stat } from "@/constants/types";
+import { UNKNOWN_SPRITE_URL, POKEMON_TYPES } from "@/constants";
+
+import { DataTableColumnHeader } from "@/components/data-column-header";
+import { StatCell } from "@/components/stat-cell";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 
 function sortStats(stat: Stat["title"], a: Row<Pokemon>, b: Row<Pokemon>) {
   const aValue = a.original.stats.find((s) => s.title === stat)?.value ?? "";
@@ -89,20 +96,28 @@ export const pokemonColumns: ColumnDef<Pokemon>[] = [
         : aAbility.localeCompare(bAbility);
     },
     cell: ({ row }) => (
-      <div className="flex flex-col gap-1">
+      <div className="flex flex-col gap-1.5">
         {row.original.abilities.map((ability) => (
-          <span
-            key={ability}
-            className={cn(
-              `text-xs font-semibold ${
-                row.original.abilities.indexOf(ability) === 2
-                  ? "text-purple-500"
-                  : ""
-              }`
-            )}
-          >
-            {ability.split("-")[0]}
-          </span>
+          <TooltipProvider key={ability}>
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <span
+                  className={cn(
+                    `text-xs font-semibold ${
+                      row.original.abilities.indexOf(ability) === 2
+                        ? "text-purple-500"
+                        : ""
+                    }`
+                  )}
+                >
+                  {ability.split("-")[0]}
+                </span>
+              </TooltipTrigger>
+              <TooltipContent side="bottom">
+                {ability.split("-").slice(1).join(" ")}
+              </TooltipContent>
+            </Tooltip>
+          </TooltipProvider>
         ))}
       </div>
     ),

@@ -1,11 +1,11 @@
 import { usePokedex } from "@/hooks/usePokedex";
 import { DataTable } from "./pokemon-table";
 import { pokemonColumns } from "./pokemon-columns";
-import { useMemo } from "react";
+import { memo, useMemo } from "react";
 import { LoadingSpinner } from "./loading-spinner";
 import { useSearchStore } from "@/store";
 
-export function Pokedex() {
+export const Pokedex = memo(() => {
   const { search } = useSearchStore();
   const { data, isLoading, isError } = usePokedex();
 
@@ -34,4 +34,6 @@ export function Pokedex() {
   }
 
   return <DataTable columns={columns} data={filteredPokemon} />;
-}
+});
+
+Pokedex.displayName = "Pokedex";

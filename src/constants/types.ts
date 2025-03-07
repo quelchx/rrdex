@@ -12,6 +12,7 @@ export type Stat = {
 };
 
 export type Move = {
+  level?: string;
   name: string;
   type: string;
   category: string;
@@ -19,10 +20,6 @@ export type Move = {
   acurracy: string;
   desc: string;
 };
-
-export type LevelUpMoves = {
-  level: string;
-} & Move;
 
 export type Pokemon = {
   idx: number;
@@ -33,7 +30,7 @@ export type Pokemon = {
   stats: Stat[];
   evolution: string[];
   coverage: { type: string; multiplier: string }[];
-  levelUpMoves: LevelUpMoves[];
+  levelUpMoves: Move[];
   learnableTechnicalMachines: Move[];
   eggMoves: Move[];
   tutorMoves: Move[];

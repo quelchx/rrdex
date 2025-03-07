@@ -24,6 +24,9 @@ import { PokemonSearch } from "./pokemon-search";
 import { DataTablePagination } from "./data-table-pagination";
 import { DataTableViewOptions } from "./data-table-view-options";
 
+import { useSelectedPokemonStore } from "@/store";
+import { Pokemon } from "@/constants/types";
+
 type DataTableProps<TData, TValue> = {
   data: TData[];
   columns: ColumnDef<TData, TValue>[];
@@ -35,6 +38,8 @@ export function DataTable<TData, TValue>({
 }: DataTableProps<TData, TValue>) {
   const [sorting, setSorting] = useState<SortingState>([]);
   const [columnVisibility, setColumnVisibility] = useState<VisibilityState>({});
+
+  const { setSelectedPokemon } = useSelectedPokemonStore();
 
   const table = useReactTable({
     data,
@@ -51,7 +56,7 @@ export function DataTable<TData, TValue>({
   });
 
   return (
-    <div className="w-full">
+    <>
       <div className="flex items-center gap-3 pb-4 pt-2">
         <PokemonSearch />
         <DataTableViewOptions table={table} />
@@ -89,7 +94,12 @@ export function DataTable<TData, TValue>({
                   data-state={row.getIsSelected() && "selected"}
                 >
                   {row.getVisibleCells().map((cell) => (
-                    <TableCell key={cell.id}>
+                    <TableCell
+                      key={cell.id}
+                      onClick={() =>
+                        setSelectedPokemon(row.original as Pokemon)
+                      }
+                    >
                       {flexRender(
                         cell.column.columnDef.cell,
                         cell.getContext()
@@ -111,9 +121,9 @@ export function DataTable<TData, TValue>({
           </TableBody>
         </Table>
       </div>
-      <div className="py-2">
+      <div className="py-4">
         <DataTablePagination table={table} />
       </div>
-    </div>
+    </>
   );
 }
