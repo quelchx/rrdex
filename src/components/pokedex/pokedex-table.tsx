@@ -20,22 +20,22 @@ import {
   TableRow,
 } from "@/components/ui/table";
 
-import { PokemonSearch } from "./pokedex-search";
-import { DataTablePagination } from "./data-table-pagination";
-import { DataTableViewOptions } from "./data-table-view-options";
+import { PokedexSearch } from "./pokedex-search";
+import { PokedexPagination } from "./pokedex-pagination";
+import { PokedexViewOptions } from "./pokedex-view-options";
 
 import { useSelectedPokemonStore } from "@/store";
 import { Pokemon } from "@/constants/types";
 
-type DataTableProps<TData, TValue> = {
+type PokedexTableProps<TData, TValue> = {
   data: TData[];
   columns: ColumnDef<TData, TValue>[];
 };
 
-export function DataTable<TData, TValue>({
+export function PokedexTable<TData, TValue>({
   data,
   columns,
-}: DataTableProps<TData, TValue>) {
+}: PokedexTableProps<TData, TValue>) {
   const [sorting, setSorting] = useState<SortingState>([]);
   const [columnVisibility, setColumnVisibility] = useState<VisibilityState>({});
 
@@ -58,8 +58,8 @@ export function DataTable<TData, TValue>({
   return (
     <>
       <div className="flex items-center gap-3 pb-4 pt-2">
-        <PokemonSearch />
-        <DataTableViewOptions table={table} />
+        <PokedexSearch />
+        <PokedexViewOptions table={table} />
       </div>
       {/* make height half the page */}
       <div
@@ -122,7 +122,7 @@ export function DataTable<TData, TValue>({
         </Table>
       </div>
       <div className="py-4">
-        <DataTablePagination table={table} />
+        <PokedexPagination table={table} />
       </div>
     </>
   );

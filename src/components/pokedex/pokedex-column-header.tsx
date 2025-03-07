@@ -11,16 +11,16 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 
-type DataTableColumnHeaderProps<TData, TValue> = {
+type PokedexColumnHeaderProps<TData, TValue> = {
   column: Column<TData, TValue>;
   title: string;
 } & React.HTMLAttributes<HTMLDivElement>;
 
-export function DataTableColumnHeader<TData, TValue>({
+export function PokedexColumnHeader<TData, TValue>({
   column,
   title,
   className,
-}: DataTableColumnHeaderProps<TData, TValue>) {
+}: PokedexColumnHeaderProps<TData, TValue>) {
   if (!column.getCanSort()) {
     return <div className={cn(className)}>{title}</div>;
   }

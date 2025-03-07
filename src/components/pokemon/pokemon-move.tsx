@@ -3,7 +3,7 @@ import { Badge } from "../ui/badge";
 import { Move } from "@/constants/types";
 import { getTypeColor, getCategoryColor } from "@/lib/utils";
 
-export const MoveItem = ({ move }: { move: Move }) => (
+export const PokemonMove = ({ move }: { move: Move }) => (
   <div className="border rounded-md p-3 mb-2 hover:bg-muted/50 transition-colors">
     <div className="flex flex-wrap justify-between items-center gap-2 mb-1">
       <div className="flex items-center gap-2">

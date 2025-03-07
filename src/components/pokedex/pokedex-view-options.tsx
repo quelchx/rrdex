@@ -11,13 +11,13 @@ import {
   DropdownMenuSeparator,
 } from "@/components/ui/dropdown-menu";
 
-interface DataTableViewOptionsProps<TData> {
+type PokedexViewOptionsProps<TData> = {
   table: Table<TData>;
-}
+};
 
-export function DataTableViewOptions<TData>({
+export function PokedexViewOptions<TData>({
   table,
-}: DataTableViewOptionsProps<TData>) {
+}: PokedexViewOptionsProps<TData>) {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>

@@ -1,16 +1,23 @@
 import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Card, CardContent, CardDescription } from "@/components/ui/card";
+import { Card, CardContent } from "@/components/ui/card";
 
 import { useSelectedPokemonStore } from "@/store";
-import { getTypeColor, getStatColor, getMultiplierColor } from "@/lib/utils";
+import {
+  getTypeColor,
+  getStatColor,
+  getMultiplierColor,
+  cn,
+} from "@/lib/utils";
 
-import { ScrollArea } from "@/components/ui/scroll-area";
-import { LearnableTechnicalMachinesTabView } from "./pokemon-tabs";
+import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
+
 import { useEffect, useRef } from "react";
-import { MoveItem } from "./move-item";
+import { PokemonMove as MoveItem } from "./pokemon-move";
+import { PokemonMoveSet } from "./pokemon-move-set";
+import { UNKNOWN_SPRITE_URL } from "@/constants";
 
-export function PokemonInfo() {
+export function Pokemon() {
   const { selectedPokemon } = useSelectedPokemonStore();
   const scrollRef = useRef<HTMLDivElement>(null);
 
@@ -23,13 +30,13 @@ export function PokemonInfo() {
   return (
     <div className="container mx-auto p-4">
       <div className="max-w-4xl mx-auto">
-        <div className="px-6 pt-6 pb-2 sticky top-0 bg-white z-10">
+        <div className="px-6 pt-6 pb-2 sticky top-0 z-10">
           <h1 className="text-2xl flex items-center gap-2">
             <span>#{selectedPokemon.dexEntryNumber}</span>
-            <span>{selectedPokemon.name}</span>
+            <span className="font-black">{selectedPokemon.name}</span>
             <div className="flex gap-1 ml-auto">
               {selectedPokemon.type.map((type) => (
-                <Badge key={type} className={`${getTypeColor(type)}`}>
+                <Badge key={type} className={cn(getTypeColor(type), "p-2")}>
                   {type}
                 </Badge>
               ))}
@@ -39,8 +46,8 @@ export function PokemonInfo() {
 
         <ScrollArea
           ref={scrollRef}
+          type="always"
           className="h-[70vh] px-6 pb-6"
-          scrollHideDelay={2000}
         >
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-2">
             {/* Pokemon Image */}
@@ -48,18 +55,31 @@ export function PokemonInfo() {
               <CardContent className="p-4 flex flex-col items-center">
                 <div className="bg-muted rounded-md p-4 w-full flex justify-center">
                   <img
-                    src={selectedPokemon.sprite || "/placeholder.svg"}
+                    loading="lazy"
+                    src={selectedPokemon.sprite || UNKNOWN_SPRITE_URL}
                     alt={selectedPokemon.name}
                     width={120}
                     height={120}
                     className="pixelated"
                   />
                 </div>
-                <h3 className="font-semibold mb-3">Abilities</h3>
+                <h3 className="font-semibold my-3">Abilities</h3>
                 <div className="space-y-2">
                   {selectedPokemon.abilities.map((ability, index) => (
-                    <div key={index} className="p-2 bg-muted/50 rounded-md">
-                      {ability}
+                    <div
+                      key={index}
+                      className={cn(
+                        "flex flex-col p-2 bg-muted/50 rounded-md",
+                        index === 2 &&
+                          "text-pink-600 font-semibold bg-purple-500/10"
+                      )}
+                    >
+                      <span className="font-semibold text-sm">
+                        {ability.split("-")[0]}
+                      </span>
+                      <span className="text-muted-foreground text-xs">
+                        {ability.split("-")[1]}
+                      </span>
                     </div>
                   ))}
                 </div>
@@ -143,18 +163,24 @@ export function PokemonInfo() {
                 ))}
               </div>
               <div className="mt-4 flex justify-center">
-                <div className="flex gap-2">
-                  {selectedPokemon.familyTree.map((img, index) => (
-                    <img
-                      key={index}
-                      src={img || "/placeholder.svg"}
-                      alt={`Evolution stage ${index + 1}`}
-                      width={64}
-                      height={64}
-                      className="pixelated"
-                    />
-                  ))}
-                </div>
+                <ScrollArea
+                  className="whitespace-nowrap rounded-md border"
+                  scrollHideDelay={500}
+                >
+                  <div className="flex gap-2">
+                    {selectedPokemon.familyTree.map((img, index) => (
+                      <img
+                        key={index}
+                        src={img || UNKNOWN_SPRITE_URL}
+                        alt={`Evolution stage ${index + 1}`}
+                        width={64}
+                        height={64}
+                        className="pixelated"
+                      />
+                    ))}
+                  </div>
+                  <ScrollBar orientation="horizontal" />
+                </ScrollArea>
               </div>
             </CardContent>
           </Card>
@@ -177,42 +203,17 @@ export function PokemonInfo() {
                 </TabsContent>
 
                 <TabsContent value="tm" className="space-y-2">
-                  <LearnableTechnicalMachinesTabView
+                  <PokemonMoveSet
                     moves={selectedPokemon.learnableTechnicalMachines}
                   />
                 </TabsContent>
 
                 <TabsContent value="egg" className="space-y-2">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
-                    {selectedPokemon.eggMoves.slice(0, 4).map((move, index) => (
-                      <MoveItem key={index} move={move} />
-                    ))}
-                  </div>
-                  <Card className="border-dashed">
-                    <CardContent className="p-4 text-center text-muted-foreground">
-                      <CardDescription>
-                        + {selectedPokemon.eggMoves.length - 4} more Egg Moves
-                      </CardDescription>
-                    </CardContent>
-                  </Card>
+                  <PokemonMoveSet moves={selectedPokemon.eggMoves} />
                 </TabsContent>
 
                 <TabsContent value="tutor" className="space-y-2">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
-                    {selectedPokemon.tutorMoves
-                      .slice(0, 4)
-                      .map((move, index) => (
-                        <MoveItem key={index} move={move} />
-                      ))}
-                  </div>
-                  <Card className="border-dashed">
-                    <CardContent className="p-4 text-center text-muted-foreground">
-                      <CardDescription>
-                        + {selectedPokemon.tutorMoves.length - 4} more Tutor
-                        Moves
-                      </CardDescription>
-                    </CardContent>
-                  </Card>
+                  <PokemonMoveSet moves={selectedPokemon.tutorMoves} />
                 </TabsContent>
               </Tabs>
             </CardContent>

@@ -5,27 +5,26 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
-// Helper function to get color based on type
 export const getTypeColor = (type: string) => {
   const typeColors: Record<string, string> = {
-    Normal: "bg-stone-400 text-white",
-    Fighting: "bg-red-700 text-white",
-    Flying: "bg-sky-300 text-slate-800",
-    Poison: "bg-purple-600 text-white",
-    Ground: "bg-amber-600 text-white",
-    Rock: "bg-yellow-700 text-white",
-    Bug: "bg-lime-500 text-white",
-    Ghost: "bg-indigo-800 text-white",
-    Steel: "bg-slate-400 text-white",
-    Fire: "bg-orange-500 text-white",
-    Water: "bg-blue-500 text-white",
-    Grass: "bg-green-500 text-white",
-    Electric: "bg-yellow-400 text-slate-800",
-    Psychic: "bg-pink-500 text-white",
-    Ice: "bg-cyan-300 text-slate-800",
-    Dragon: "bg-indigo-600 text-white",
-    Dark: "bg-slate-700 text-white",
-    Fairy: "bg-pink-300 text-slate-800",
+    Normal: "bg-[#A8A77A] text-white",
+    Fighting: "bg-[#C22E28] text-white",
+    Flying: "bg-[#8571BE] text-white",
+    Poison: "bg-[#A33EA1] text-white",
+    Ground: "bg-[#B1954F] text-white",
+    Rock: "bg-[#B6A136] text-white",
+    Bug: "bg-[#808F13] text-white",
+    Ghost: "bg-[#735797] text-white",
+    Steel: "bg-[#8C8C9E] text-white",
+    Fire: "bg-[#EE8130] text-white",
+    Water: "bg-[#6390F0] text-white",
+    Grass: "bg-[#62A13D] text-white",
+    Electric: "bg-[#CF9A09] text-white",
+    Psychic: "bg-[#F95587] text-white",
+    Ice: "bg-[#65A19E] text-white",
+    Dragon: "bg-[#6F35FC] text-white",
+    Dark: "bg-[#705746] text-white",
+    Fairy: "bg-[#D685AD] text-white",
   };
   return typeColors[type] || "bg-gray-500 text-white";
 };
