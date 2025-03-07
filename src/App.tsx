@@ -1,6 +1,6 @@
-import { Pokedex } from "@/components/pokedex";
-import { ModeToggle } from "./components/mode-toggle";
-import { PokemonInfo } from "./components/pokemon-info";
+import { Pokedex } from "./components/pokedex/pokedex";
+import { ModeToggle } from "./components/theme/mode-toggle";
+import { PokemonInfo } from "./components/pokemon/pokemon-info";
 import { useSelectedPokemonStore } from "./store";
 import { StepBack } from "lucide-react";
 import { Button } from "./components/ui/button";
@@ -30,13 +30,13 @@ export default function App() {
           {isDialogOpen && selectedPokemon ? (
             <>
               <PokemonInfo />
-              <div className="absolute bottom-12 right-12">
+              <div className="flex justify-end">
                 <Button
                   className="flex items-center"
                   onClick={() => setPokemonDialog(false)}
                 >
                   <StepBack />
-                  <span className="ml-2">Back</span>
+                  <span>Back to Pokedex</span>
                 </Button>
               </div>
             </>

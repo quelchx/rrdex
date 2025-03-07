@@ -5,10 +5,10 @@ import { Card, CardContent, CardDescription } from "@/components/ui/card";
 import { useSelectedPokemonStore } from "@/store";
 import { getTypeColor, getStatColor, getMultiplierColor } from "@/lib/utils";
 
-import { MoveItem } from "@/components/move-item";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { LearnableTechnicalMachinesTabView } from "./pokemon-tabs";
 import { useEffect, useRef } from "react";
+import { MoveItem } from "./move-item";
 
 export function PokemonInfo() {
   const { selectedPokemon } = useSelectedPokemonStore();

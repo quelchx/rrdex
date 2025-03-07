@@ -1,8 +1,8 @@
 import { usePokedex } from "@/hooks/usePokedex";
-import { DataTable } from "./pokemon-table";
-import { pokemonColumns } from "./pokemon-columns";
+import { DataTable } from "./pokedex-table";
+import { pokemonColumns } from "./pokedex-columns";
 import { memo, useMemo } from "react";
-import { LoadingSpinner } from "./loading-spinner";
+import { LoadingSpinner } from "../theme/loading-spinner";
 import { useSearchStore } from "@/store";
 
 export const Pokedex = memo(() => {

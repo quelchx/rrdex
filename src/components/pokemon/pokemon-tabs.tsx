@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { MoveItem } from "./move-item";
-import { Card, CardContent, CardDescription } from "./ui/card";
+import { Card, CardContent, CardDescription } from "../ui/card";
 import { Move } from "@/constants/types";
 
 export function LearnableTechnicalMachinesTabView({

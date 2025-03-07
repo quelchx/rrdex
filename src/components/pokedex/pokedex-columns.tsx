@@ -4,8 +4,8 @@ import { cn } from "@/lib/utils";
 import type { Pokemon, Stat } from "@/constants/types";
 import { UNKNOWN_SPRITE_URL, POKEMON_TYPES } from "@/constants";
 
-import { DataTableColumnHeader } from "@/components/data-column-header";
-import { StatCell } from "@/components/stat-cell";
+import { DataTableColumnHeader } from "@/components/pokedex/data-column-header";
+import { StatCell } from "@/components/pokedex/stat-cell";
 import {
   Tooltip,
   TooltipContent,

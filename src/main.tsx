@@ -3,7 +3,7 @@ import { createRoot } from "react-dom/client";
 
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
-import { ThemeProvider } from "./components/theme-provider.tsx";
+import { ThemeProvider } from "./components/theme/theme-provider.tsx";
 import { THEME_STORAGE_KEY } from "./constants/index.ts";
 
 import "./index.css";
