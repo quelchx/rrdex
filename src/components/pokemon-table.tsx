@@ -51,12 +51,17 @@ export function DataTable<TData, TValue>({
   });
 
   return (
-    <>
+    <div className="w-full">
       <div className="flex items-center gap-3 pb-4 pt-2">
         <PokemonSearch />
         <DataTableViewOptions table={table} />
       </div>
-      <div className="rounded-md border max-h-[500px] overflow-y-auto shadow-lg">
+      {/* make height half the page */}
+      <div
+        className="rounded-md border overflow-y-auto shadow-lg
+        max-h-[calc(70vh-4rem)]
+      "
+      >
         <Table>
           <TableHeader>
             {table.getHeaderGroups().map((headerGroup) => (
@@ -109,6 +114,6 @@ export function DataTable<TData, TValue>({
       <div className="py-2">
         <DataTablePagination table={table} />
       </div>
-    </>
+    </div>
   );
 }

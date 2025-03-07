@@ -1,3 +1,16 @@
+import { STAT_TYPES } from ".";
+
+export type Theme = "dark" | "light" | "system";
+export type ThemeProviderState = {
+  theme: Theme;
+  setTheme: (theme: Theme) => void;
+};
+
+export type Stat = {
+  title: (typeof STAT_TYPES)[number];
+  value: string;
+};
+
 export type Move = {
   name: string;
   type: string;
@@ -17,7 +30,7 @@ export type Pokemon = {
   dexEntryNumber: string;
   type: string[];
   abilities: string[];
-  stats: { title: string; value: string }[];
+  stats: Stat[];
   evolution: string[];
   coverage: { type: string; multiplier: string }[];
   levelUpMoves: LevelUpMoves[];
