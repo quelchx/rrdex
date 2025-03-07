@@ -80,6 +80,14 @@ export const pokemonColumns: ColumnDef<Pokemon>[] = [
     header: ({ column }) => {
       return <DataTableColumnHeader column={column} title="Abilities" />;
     },
+    sortingFn: (a, b) => {
+      const aAbility = a.original.abilities[0] ?? null;
+      const bAbility = b.original.abilities[0] ?? null;
+
+      return aAbility === null || bAbility === null
+        ? 0
+        : aAbility.localeCompare(bAbility);
+    },
     cell: ({ row }) => (
       <div className="flex flex-col gap-1">
         {row.original.abilities.map((ability) => (

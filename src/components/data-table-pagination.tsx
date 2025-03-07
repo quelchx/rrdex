@@ -25,7 +25,9 @@ export function DataTablePagination<TData>({
   return (
     <div className="flex items-center justify-between px-1.5">
       <div className="flex-1 text-sm text-muted-foreground">
-        {table.getFilteredRowModel().rows.length} Pokédex entries
+        <span className="hidden lg:inline">
+          {table.getFilteredRowModel().rows.length} Pokédex entries
+        </span>
       </div>
       <div className="flex items-center space-x-6 lg:space-x-8">
         <div className="flex items-center space-x-2">
@@ -48,7 +50,7 @@ export function DataTablePagination<TData>({
             </SelectContent>
           </Select>
         </div>
-        <div className="flex w-[100px] items-center justify-center text-sm font-medium">
+        <div className="flex w-[120px] items-center justify-center text-sm font-medium">
           Page {table.getState().pagination.pageIndex + 1} of{" "}
           {table.getPageCount()}
         </div>

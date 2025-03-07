@@ -2,30 +2,32 @@ import { usePokedex } from "@/hooks/usePokedex";
 import { DataTable } from "./pokemon-table";
 import { pokemonColumns } from "./pokemon-columns";
 import { useMemo } from "react";
+import { LoadingSpinner } from "./loading-spinner";
+import { useSearchStore } from "@/store";
 
 export function Pokedex() {
+  const { search } = useSearchStore();
   const { data, isLoading, isError } = usePokedex();
 
   const columns = useMemo(() => pokemonColumns, []);
   const filteredPokemon = useMemo(() => {
-    if (data === undefined) {
-      return [];
-    }
+    if (data === undefined) return [];
+    if (search === "") return data;
 
-    return data;
-  }, [data]);
+    return data.filter((pokemon) =>
+      pokemon.name.toLowerCase().includes(search.toLowerCase())
+    );
+  }, [data, search]);
 
   if (isLoading) {
     return (
-      <div className="flex items-center justify-center w-full h-screen">
-        <p>Loading...</p>
-      </div>
+      <LoadingSpinner className="flex items-center justify-center w-full h-24" />
     );
   }
 
   if (isError) {
     return (
-      <div className="flex items-center justify-center w-full h-screen">
+      <div className="flex items-center justify-center w-full h-24">
         <p>Failed to load data</p>
       </div>
     );

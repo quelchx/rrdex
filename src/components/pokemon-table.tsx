@@ -56,7 +56,12 @@ export function DataTable<TData, TValue>({
         <PokemonSearch />
         <DataTableViewOptions table={table} />
       </div>
-      <div className="rounded-md border max-h-[500px] overflow-y-auto shadow-lg">
+      {/* make height half the page */}
+      <div
+        className="rounded-md border overflow-y-auto shadow-lg
+        max-h-[calc(70vh-4rem)]
+      "
+      >
         <Table>
           <TableHeader>
             {table.getHeaderGroups().map((headerGroup) => (
