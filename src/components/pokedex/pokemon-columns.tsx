@@ -1,12 +1,24 @@
 import { ColumnDef } from "@tanstack/react-table";
-import { Pokemon } from "@/constants/types";
-import { UNKNOWN_SPRITE_URL } from "@/constants";
 
-export const columns: ColumnDef<Pokemon>[] = [
+import type { Pokemon } from "@/constants/types";
+import { UNKNOWN_SPRITE_URL } from "@/constants";
+import { DataTableColumnHeader } from "./data-column-header";
+
+export const pokemonColumns: ColumnDef<Pokemon>[] = [
   {
     accessorKey: "idx",
-    header: () => <span>#</span>,
-    cell: ({ row }) => <span>{row.original.idx + 1}</span>,
+    header: ({ column }) => {
+      return (
+        <DataTableColumnHeader
+          column={column}
+          title="No."
+          className="text-center"
+        />
+      );
+    },
+    cell: ({ row }) => (
+      <span className="text-center">{row.original.idx + 1}</span>
+    ),
   },
   {
     accessorKey: "sprite",
