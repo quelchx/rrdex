@@ -2,7 +2,6 @@ import { useState, useMemo } from "react";
 import { Search, Zap, Target, Clock } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
-import { Progress } from "@/components/ui/progress";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import {
   Select,
@@ -24,24 +23,28 @@ import { POKEMON_TYPES } from "@/constants";
 
 const splitNames = ["Physical", "Special", "Status"];
 const typeNames: string[] = POKEMON_TYPES.map((type) => type.name);
+
 const targetNames = [
-  "Selected Pokémon",
-  "Specific Move",
-  "Ally",
-  "User's Field",
-  "User or Ally",
-  "Opponents Field",
-  "User",
-  "Random Opponent",
-  "All Opponents",
-  "All Other Pokémon",
-  "All Pokémon",
+  { name: "Selected Pokémon", value: 0 },
+  { name: "Specific Move", value: 1 },
+  { name: "Ally", value: 2 },
+  { name: "User's Field", value: 3 },
+  { name: "User or Ally", value: 4 },
+  { name: "Opponents Field", value: 5 },
+  { name: "User", value: 6 },
+  { name: "Random Opponent", value: 7 },
+  { name: "All Opponents", value: 8 },
+  { name: "All Other Pokémon", value: 9 },
+  { name: "All Pokémon", value: 10 },
+  { name: "Effect", value: 16 },
+  { name: "Destructive", value: 32 },
+  { name: "Entry Hazard", value: 64 },
 ];
 
 export function MovesPage() {
   const { data, isLoading, isError } = useMoves();
-  const [searchQuery, setSearchQuery] = useState("");
   const [activeTab, setActiveTab] = useState("all");
+  const [searchQuery, setSearchQuery] = useState("");
 
   const filteredMoves = useMemo(() => {
     if (!data) return [];
@@ -164,11 +167,16 @@ export function MovesPage() {
                           <Zap className="h-4 w-4" />
                           <span>Power</span>
                         </div>
-                        <Progress
-                          value={move.power}
-                          max={150}
-                          className="h-2"
-                        />
+                        <div
+                          className={`h-2 bg-gray-200 rounded-md overflow-hidden`}
+                        >
+                          <div
+                            className={`h-full bg-blue-500 dark:bg-blue-400`}
+                            style={{
+                              width: `${(move.power / 150) * 100}%`,
+                            }}
+                          />
+                        </div>
                         <div className="text-right text-xs mt-1">
                           {move.power}
                         </div>
@@ -180,11 +188,17 @@ export function MovesPage() {
                         <Target className="h-4 w-4" />
                         <span>Accuracy</span>
                       </div>
-                      <Progress
-                        value={move.accuracy}
-                        max={100}
-                        className="h-2"
-                      />
+
+                      <div
+                        className={`h-2 bg-gray-200 rounded-md overflow-hidden`}
+                      >
+                        <div
+                          className={`h-full dark:bg-green-400 bg-green-500`}
+                          style={{
+                            width: `${(move.power / 100) * 100}%`,
+                          }}
+                        />
+                      </div>
                       <div className="text-right text-xs mt-1">
                         {move.accuracy}%
                       </div>
@@ -195,7 +209,16 @@ export function MovesPage() {
                         <Clock className="h-4 w-4" />
                         <span>PP</span>
                       </div>
-                      <Progress value={move.pp} max={40} className="h-2" />
+                      <div
+                        className={`h-2 bg-gray-200 rounded-md overflow-hidden`}
+                      >
+                        <div
+                          className={`h-full dark:bg-orange-400 bg-orange-500`}
+                          style={{
+                            width: `${(move.pp / 40) * 100}%`,
+                          }}
+                        />
+                      </div>
                       <div className="text-right text-xs mt-1">{move.pp}</div>
                     </div>
                   </div>
@@ -204,7 +227,9 @@ export function MovesPage() {
                     <div className="text-sm">
                       <span className="font-medium">Target:</span>
                       <span className="text-xs ml-1">
-                        {targetNames[move.target]}
+                        {targetNames.find(
+                          (target) => target.value === move.target
+                        )?.name || "Unknown"}
                       </span>
                     </div>
                     {move.priority !== 0 && (
