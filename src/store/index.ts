@@ -5,8 +5,7 @@ const searchAtom = atom<string>("");
 
 const pokemonDialogAtom = atom<boolean>(false);
 const currentPokemonAtom = atom<Pokemon | null>(null);
-
-export const selectedPokemonStore = atom(
+const selectedPokemonStoreAtom = atom(
   (get) => get(currentPokemonAtom),
   (_, set, update: Pokemon) => {
     set(currentPokemonAtom, update);
@@ -17,7 +16,9 @@ export const selectedPokemonStore = atom(
 export function useSelectedPokemonStore() {
   const resetPokemon = useSetAtom(currentPokemonAtom);
   const [isDialogOpen, setPokemonDialog] = useAtom(pokemonDialogAtom);
-  const [selectedPokemon, setSelectedPokemon] = useAtom(selectedPokemonStore);
+  const [selectedPokemon, setSelectedPokemon] = useAtom(
+    selectedPokemonStoreAtom
+  );
 
   return {
     selectedPokemon,

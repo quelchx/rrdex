@@ -35,7 +35,7 @@ export const pokemonColumns: ColumnDef<Pokemon>[] = [
     },
     cell: ({ row }) => (
       <div className="flex items-center justify-center mr-1.5">
-        <span>{row.original.idx}</span>
+        <span>{row.original.dexEntryNumber}</span>
       </div>
     ),
   },
@@ -46,7 +46,11 @@ export const pokemonColumns: ColumnDef<Pokemon>[] = [
       <img
         alt={row.original.name}
         src={row.original.sprite ?? UNKNOWN_SPRITE_URL}
-        className="w-12 h-12"
+        className={cn(
+          "lg:w-10 lg:h-10 w-12 h-12 relative top-0.5",
+          row.original.sprite === UNKNOWN_SPRITE_URL && "top-1.5",
+          row.original.sprite ?? "filter grayscale opacity-50"
+        )}
       />
     ),
   },
