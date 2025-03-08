@@ -75,6 +75,23 @@
   --sidebar-ring: oklch(0.439 0 0);
 }
 
+/* width */
+::-webkit-scrollbar {
+  width: 12px;
+  background-color: var(--background);
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 6px;
+}
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);

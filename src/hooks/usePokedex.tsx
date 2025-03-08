@@ -1,9 +1,11 @@
 import { Pokemon } from "@/constants/types";
+import { usePokedexStore } from "@/store";
 import { useQuery } from "@tanstack/react-query";
+import { useEffect } from "react";
 
 async function fetchPokedex(): Promise<Pokemon[]> {
   try {
-    const response = await fetch("/rrdex.json");
+    const response = await fetch("/data/rrdex.json");
     return await response.json();
   } catch (error) {
     throw new Error(`Failed to fetch pokedex. Error: ${error}`);
@@ -11,10 +13,19 @@ async function fetchPokedex(): Promise<Pokemon[]> {
 }
 
 export function usePokedex() {
-  return useQuery({
+  const { pokedex, setPokedex } = usePokedexStore();
+  const { data, isLoading, isError, isFetching } = useQuery({
     queryKey: ["pokedex"],
     queryFn: fetchPokedex,
     refetchOnMount: false,
     refetchOnWindowFocus: false,
   });
+
+  useEffect(() => {
+    if (data !== undefined) {
+      setPokedex(data);
+    }
+  }, [data, setPokedex]);
+
+  return { data: pokedex, isLoading, isError, isFetching };
 }

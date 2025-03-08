@@ -2,27 +2,33 @@ import { usePokedex } from "@/hooks/usePokedex";
 import { PokedexTable } from "./pokedex-table";
 import { pokemonColumns } from "./pokedex-columns";
 import { memo, useMemo } from "react";
-import { LoadingSpinner } from "../theme/loading-spinner";
-import { useSearchStore } from "@/store";
+import { LoadingSpinner } from "../loading-spinner";
+import { useSearchFilterStore, useSearchStore } from "@/store";
+import { PokedexSuggestions } from "./pokedex-suggestions";
 
 export const Pokedex = memo(() => {
   const { search } = useSearchStore();
+  const { searchFilter } = useSearchFilterStore();
   const { data, isLoading, isError } = usePokedex();
 
-  const columns = useMemo(() => pokemonColumns, []);
+  // TODO: Implement search functionality with filters beyonds whats done here
   const filteredPokemon = useMemo(() => {
     if (data === undefined) return [];
     if (search === "") return data;
 
-    return data.filter((pokemon) =>
-      pokemon.name.toLowerCase().includes(search.toLowerCase())
+    return data.filter(
+      (pokemon) =>
+        searchFilter === "Name"
+          ? pokemon.name.toLowerCase().includes(search.toLowerCase())
+          : pokemon.type.some((type) =>
+              type.toLowerCase().includes(search.toLowerCase())
+            )
+      // pokemon.name.toLowerCase().includes(search.toLowerCase())
     );
-  }, [data, search]);
+  }, [data, search, searchFilter]);
 
   if (isLoading) {
-    return (
-      <LoadingSpinner className="flex items-center justify-center w-full h-24" />
-    );
+    return <LoadingSpinner />;
   }
 
   if (isError) {
@@ -33,7 +39,14 @@ export const Pokedex = memo(() => {
     );
   }
 
-  return <PokedexTable columns={columns} data={filteredPokemon} />;
+  return (
+    <>
+      <PokedexSuggestions
+        suggestions={filteredPokemon.map((pokemon) => pokemon.name)}
+      />
+      <PokedexTable columns={pokemonColumns} data={filteredPokemon} />
+    </>
+  );
 });
 
 Pokedex.displayName = "Pokedex";
