@@ -7,7 +7,6 @@ import { pokemonColumns } from "@/components/content/pokedex-columns";
 
 import { FetchError } from "./fetch-error";
 import { LoadingBlocks } from "./loading-blocks";
-import { LoadingSpinner } from "./loading-spinner";
 
 // lazy load pokedex suggestions
 const LazyPokedexSuggestions = lazy(() =>
@@ -66,7 +65,7 @@ export const Pokedex = memo(() => {
 
   return (
     <>
-      <Suspense fallback={<LoadingSpinner />}>
+      <Suspense>
         <LazyPokedexSuggestions
           suggestions={filteredPokemon.map((pokemon) => pokemon.name)}
         />
