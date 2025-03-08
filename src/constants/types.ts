@@ -1,9 +1,12 @@
-import { STAT_TYPES } from ".";
+import { STAT_TYPES, FILTER_TYPES } from ".";
 
 export type Theme = "dark" | "light" | "system";
-export type ThemeProviderState = {
-  theme: Theme;
-  setTheme: (theme: Theme) => void;
+export type SearchFilter = (typeof FILTER_TYPES)[number];
+
+export type Ability = {
+  ID: string;
+  name: string;
+  description: string;
 };
 
 export type Stat = {

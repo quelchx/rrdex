@@ -26,6 +26,7 @@ import { PokedexViewOptions } from "./pokedex-view-options";
 
 import { useSelectedPokemonStore } from "@/store";
 import { Pokemon } from "@/constants/types";
+import { PokedexSearchFilter } from "./pokedex-search-filter";
 
 type PokedexTableProps<TData, TValue> = {
   data: TData[];
@@ -59,9 +60,9 @@ export function PokedexTable<TData, TValue>({
     <>
       <div className="flex items-center gap-3 pb-4 pt-2">
         <PokedexSearch />
+        <PokedexSearchFilter />
         <PokedexViewOptions table={table} />
       </div>
-      {/* make height half the page */}
       <div
         className="rounded-md border overflow-y-auto shadow-lg
         max-h-[calc(70vh-4rem)]

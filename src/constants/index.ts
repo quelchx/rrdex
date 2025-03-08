@@ -13,6 +13,8 @@ export const STAT_TYPES = [
   "BST",
 ] as const;
 
+export const FILTER_TYPES = ["Name", "Type", "Ability", "Move"] as const;
+
 export const POKEMON_TYPES = [
   { name: "Normal", color: "#A8A77A" },
   { name: "Fighting", color: "#C22E28" },
