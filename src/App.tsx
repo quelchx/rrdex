@@ -1,12 +1,42 @@
+import { useEffect, useState } from "react";
+import { Pokemon } from "./components/pokemon/pokemon";
 import { Pokedex } from "./components/pokedex/pokedex";
 import { ModeToggle } from "./components/theme/mode-toggle";
-import { Pokemon } from "./components/pokemon/pokemon";
+import { Github } from "lucide-react";
+import { Toaster, toast } from "sonner";
 import { useSelectedPokemonStore } from "./store";
 import AnimatedBackButton from "./components/animated-back-button";
-import { Github } from "lucide-react";
 
 export default function App() {
+  const [gaveWarning, setGaveWarning] = useState(false);
+  const [windowWidth, setWindowWidth] = useState<number>(window.innerWidth);
+
   const { selectedPokemon, isDialogOpen } = useSelectedPokemonStore();
+
+  useEffect(() => {
+    if (!gaveWarning) {
+      const handleResize = () => {
+        setWindowWidth(window.innerWidth);
+      };
+
+      window.addEventListener("resize", handleResize);
+      return () => window.removeEventListener("resize", handleResize);
+    }
+  }, [gaveWarning]);
+
+  useEffect(() => {
+    if (windowWidth < 960 && !gaveWarning) {
+      toast("So your aware", {
+        description: "Table is not optimized for mobile view",
+        duration: 8000,
+        action: {
+          label: "Undo",
+          onClick: () => null,
+        },
+      });
+      setGaveWarning(true);
+    }
+  }, [windowWidth, gaveWarning]);
 
   return (
     <div className="min-h-screen bg-background justify-center items-center flex flex-col">
@@ -20,7 +50,13 @@ export default function App() {
                 Radical Red Pokédex
               </span>
             </div>
-            <ModeToggle />
+            <div className="flex items-center gap-8">
+              {/* <div className="flex items-center gap-4">
+                <span>About</span>
+                <span>Pokémon</span>
+              </div> */}
+              <ModeToggle />
+            </div>
           </div>
         </header>
       </div>
@@ -58,7 +94,7 @@ export default function App() {
       <footer className="border-t py-6 md:py-0 w-full flex justify-center bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
         <div className="container flex flex-col items-center justify-between gap-4 md:h-14 md:flex-row">
           <p className="text-center text-sm leading-loose text-muted-foreground md:text-left">
-            Built with passion for Pokémon fans
+            Built with passion for Radical Red fans
           </p>
           <div className="flex items-center gap-4">
             <a
@@ -81,6 +117,7 @@ export default function App() {
           </div>
         </div>
       </footer>
+      <Toaster visibleToasts={1} />
     </div>
   );
 }

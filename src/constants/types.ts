@@ -35,5 +35,6 @@ export type Pokemon = {
   eggMoves: Move[];
   tutorMoves: Move[];
   familyTree: string[];
+  alternateForms: string[];
   sprite: string;
 };
