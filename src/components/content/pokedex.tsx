@@ -1,18 +1,26 @@
-import { memo, useMemo } from "react";
+import { memo, useMemo, Suspense, lazy } from "react";
 import { usePokedex } from "@/hooks/usePokedex";
 import { useSearchFilterStore, useSearchStore } from "@/store";
 
 import { PokedexTable } from "@/components/content/pokedex-table";
 import { pokemonColumns } from "@/components/content/pokedex-columns";
-import { LoadingSpinner } from "@/components/content/loading-spinner";
-import { PokedexSuggestions } from "@/components/content/pokedex-suggestions";
+
+import { FetchError } from "./fetch-error";
+import { LoadingBlocks } from "./loading-blocks";
+import { LoadingSpinner } from "./loading-spinner";
+
+// lazy load pokedex suggestions
+const LazyPokedexSuggestions = lazy(() =>
+  import("./pokedex-suggestions").then((module) => ({
+    default: module.PokedexSuggestions,
+  }))
+);
 
 export const Pokedex = memo(() => {
   const { search } = useSearchStore();
   const { searchFilter } = useSearchFilterStore();
   const { data, isLoading, isError } = usePokedex();
 
-  // TODO: Implement search functionality with filters beyonds whats done here
   const filteredPokemon = useMemo(() => {
     if (data === undefined) return [];
     if (search === "") return data;
@@ -51,20 +59,18 @@ export const Pokedex = memo(() => {
     });
   }, [data, search, searchFilter]);
 
-  if (isLoading) return <LoadingSpinner />;
+  if (isLoading) return <LoadingBlocks />;
   if (isError) {
-    return (
-      <div className="flex items-center justify-center w-full h-24">
-        <p>Failed to load data</p>
-      </div>
-    );
+    <FetchError message="Unable to fetch Pokémon data. Please try again later." />;
   }
 
   return (
     <>
-      <PokedexSuggestions
-        suggestions={filteredPokemon.map((pokemon) => pokemon.name)}
-      />
+      <Suspense fallback={<LoadingSpinner />}>
+        <LazyPokedexSuggestions
+          suggestions={filteredPokemon.map((pokemon) => pokemon.name)}
+        />
+      </Suspense>
       <PokedexTable columns={pokemonColumns} data={filteredPokemon} />
     </>
   );

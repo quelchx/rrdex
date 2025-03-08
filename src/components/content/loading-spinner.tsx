@@ -4,12 +4,6 @@ export function LoadingSpinner() {
       role="status"
       className="flex flex-col items-center justify-center w-full h-24"
     >
-      <h2 className="text-xl font-semibold text-gray-700 dark:text-gray-200">
-        Go catch 'em all!
-      </h2>
-      <p className="text-gray-500 dark:text-gray-400">
-        Fetching 1300+ Pokémon, please wait...
-      </p>
       <svg
         aria-hidden="true"
         className="w-8 h-8 text-gray-200 animate-spin dark:text-gray-600 fill-blue-600"

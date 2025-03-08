@@ -2,9 +2,22 @@ import { BrowserRouter, Routes, Route } from "react-router";
 import { Layout } from "@/components/layout/layout.tsx";
 
 import { HomePage } from "./pages/Home.tsx";
-import { AboutPage } from "./pages/About.tsx";
-import { AbilitiesPage } from "./pages/Abilities.tsx";
-import { MovesPage } from "./pages/Moves.tsx";
+import { lazy, Suspense } from "react";
+import { LoadingSpinner } from "@/components/content/loading-spinner.tsx";
+
+const AboutPage = lazy(() =>
+  import("./pages/About.tsx").then((module) => ({ default: module.AboutPage }))
+);
+
+const AbilitiesPage = lazy(() =>
+  import("./pages/Abilities.tsx").then((module) => ({
+    default: module.AbilitiesPage,
+  }))
+);
+
+const MovesPage = lazy(() =>
+  import("./pages/Moves.tsx").then((module) => ({ default: module.MovesPage }))
+);
 
 export function Root() {
   return (
@@ -12,9 +25,30 @@ export function Root() {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<HomePage />} />
-          <Route path="about" element={<AboutPage />} />
-          <Route path="abilities" element={<AbilitiesPage />} />
-          <Route path="moves" element={<MovesPage />} />
+          <Route
+            path="about"
+            element={
+              <Suspense fallback={<LoadingSpinner />}>
+                <AboutPage />
+              </Suspense>
+            }
+          />
+          <Route
+            path="abilities"
+            element={
+              <Suspense fallback={<LoadingSpinner />}>
+                <AbilitiesPage />
+              </Suspense>
+            }
+          />
+          <Route
+            path="moves"
+            element={
+              <Suspense fallback={<LoadingSpinner />}>
+                <MovesPage />
+              </Suspense>
+            }
+          />
         </Route>
       </Routes>
     </BrowserRouter>

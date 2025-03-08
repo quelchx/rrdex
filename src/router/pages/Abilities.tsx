@@ -1,9 +1,12 @@
+import { useMemo, useState } from "react";
+import { Search } from "lucide-react";
+import { useAbilities } from "@/hooks/useAbilities";
+
+import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { useAbilities } from "@/hooks/useAbilities";
-import { Search } from "lucide-react";
-import { useMemo, useState } from "react";
+import { FetchError } from "@/components/content/fetch-error";
+import { LoadingBlocks } from "@/components/content/loading-blocks";
 
 export function AbilitiesPage() {
   const [searchQuery, setSearchQuery] = useState("");
@@ -22,16 +25,12 @@ export function AbilitiesPage() {
   }, [data, searchQuery]);
 
   if (isLoading) {
-    return (
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 animate-pulse">
-        {Array.from({ length: 9 }).map((_, index) => (
-          <div key={index} className="h-40 bg-muted rounded-lg"></div>
-        ))}
-      </div>
-    );
+    return <LoadingBlocks />;
   }
 
-  if (isError) return <p>Error</p>;
+  if (isError) {
+    return <FetchError message="Unable to fetch abilities" />;
+  }
 
   return (
     data && (

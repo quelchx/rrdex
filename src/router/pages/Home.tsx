@@ -1,6 +1,15 @@
-import { Pokemon } from "@/components/content/pokemon";
+import { Suspense, lazy } from "react";
+// import { Pokemon } from "@/components/content/pokemon";
 import { Pokedex } from "@/components/content/pokedex";
 import { useSelectedPokemonStore } from "@/store";
+import { LoadingSpinner } from "@/components/content/loading-spinner";
+
+// lazy load Pokemon component
+const LazyPokemon = lazy(() =>
+  import("@/components/content/pokemon").then((module) => ({
+    default: module.Pokemon,
+  }))
+);
 
 export function HomePage() {
   const { selectedPokemon, isDialogOpen } = useSelectedPokemonStore();
@@ -25,7 +34,9 @@ export function HomePage() {
       <div className="w-full max-w-5xl mx-auto rounded-lg border bg-card p-4 shadow-sm">
         {isDialogOpen && selectedPokemon ? (
           <div className="space-y-4">
-            <Pokemon />
+            <Suspense fallback={<LoadingSpinner />}>
+              <LazyPokemon />
+            </Suspense>
           </div>
         ) : (
           <Pokedex />
