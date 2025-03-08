@@ -16,9 +16,16 @@ import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 import { PokemonMove } from "@/components/content/pokemon-move";
 import { UNKNOWN_SPRITE_URL } from "@/constants";
 import { PokemonMoveSet } from "./pokemon-move-set";
+import { Button } from "../ui/button";
+import { CircleX } from "lucide-react";
 
 export function Pokemon() {
   const { selectedPokemon } = useSelectedPokemonStore();
+  const { setPokemonDialog, resetCurrentPokemon } = useSelectedPokemonStore();
+  function handleReset() {
+    setPokemonDialog(false);
+    resetCurrentPokemon();
+  }
   const scrollRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -32,6 +39,9 @@ export function Pokemon() {
       <div className="max-w-4xl mx-auto">
         <div className="px-6 pt-6 pb-2 sticky top-0 z-10">
           <h1 className="text-2xl flex items-center gap-2">
+            <Button variant={"ghost"} onClick={handleReset}>
+              <CircleX />
+            </Button>
             <span>#{selectedPokemon.dexEntryNumber}</span>
             <span className="font-black">{selectedPokemon.name}</span>
             <div className="flex gap-1 ml-auto">

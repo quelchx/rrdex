@@ -5,7 +5,7 @@ export type SearchFilter = (typeof FILTER_TYPES)[number];
 
 export type Ability = {
   ID: string;
-  name: string;
+  names: string[];
   description: string;
 };
 
@@ -20,7 +20,7 @@ export type Move = {
   type: string;
   category: string;
   power: string;
-  acurracy: string;
+  accuracy: string;
   desc: string;
 };
 

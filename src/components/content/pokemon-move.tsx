@@ -28,7 +28,7 @@ export const PokemonMove = (props: PokemonMoveProps) => {
       </div>
       <div className="flex flex-wrap gap-x-4 gap-y-1 text-sm text-muted-foreground mb-1">
         <span>Power: {move.power}</span>
-        {move.acurracy && <span>Accuracy: {move.acurracy}</span>}
+        {move.accuracy && <span>Accuracy: {move.accuracy}</span>}
       </div>
       <p className="text-sm">{move.desc}</p>
     </div>

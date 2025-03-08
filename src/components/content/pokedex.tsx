@@ -25,6 +25,22 @@ export const Pokedex = memo(() => {
           return pokemon.type.some((type) =>
             type.toLowerCase().includes(search.toLowerCase())
           );
+        case "Level Up Moves":
+          return pokemon.levelUpMoves.some((move) =>
+            move.name.toLowerCase().includes(search.toLowerCase())
+          );
+        case "TMS":
+          return pokemon.learnableTechnicalMachines.some((move) =>
+            move.name.toLowerCase().includes(search.toLowerCase())
+          );
+        case "Egg Moves":
+          return pokemon.eggMoves.some((move) =>
+            move.name.toLowerCase().includes(search.toLowerCase())
+          );
+        case "Tutor Moves":
+          return pokemon.tutorMoves.some((move) =>
+            move.name.toLowerCase().includes(search.toLowerCase())
+          );
         case "Ability":
           return pokemon.abilities.some((ability) =>
             ability.toLowerCase().includes(search.toLowerCase())
@@ -35,10 +51,7 @@ export const Pokedex = memo(() => {
     });
   }, [data, search, searchFilter]);
 
-  if (isLoading) {
-    return <LoadingSpinner />;
-  }
-
+  if (isLoading) return <LoadingSpinner />;
   if (isError) {
     return (
       <div className="flex items-center justify-center w-full h-24">

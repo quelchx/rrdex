@@ -2,7 +2,7 @@ import { Pokemon } from "@/components/content/pokemon";
 import { Pokedex } from "@/components/content/pokedex";
 import { useSelectedPokemonStore } from "@/store";
 
-export function Home() {
+export function HomePage() {
   const { selectedPokemon, isDialogOpen } = useSelectedPokemonStore();
 
   return (
