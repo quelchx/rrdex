@@ -1,9 +1,12 @@
 import { useState } from "react";
 import { Move } from "@/constants/types";
+import { Card, CardContent, CardDescription } from "@/components/ui/card";
 import { PokemonMove } from "./pokemon-move";
-import { Card, CardContent, CardDescription } from "../ui/card";
 
-export function PokemonMoveSet({ moves }: { moves: Move[] }) {
+type PokemonMoveSetProps = { moves: Move[] };
+
+export function PokemonMoveSet(props: PokemonMoveSetProps) {
+  const { moves } = props;
   const [minimized, setMinimized] = useState(true);
   return moves.length > 0 ? (
     <>

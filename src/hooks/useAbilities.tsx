@@ -1,20 +1,18 @@
 import { Ability } from "@/constants/types";
 import { useQuery } from "@tanstack/react-query";
 
-async function fetchAbilities(): Promise<Ability[]> {
+async function getAbilities(): Promise<{ abilities: Ability[] }> {
   try {
     const response = await fetch("/data/abilities.json");
     return await response.json();
   } catch (error) {
-    throw new Error(`Failed to fetch pokedex. Error: ${error}`);
+    throw new Error(`Failed to fetch abilities: ${error}`);
   }
 }
 
-export function usePokedexAbilities() {
+export function useAbilities() {
   return useQuery({
     queryKey: ["abilities"],
-    queryFn: fetchAbilities,
-    refetchOnMount: false,
-    refetchOnWindowFocus: false,
+    queryFn: getAbilities,
   });
 }

@@ -13,7 +13,15 @@ export const STAT_TYPES = [
   "BST",
 ] as const;
 
-export const FILTER_TYPES = ["Name", "Type", "Ability", "Move"] as const;
+export const FILTER_TYPES = [
+  "Name",
+  "Type",
+  "Ability",
+  "Level Up Moves",
+  "TMS",
+  "Egg Moves",
+  "Tutor Moves",
+] as const;
 
 export const POKEMON_TYPES = [
   { name: "Normal", color: "#A8A77A" },
@@ -35,3 +43,9 @@ export const POKEMON_TYPES = [
   { name: "Dark", color: "#705746" },
   { name: "Fairy", color: "#D685AD" },
 ];
+
+export const EMAIL_LINK = "quelchx@gmail.com";
+export const DONATION_LINK =
+  "https://www.paypal.com/donate/?hosted_button_id=N6B3Y7NHQFM9E";
+
+export const GITHUB_LINK = "https://github.com/quelchx";

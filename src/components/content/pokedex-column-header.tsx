@@ -16,11 +16,11 @@ type PokedexColumnHeaderProps<TData, TValue> = {
   title: string;
 } & React.HTMLAttributes<HTMLDivElement>;
 
-export function PokedexColumnHeader<TData, TValue>({
-  column,
-  title,
-  className,
-}: PokedexColumnHeaderProps<TData, TValue>) {
+export function PokedexColumnHeader<TData, TValue>(
+  props: PokedexColumnHeaderProps<TData, TValue>
+) {
+  const { column, title, className } = props;
+
   if (!column.getCanSort()) {
     return <div className={cn(className)}>{title}</div>;
   }

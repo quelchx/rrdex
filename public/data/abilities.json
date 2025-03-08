@@ -30,21 +30,13 @@
       "names": ["Damp"],
       "description": "Prevents self-destruction."
     },
-    {
-      "ID": 7,
-      "names": ["Limber"],
-      "description": "Prevents paralysis."
-    },
+    { "ID": 7, "names": ["Limber"], "description": "Prevents paralysis." },
     {
       "ID": 8,
       "names": ["Sand Veil"],
       "description": "Ups evasion in a sandstorm."
     },
-    {
-      "ID": 9,
-      "names": ["Static"],
-      "description": "Paralyzes on contact."
-    },
+    { "ID": 9, "names": ["Static"], "description": "Paralyzes on contact." },
     {
       "ID": 10,
       "names": ["Volt Absorb"],
@@ -80,11 +72,7 @@
       "names": ["Wind Rider"],
       "description": "Immune to Wind moves and gets +1 Attack instead."
     },
-    {
-      "ID": 17,
-      "names": ["Immunity"],
-      "description": "Prevents poisoning."
-    },
+    { "ID": 17, "names": ["Immunity"], "description": "Prevents poisoning." },
     {
       "ID": 18,
       "names": ["Flash Fire"],
@@ -200,11 +188,7 @@
       "names": ["Magma Armor"],
       "description": "Prevents frostbite."
     },
-    {
-      "ID": 41,
-      "names": ["Water Veil"],
-      "description": "Prevents burns."
-    },
+    { "ID": 41, "names": ["Water Veil"], "description": "Prevents burns." },
     {
       "ID": 42,
       "names": ["Magnet Pull"],
@@ -350,11 +334,7 @@
       "names": ["Drought"],
       "description": "Summons Sun for 5 turns."
     },
-    {
-      "ID": 71,
-      "names": ["Arena Trap"],
-      "description": "Prevents fleeing."
-    },
+    { "ID": 71, "names": ["Arena Trap"], "description": "Prevents fleeing." },
     {
       "ID": 72,
       "names": ["Purifying Salt"],
@@ -965,11 +945,7 @@
       "names": ["Weak Armor"],
       "description": "Hits by physical moves drop Def but raises Speed."
     },
-    {
-      "ID": 194,
-      "names": ["Heavy Metal"],
-      "description": "Doubles weight."
-    },
+    { "ID": 194, "names": ["Heavy Metal"], "description": "Doubles weight." },
     {
       "ID": 195,
       "names": ["Quark Drive"],
@@ -1150,16 +1126,8 @@
       "names": ["Stakeout"],
       "description": "Doubles damage if foe switches out."
     },
-    {
-      "ID": 231,
-      "names": ["Comatose"],
-      "description": "Acts as if asleep."
-    },
-    {
-      "ID": 232,
-      "names": ["Dancer"],
-      "description": "Copies dance moves."
-    },
+    { "ID": 231, "names": ["Comatose"], "description": "Acts as if asleep." },
+    { "ID": 232, "names": ["Dancer"], "description": "Copies dance moves." },
     {
       "ID": 233,
       "names": ["Bone Zone "],

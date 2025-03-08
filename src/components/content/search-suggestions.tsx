@@ -1,39 +1,18 @@
 import { useEffect, useRef } from "react";
 import { Search } from "lucide-react";
 
-interface SearchSuggestionsProps {
+type SearchSuggestionsProps = {
   suggestions: string[];
   searchQuery: string;
   onSuggestionClick: (suggestion: string) => void;
   onClickOutside: () => void;
-}
+};
 
-export function SearchSuggestions({
-  suggestions,
-  searchQuery,
-  onSuggestionClick,
-  onClickOutside,
-}: SearchSuggestionsProps) {
+export function SearchSuggestions(props: SearchSuggestionsProps) {
   const suggestionsRef = useRef<HTMLDivElement>(null);
+  const { suggestions, searchQuery, onSuggestionClick, onClickOutside } = props;
 
-  useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (
-        suggestionsRef.current &&
-        !suggestionsRef.current.contains(event.target as Node)
-      ) {
-        onClickOutside();
-      }
-    };
-
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, [onClickOutside]);
-
-  // Highlight the matching part of the suggestion
-  const highlightMatch = (suggestion: string) => {
+  function highlightMatch(suggestion: string) {
     const lowerCaseQuery = searchQuery.toLowerCase();
     const lowerCaseSuggestion = suggestion.toLowerCase();
     const index = lowerCaseSuggestion.indexOf(lowerCaseQuery);
@@ -51,7 +30,23 @@ export function SearchSuggestions({
         <span>{after}</span>
       </>
     );
-  };
+  }
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        suggestionsRef.current &&
+        !suggestionsRef.current.contains(event.target as Node)
+      ) {
+        onClickOutside();
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [onClickOutside]);
 
   return (
     <div
