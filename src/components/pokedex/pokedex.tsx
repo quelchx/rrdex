@@ -16,15 +16,22 @@ export const Pokedex = memo(() => {
     if (data === undefined) return [];
     if (search === "") return data;
 
-    return data.filter(
-      (pokemon) =>
-        searchFilter === "Name"
-          ? pokemon.name.toLowerCase().includes(search.toLowerCase())
-          : pokemon.type.some((type) =>
-              type.toLowerCase().includes(search.toLowerCase())
-            )
-      // pokemon.name.toLowerCase().includes(search.toLowerCase())
-    );
+    return data.filter((pokemon) => {
+      switch (searchFilter) {
+        case "Name":
+          return pokemon.name.toLowerCase().includes(search.toLowerCase());
+        case "Type":
+          return pokemon.type.some((type) =>
+            type.toLowerCase().includes(search.toLowerCase())
+          );
+        case "Ability":
+          return pokemon.abilities.some((ability) =>
+            ability.toLowerCase().includes(search.toLowerCase())
+          );
+        default:
+          return data;
+      }
+    });
   }, [data, search, searchFilter]);
 
   if (isLoading) {
