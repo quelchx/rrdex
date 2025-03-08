@@ -7,9 +7,9 @@ export function LoadingSpinner() {
       <h2 className="text-xl font-semibold text-gray-700 dark:text-gray-200">
         Go catch 'em all!
       </h2>
-      <span className="text-gray-500 dark:text-gray-400">
+      <p className="text-gray-500 dark:text-gray-400">
         Fetching 1300+ Pokémon, please wait...
-      </span>
+      </p>
       <svg
         aria-hidden="true"
         className="w-8 h-8 text-gray-200 animate-spin dark:text-gray-600 fill-blue-600"

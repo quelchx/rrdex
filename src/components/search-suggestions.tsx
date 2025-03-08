@@ -1,19 +1,15 @@
 import { useEffect, useRef } from "react";
 import { Search } from "lucide-react";
 
-interface SearchSuggestionsProps {
+type SearchSuggestionsProps = {
   suggestions: string[];
   searchQuery: string;
   onSuggestionClick: (suggestion: string) => void;
   onClickOutside: () => void;
-}
+};
 
-export function SearchSuggestions({
-  suggestions,
-  searchQuery,
-  onSuggestionClick,
-  onClickOutside,
-}: SearchSuggestionsProps) {
+export function SearchSuggestions(props: SearchSuggestionsProps) {
+  const { suggestions, searchQuery, onSuggestionClick, onClickOutside } = props;
   const suggestionsRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {

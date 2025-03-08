@@ -1,3 +1,4 @@
+import { useEffect, useRef } from "react";
 import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Card, CardContent } from "@/components/ui/card";
@@ -12,9 +13,8 @@ import {
 
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 
-import { useEffect, useRef } from "react";
-import { PokemonMove as MoveItem } from "./pokemon-move";
-import { PokemonMoveSet } from "./pokemon-move-set";
+import { PokemonMove as MoveItem } from "@/components/pokemon-move";
+import { PokemonMoveSet } from "@/components/pokemon-move-set";
 import { UNKNOWN_SPRITE_URL } from "@/constants";
 
 export function Pokemon() {

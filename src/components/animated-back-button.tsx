@@ -7,6 +7,7 @@ import { useSelectedPokemonStore } from "@/store";
 export default function AnimatedBackButton() {
   const [isHovered, setIsHovered] = useState(false);
   const { setPokemonDialog } = useSelectedPokemonStore();
+
   return (
     <div className="flex justify-end">
       <Button

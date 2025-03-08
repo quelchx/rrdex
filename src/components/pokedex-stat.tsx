@@ -7,7 +7,8 @@ type StatCellProps = {
   target: Stat["title"];
 } & ComponentProps<"span">;
 
-export function StatCell({ row, target, className }: StatCellProps) {
+export function StatCell(props: StatCellProps) {
+  const { row, target, className } = props;
   const stat = row.original.stats.find((stat) => stat.title === target);
   return stat !== undefined ? (
     <span className={className}>{stat.value}</span>

@@ -33,10 +33,11 @@ type PokedexTableProps<TData, TValue> = {
   columns: ColumnDef<TData, TValue>[];
 };
 
-export function PokedexTable<TData, TValue>({
-  data,
-  columns,
-}: PokedexTableProps<TData, TValue>) {
+export function PokedexTable<TData, TValue>(
+  props: PokedexTableProps<TData, TValue>
+) {
+  const { data, columns } = props;
+
   const [sorting, setSorting] = useState<SortingState>([]);
   const [columnVisibility, setColumnVisibility] = useState<VisibilityState>({});
 

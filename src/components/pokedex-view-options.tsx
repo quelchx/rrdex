@@ -15,9 +15,10 @@ type PokedexViewOptionsProps<TData> = {
   table: Table<TData>;
 };
 
-export function PokedexViewOptions<TData>({
-  table,
-}: PokedexViewOptionsProps<TData>) {
+export function PokedexViewOptions<TData>(
+  props: PokedexViewOptionsProps<TData>
+) {
+  const { table } = props;
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>

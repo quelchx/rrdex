@@ -19,9 +19,8 @@ type PokedexPaginationProps<TData> = {
   table: Table<TData>;
 };
 
-export function PokedexPagination<TData>({
-  table,
-}: PokedexPaginationProps<TData>) {
+export function PokedexPagination<TData>(props: PokedexPaginationProps<TData>) {
+  const { table } = props;
   return (
     <div className="flex items-center justify-between px-1.5">
       <div className="flex-1 text-sm text-muted-foreground">
