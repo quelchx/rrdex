@@ -1,31 +1,52 @@
+import { useEffect, useState } from "react";
 import {
   usePokedexStore,
+  useSearchFilterStore,
   useSearchStore,
   useSelectedPokemonStore,
 } from "@/store";
+
 import { SearchSuggestions } from "../search-suggestions";
-import { useEffect, useState } from "react";
 
 type PokedexSuggestionsProps = {
   suggestions: string[];
 };
 
-export function PokedexSuggestions(props: PokedexSuggestionsProps) {
-  // const { searchFilter } = useSearchFilterStore();
+type SuggestionListProps = {
+  suggestions: string[];
+  onClickOutside: () => void;
+  onSetShowSuggestions: (show: boolean) => void;
+};
+
+function NameSuggestions(props: SuggestionListProps) {
   const { pokedex } = usePokedexStore();
-  const { setSelectedPokemon } = useSelectedPokemonStore();
+  const { suggestions, onClickOutside, onSetShowSuggestions } = props;
   const { search, setSearch } = useSearchStore();
-  const [showSuggestions, setShowSuggestions] = useState(false);
+  const { setSelectedPokemon } = useSelectedPokemonStore();
 
   function handleSuggestionSelect(suggestion: string) {
     setSearch(suggestion);
-    setShowSuggestions(false);
-
+    onSetShowSuggestions(false);
     const selectedPokemon = pokedex.find((p) => p.name === suggestion);
     if (selectedPokemon) {
       setSelectedPokemon(selectedPokemon);
     }
   }
+
+  return (
+    <SearchSuggestions
+      searchQuery={search}
+      suggestions={suggestions}
+      onSuggestionClick={handleSuggestionSelect}
+      onClickOutside={onClickOutside}
+    />
+  );
+}
+
+export function PokedexSuggestions(props: PokedexSuggestionsProps) {
+  const { search } = useSearchStore();
+  const { searchFilter } = useSearchFilterStore();
+  const [showSuggestions, setShowSuggestions] = useState(false);
 
   useEffect(() => {
     if (search.length > 0) {
@@ -37,12 +58,15 @@ export function PokedexSuggestions(props: PokedexSuggestionsProps) {
     search.length > 0 &&
     props.suggestions.length > 0 ? (
     <div className="relative">
-      <SearchSuggestions
-        searchQuery={search}
-        suggestions={props.suggestions}
-        onSuggestionClick={handleSuggestionSelect}
-        onClickOutside={() => setShowSuggestions(false)}
-      />
+      {searchFilter === "Name" ? (
+        <NameSuggestions
+          suggestions={props.suggestions}
+          onClickOutside={() => setShowSuggestions(false)}
+          onSetShowSuggestions={setShowSuggestions}
+        />
+      ) : searchFilter === "Type" ? (
+        <></>
+      ) : null}
     </div>
   ) : null;
 }
