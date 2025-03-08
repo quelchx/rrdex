@@ -5,8 +5,8 @@ import { cn, getTypeColor } from "@/lib/utils";
 import { UNKNOWN_SPRITE_URL } from "@/constants";
 import type { Pokemon, Stat } from "@/constants/types";
 
-import { StatCell } from "@/components/pokedex-stat";
-import { PokedexColumnHeader } from "@/components/pokedex-column-header";
+import { StatCell } from "@/components/content/pokedex-stat";
+import { PokedexColumnHeader } from "@/components/content/pokedex-column-header";
 import {
   Tooltip,
   TooltipContent,

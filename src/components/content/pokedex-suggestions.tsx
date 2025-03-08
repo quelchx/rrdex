@@ -6,7 +6,7 @@ import {
   useSelectedPokemonStore,
 } from "@/store";
 
-import { SearchSuggestions } from "@/components/search-suggestions";
+import { SearchSuggestions } from "@/components/content/search-suggestions";
 
 type PokedexSuggestionsProps = {
   suggestions: string[];

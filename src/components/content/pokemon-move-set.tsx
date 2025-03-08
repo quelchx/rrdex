@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Move } from "@/constants/types";
-import { PokemonMove } from "./pokemon-move";
 import { Card, CardContent, CardDescription } from "@/components/ui/card";
+import { PokemonMove } from "./pokemon-move";
 
 type PokemonMoveSetProps = { moves: Move[] };
 

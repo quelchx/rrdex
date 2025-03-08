@@ -13,9 +13,9 @@ import {
 
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 
-import { PokemonMove as MoveItem } from "@/components/pokemon-move";
-import { PokemonMoveSet } from "@/components/pokemon-move-set";
+import { PokemonMove } from "@/components/content/pokemon-move";
 import { UNKNOWN_SPRITE_URL } from "@/constants";
+import { PokemonMoveSet } from "./pokemon-move-set";
 
 export function Pokemon() {
   const { selectedPokemon } = useSelectedPokemonStore();
@@ -198,7 +198,7 @@ export function Pokemon() {
 
                 <TabsContent value="levelup" className="space-y-2">
                   {selectedPokemon.levelUpMoves.map((move, index) => (
-                    <MoveItem key={index} move={move} />
+                    <PokemonMove key={index} move={move} />
                   ))}
                 </TabsContent>
 

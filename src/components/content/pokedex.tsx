@@ -2,10 +2,10 @@ import { memo, useMemo } from "react";
 import { usePokedex } from "@/hooks/usePokedex";
 import { useSearchFilterStore, useSearchStore } from "@/store";
 
-import { PokedexTable } from "@/components/pokedex-table";
-import { pokemonColumns } from "@/components/pokedex-columns";
-import { LoadingSpinner } from "@/components/loading-spinner";
-import { PokedexSuggestions } from "@/components/pokedex-suggestions";
+import { PokedexTable } from "@/components/content/pokedex-table";
+import { pokemonColumns } from "@/components/content/pokedex-columns";
+import { LoadingSpinner } from "@/components/content/loading-spinner";
+import { PokedexSuggestions } from "@/components/content/pokedex-suggestions";
 
 export const Pokedex = memo(() => {
   const { search } = useSearchStore();
