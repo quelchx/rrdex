@@ -1,7 +1,6 @@
-import { Badge } from "../ui/badge";
-
 import { Move } from "@/constants/types";
 import { getTypeColor, getCategoryColor } from "@/lib/utils";
+import { Badge } from "@/components/ui/badge";
 
 export const PokemonMove = ({ move }: { move: Move }) => (
   <div className="border rounded-md p-3 mb-2 hover:bg-muted/50 transition-colors">

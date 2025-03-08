@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Move } from "@/constants/types";
 import { PokemonMove } from "./pokemon-move";
-import { Card, CardContent, CardDescription } from "../ui/card";
+import { Card, CardContent, CardDescription } from "@/components/ui/card";
 
 export function PokemonMoveSet({ moves }: { moves: Move[] }) {
   const [minimized, setMinimized] = useState(true);

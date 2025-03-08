@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import { Pokemon } from "./components/pokemon/pokemon";
-import { Pokedex } from "./components/pokedex/pokedex";
-import { ModeToggle } from "./components/theme/mode-toggle";
+import { Pokemon } from "@/components/pokemon";
+import { Pokedex } from "@/components/pokedex";
+import { ModeToggle } from "@/components/mode-toggle";
 import { Github } from "lucide-react";
 import { Toaster, toast } from "sonner";
 import { useSelectedPokemonStore } from "./store";

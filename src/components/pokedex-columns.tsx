@@ -1,18 +1,18 @@
 import { ColumnDef, Row } from "@tanstack/react-table";
+import { Badge } from "@/components/ui/badge";
 
 import { cn, getTypeColor } from "@/lib/utils";
-import type { Pokemon, Stat } from "@/constants/types";
 import { UNKNOWN_SPRITE_URL } from "@/constants";
+import type { Pokemon, Stat } from "@/constants/types";
 
-import { PokedexColumnHeader } from "@/components/pokedex/pokedex-column-header";
-import { StatCell } from "@/components/pokedex/pokedex-stat";
+import { StatCell } from "@/components/pokedex-stat";
+import { PokedexColumnHeader } from "@/components/pokedex-column-header";
 import {
   Tooltip,
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
-import { Badge } from "../ui/badge";
 
 function sortStats(stat: Stat["title"], a: Row<Pokemon>, b: Row<Pokemon>) {
   const aValue = a.original.stats.find((s) => s.title === stat)?.value ?? "";
