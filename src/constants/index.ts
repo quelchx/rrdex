@@ -43,3 +43,9 @@ export const POKEMON_TYPES = [
   { name: "Dark", color: "#705746" },
   { name: "Fairy", color: "#D685AD" },
 ];
+
+export const EMAIL_LINK = "quelchx@gmail.com";
+export const DONATION_LINK =
+  "https://www.paypal.com/donate/?hosted_button_id=N6B3Y7NHQFM9E";
+
+export const GITHUB_LINK = "https://github.com/quelchx";

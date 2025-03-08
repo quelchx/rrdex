@@ -11,6 +11,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Button } from "../ui/button";
 import { ChevronDown } from "lucide-react";
+import { DONATION_LINK, EMAIL_LINK, GITHUB_LINK } from "@/constants";
 
 export function LinkMenu() {
   return (
@@ -39,12 +40,17 @@ export function LinkMenu() {
         </DropdownMenuGroup>
         <DropdownMenuSeparator />
         <DropdownMenuGroup>
-          <DropdownMenuItem>Donate</DropdownMenuItem>
-          <DropdownMenuItem>Github</DropdownMenuItem>
+          <a target="_blank" rel="noreferrer" href={DONATION_LINK}>
+            <DropdownMenuItem>Donate</DropdownMenuItem>
+          </a>
+          <a href={`${GITHUB_LINK}/rrdex`} target="_blank" rel="noreferrer">
+            <DropdownMenuItem>Github</DropdownMenuItem>
+          </a>
         </DropdownMenuGroup>
         <DropdownMenuSeparator />
-        <DropdownMenuItem>Contact</DropdownMenuItem>
-        <DropdownMenuItem>Support</DropdownMenuItem>
+        <a href={`mailto:${EMAIL_LINK}`}>
+          <DropdownMenuItem>Contact</DropdownMenuItem>
+        </a>
       </DropdownMenuContent>
     </DropdownMenu>
   );
