@@ -14,5 +14,7 @@ export function useMoves() {
   return useQuery({
     queryKey: ["moves"],
     queryFn: getMoves,
+    refetchOnMount: false,
+    refetchOnWindowFocus: false,
   });
 }

@@ -55,3 +55,14 @@ export type MoveDetails = {
   split: number;
   description: string;
 };
+
+export type MoveTutorDetails = {
+  location: string;
+  person: string;
+  cost: string;
+  isPostGame: boolean;
+  moves: {
+    name: string;
+    restricted: boolean;
+  }[];
+};

@@ -138,4 +138,8 @@
   body {
     @apply bg-background text-foreground;
   }
+
+  .page-heading {
+    @apply bg-gradient-to-r from-red-500 via-red-600 to-red-700 bg-clip-text text-transparent;
+  }
 }

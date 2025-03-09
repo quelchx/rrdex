@@ -3,6 +3,25 @@ import { ModeToggle } from "./mode-toggle";
 import { useSelectedPokemonStore } from "@/store";
 import { LinkMenu } from "./link-menu";
 
+type NavbarLinkProps = {
+  to: string;
+  children: React.ReactNode;
+};
+
+function NavbarLink(props: NavbarLinkProps) {
+  const { to, children } = props;
+  return (
+    <NavLink
+      to={to}
+      className={({ isActive }) =>
+        isActive ? "dark:text-red-400 text-red-600" : ""
+      }
+    >
+      {children}
+    </NavLink>
+  );
+}
+
 export function Navbar() {
   const { setPokemonDialog, resetCurrentPokemon } = useSelectedPokemonStore();
 
@@ -39,7 +58,14 @@ export function Navbar() {
               Radical Red Pokédex
             </NavLink>
           </div>
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-4 text-sm">
+            <div className="hidden md:flex gap-4">
+              <NavbarLink to="/">Pokédex</NavbarLink>
+              <NavbarLink to="/abilities">Abilities</NavbarLink>
+              <NavbarLink to="/moves">Moves</NavbarLink>
+              <NavbarLink to="/tm-locations">TMs & HMs</NavbarLink>
+              <NavbarLink to="/move-tutors">Move Tutors</NavbarLink>
+            </div>
             <LinkMenu />
             <ModeToggle />
           </div>

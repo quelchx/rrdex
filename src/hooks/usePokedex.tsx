@@ -5,7 +5,7 @@ import { useEffect } from "react";
 
 async function fetchPokedex(): Promise<Pokemon[]> {
   try {
-    const response = await fetch("/data/rrdex.json");
+    const response = await fetch("/data/pokedex.json");
     return await response.json();
   } catch (error) {
     throw new Error(`Failed to fetch pokedex. Error: ${error}`);

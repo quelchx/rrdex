@@ -21,8 +21,8 @@ export function Layout() {
 
   useEffect(() => {
     if (windowWidth < 960 && !gaveWarning) {
-      toast("So your aware", {
-        description: "Table is not optimized for mobile view",
+      toast("Note", {
+        description: "Website is better viewed on a larger screen",
         duration: 8000,
         action: {
           label: "Undo",

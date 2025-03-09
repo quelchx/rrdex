@@ -1,9 +1,10 @@
+import { lazy, Suspense } from "react";
 import { BrowserRouter, Routes, Route } from "react-router";
+
 import { Layout } from "@/components/layout/layout.tsx";
+import { LoadingSpinner } from "@/components/content/loading-spinner.tsx";
 
 import { HomePage } from "./pages/Home.tsx";
-import { lazy, Suspense } from "react";
-import { LoadingSpinner } from "@/components/content/loading-spinner.tsx";
 
 const AboutPage = lazy(() =>
   import("./pages/About.tsx").then((module) => ({ default: module.AboutPage }))
@@ -22,6 +23,12 @@ const MovesPage = lazy(() =>
 const TMLocationsPage = lazy(() =>
   import("./pages/TMLocations.tsx").then((module) => ({
     default: module.TMLocationsPage,
+  }))
+);
+
+const MoveTutorsPage = lazy(() =>
+  import("./pages/MoveTutors.tsx").then((module) => ({
+    default: module.MoveTutorsPage,
   }))
 );
 
@@ -60,6 +67,14 @@ export function Root() {
             element={
               <Suspense fallback={<LoadingSpinner />}>
                 <TMLocationsPage />
+              </Suspense>
+            }
+          />
+          <Route
+            path="move-tutors"
+            element={
+              <Suspense fallback={<LoadingSpinner />}>
+                <MoveTutorsPage />
               </Suspense>
             }
           />
