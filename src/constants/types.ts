@@ -41,3 +41,17 @@ export type Pokemon = {
   alternateForms: string[];
   sprite: string;
 };
+
+export type MoveDetails = {
+  ID: number;
+  name: string;
+  power: number;
+  type: string;
+  accuracy: number;
+  pp: number;
+  secondaryEffectChance: number;
+  target: number;
+  priority: number;
+  split: number;
+  description: string;
+};
