@@ -4,7 +4,7 @@ import { NavLink } from "react-router";
 
 export function AboutPage() {
   return (
-    <main className="max-w-3xl p-6 mx-auto">
+    <main className="max-w-5xl p-6 mx-auto">
       <h1 className="mb-6 text-4xl font-bold page-heading">
         Radical Red Rom Hack Pokedex
       </h1>
@@ -24,7 +24,7 @@ export function AboutPage() {
       </p>
 
       <h2 className="mt-8 mb-4 text-2xl font-semibold">Features</h2>
-      <ul className="mb-4 list-disc list-inside space-y-1">
+      <ul className="mb-4 space-y-1 list-disc list-inside">
         <li>Comprehensive Pokémon database for Radical Red Rom Hack</li>
         <li>Advanced search functionality by name, move, ability, and type</li>
         <li>Clean and minimal design with dark mode support</li>
@@ -36,7 +36,7 @@ export function AboutPage() {
         To get started with our Pokedex, please navigate through the sections
         using the sections dropdown menu. Here are some key features to explore:
       </p>
-      <ul className="mb-4 list-disc list-inside space-y-1">
+      <ul className="mb-4 space-y-1 list-disc list-inside">
         <li>
           <strong>Search Pokémon</strong>: Find Pokémon by name, move, ability,
           or type

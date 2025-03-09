@@ -36,6 +36,12 @@ const HomePage = lazy(() =>
   import("./pages/Home.tsx").then((module) => ({ default: module.HomePage }))
 );
 
+const OverWorldItemsPage = lazy(() =>
+  import("./pages/OverWorldItems.tsx").then((module) => ({
+    default: module.OverWorldItemsPage,
+  }))
+);
+
 export function Root() {
   return (
     <BrowserRouter>
@@ -79,6 +85,14 @@ export function Root() {
             element={
               <Suspense fallback={<LoadingSpinner />}>
                 <MoveTutorsPage />
+              </Suspense>
+            }
+          />
+          <Route
+            path="overworld-items"
+            element={
+              <Suspense fallback={<LoadingSpinner />}>
+                <OverWorldItemsPage />
               </Suspense>
             }
           />

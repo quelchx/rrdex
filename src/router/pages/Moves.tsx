@@ -54,7 +54,7 @@ export function MovesPage() {
 
   return (
     <div className="container px-4 py-2 mx-auto">
-      <div className="max-w-6xl mx-auto">
+      <div className="max-w-5xl mx-auto">
         <div className="flex items-center justify-between mb-6">
           <div>
             <h1 className="text-4xl font-bold page-heading">Pokémon Moves</h1>
@@ -65,7 +65,7 @@ export function MovesPage() {
           </div>
         </div>
 
-        <div className="flex flex-col px-1 mb-6 sm:flex-row gap-4">
+        <div className="flex flex-col gap-4 px-1 mb-6 sm:flex-row">
           <div className="relative flex-grow">
             <SearchBar
               searchQuery={searchQuery}
@@ -110,7 +110,7 @@ export function MovesPage() {
               </p>
             </div>
           ) : (
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
               {filteredMoves.map((move) => (
                 <MoveCard key={move.ID} move={move} />
               ))}

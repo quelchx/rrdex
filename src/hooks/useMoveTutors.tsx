@@ -1,7 +1,7 @@
 import { MoveTutorDetails } from "@/constants/types";
 import { useQuery } from "@tanstack/react-query";
 
-async function getMoveTutors(): Promise<MoveTutorDetails[]> {
+async function fetcher(): Promise<MoveTutorDetails[]> {
   try {
     const response = await fetch("/data/move-tutors.json");
     return await response.json();
@@ -13,7 +13,7 @@ async function getMoveTutors(): Promise<MoveTutorDetails[]> {
 export function useMoveTutors() {
   return useQuery({
     queryKey: ["move-tutors"],
-    queryFn: getMoveTutors,
+    queryFn: fetcher,
     refetchOnMount: false,
     refetchOnWindowFocus: false,
   });

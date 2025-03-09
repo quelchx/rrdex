@@ -59,7 +59,7 @@ export function MoveTutorsPage() {
 
   return (
     <div className="container px-4 py-2 mx-auto">
-      <div className="max-w-6xl mx-auto">
+      <div className="max-w-5xl mx-auto">
         <div className="flex flex-col items-start justify-between pb-2 lg:flex-row lg:pb-0 lg:items-center">
           <h1 className="text-4xl font-bold page-heading">Move Tutors</h1>
           <div className="flex items-center gap-2">

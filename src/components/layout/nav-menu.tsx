@@ -66,14 +66,26 @@ export function NavMenu() {
                 )
               );
             })}
-            <NavLink to="/about">
+            <NavLink
+              to="/overworld-items"
+              className={({ isActive }) =>
+                isActive ? "text-red-600" : "inherit"
+              }
+            >
+              <DropdownMenuItem>Overworld Items</DropdownMenuItem>
+            </NavLink>
+            <NavLink
+              to="/about"
+              className={({ isActive }) =>
+                isActive ? "text-red-600" : "inherit"
+              }
+            >
               <DropdownMenuItem>About</DropdownMenuItem>
             </NavLink>
             <DropdownMenuSub>
               <DropdownMenuSubTrigger>Coming Soon</DropdownMenuSubTrigger>
               <DropdownMenuPortal>
                 <DropdownMenuSubContent>
-                  <DropdownMenuItem disabled>Overworld Items</DropdownMenuItem>
                   <DropdownMenuItem disabled>Mega Stones</DropdownMenuItem>
                   <DropdownMenuItem disabled>Shops</DropdownMenuItem>
                   <DropdownMenuItem disabled>Z Crystals</DropdownMenuItem>

@@ -23,7 +23,7 @@ export function TMLocationsPage() {
 
   return (
     <div className="container px-4 py-2 mx-auto">
-      <div className="max-w-6xl mx-auto">
+      <div className="max-w-5xl mx-auto">
         <div className="flex items-center justify-between mb-6">
           <div>
             <h1 className="text-4xl font-bold page-heading">
@@ -45,11 +45,11 @@ export function TMLocationsPage() {
         </div>
 
         <div className="max-h-[70vh] overflow-y-auto pr-2">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             {filteredTMs.map((tm) => (
               <Card
                 key={tm.no}
-                className="border-2 hover:border-primary transition-colors"
+                className="transition-colors border-2 hover:border-primary"
               >
                 <CardContent className="p-4">
                   <div className="flex items-center justify-between mb-2">

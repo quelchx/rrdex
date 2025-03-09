@@ -57,7 +57,7 @@ export function AbilitiesPage() {
         </p>
 
         <div className="h-[calc(100vh-250px)] overflow-y-auto pr-2 pb-4 custom-scrollbar">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {filteredAbilities.map((ability) => (
               <Card
                 key={ability.ID}
