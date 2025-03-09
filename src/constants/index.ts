@@ -49,3 +49,12 @@ export const DONATION_LINK =
   "https://www.paypal.com/donate/?hosted_button_id=N6B3Y7NHQFM9E";
 
 export const GITHUB_LINK = "https://github.com/quelchx";
+
+export const NAV_LINKS = [
+  { to: "/", text: "Pokédex" },
+  { to: "/abilities", text: "Abilities" },
+  { to: "/moves", text: "Moves" },
+  { to: "/tm-locations", text: "Locations" },
+  { to: "/move-tutors", text: "Move Tutors" },
+  { to: "/about", text: "About" },
+];

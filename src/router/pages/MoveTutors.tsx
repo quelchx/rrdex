@@ -22,6 +22,7 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 import { SearchBar } from "@/components/content/search-bar";
+import { CircleHelp } from "lucide-react";
 
 export function MoveTutorsPage() {
   const { data, isLoading, isError } = useMoveTutors();
@@ -65,7 +66,11 @@ export function MoveTutorsPage() {
             <TooltipProvider>
               <Tooltip>
                 <TooltipTrigger asChild>
-                  <Badge variant={"default"}>Non Restricted</Badge>
+                  <Badge variant={"default"}>
+                    {/* question mark circle */}
+                    <CircleHelp />
+                    Non Restricted
+                  </Badge>
                 </TooltipTrigger>
                 <TooltipContent>
                   <p>Moves are available regardless of game mode</p>
@@ -77,10 +82,9 @@ export function MoveTutorsPage() {
                 <TooltipTrigger asChild>
                   <Badge
                     variant={"secondary"}
-                    className={
-                      "bg-purple-500/20 text-purple-500 hover:bg-purple-500/30"
-                    }
+                    className={"bg-red-500/20 text-red-500 hover:bg-red-500/30"}
                   >
+                    <CircleHelp />
                     Restricted
                   </Badge>
                 </TooltipTrigger>
@@ -97,7 +101,7 @@ export function MoveTutorsPage() {
           locations and moves.
         </p>
 
-        <div className="flex flex-col my-4 mb-6 md:flex-row gap-4">
+        <div className="flex flex-col gap-4 my-4 mb-6 md:flex-row">
           <div className="relative flex-1">
             <SearchBar
               searchQuery={searchTerm}
@@ -137,7 +141,7 @@ export function MoveTutorsPage() {
             </p>
           </div>
         ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
             {filteredData.map((tutor, index) => (
               <Card
                 key={index}
@@ -168,14 +172,14 @@ export function MoveTutorsPage() {
                   </div>
                   <div>
                     <span className="text-sm font-medium">Moves:</span>
-                    <div className="flex flex-wrap mt-1 gap-1">
+                    <div className="flex flex-wrap gap-1 mt-1">
                       {tutor.moves.map((move, idx) => (
                         <Badge
                           key={idx}
                           variant={move.restricted ? "secondary" : "default"}
                           className={
                             move.restricted
-                              ? "bg-purple-500/20 text-purple-500 hover:bg-purple-500/30"
+                              ? "bg-red-500/20 text-red-500 hover:bg-red-500/30"
                               : ""
                           }
                         >

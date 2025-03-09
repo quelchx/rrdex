@@ -16,7 +16,7 @@ import {
 
 import { Button } from "@/components/ui/button";
 import { ChevronDown } from "lucide-react";
-import { DONATION_LINK, EMAIL_LINK, GITHUB_LINK } from "@/constants";
+import { DONATION_LINK, EMAIL_LINK, GITHUB_LINK, NAV_LINKS } from "@/constants";
 
 const DropdownMenuContent = lazy(() =>
   import("@/components/ui/dropdown-menu").then((module) => ({
@@ -43,7 +43,7 @@ function MobileMenuLink(props: MobileNavLinkProps) {
   );
 }
 
-export function LinkMenu() {
+export function NavMenu() {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
@@ -57,11 +57,15 @@ export function LinkMenu() {
           <DropdownMenuLabel>Browse Sections</DropdownMenuLabel>
           <DropdownMenuSeparator />
           <DropdownMenuGroup>
-            <MobileMenuLink to="/">Pokédex</MobileMenuLink>
-            <MobileMenuLink to="/abilities">Abilities</MobileMenuLink>
-            <MobileMenuLink to="/moves">Moves</MobileMenuLink>
-            <MobileMenuLink to="/tm-locations">TMs & HMs</MobileMenuLink>
-            <MobileMenuLink to="/move-tutors">Move Tutors</MobileMenuLink>
+            {NAV_LINKS.map((link) => {
+              return (
+                link.to !== "/about" && (
+                  <MobileMenuLink key={link.to} to={link.to}>
+                    {link.text}
+                  </MobileMenuLink>
+                )
+              );
+            })}
             <NavLink to="/about">
               <DropdownMenuItem>About</DropdownMenuItem>
             </NavLink>
