@@ -6,7 +6,11 @@ import {
   DropdownMenuGroup,
   DropdownMenuItem,
   DropdownMenuLabel,
+  DropdownMenuPortal,
   DropdownMenuSeparator,
+  DropdownMenuSub,
+  DropdownMenuSubContent,
+  DropdownMenuSubTrigger,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Button } from "../ui/button";
@@ -34,11 +38,29 @@ export function LinkMenu() {
           <NavLink to="/moves">
             <DropdownMenuItem>Moves</DropdownMenuItem>
           </NavLink>
+          <DropdownMenuSub>
+            <DropdownMenuSubTrigger>Locations</DropdownMenuSubTrigger>
+            <DropdownMenuPortal>
+              <DropdownMenuSubContent>
+                <NavLink to="/tm-locations">
+                  <DropdownMenuItem>TMs & HMs</DropdownMenuItem>
+                </NavLink>
+                <DropdownMenuItem>Move Tutors (Coming Soon)</DropdownMenuItem>
+                {/* <DropdownMenuSeparator /> */}
+                {/* <DropdownMenuItem>Overworld Items</DropdownMenuItem>
+                <DropdownMenuItem>Mega Stones</DropdownMenuItem>
+                <DropdownMenuItem>Shops</DropdownMenuItem>
+                <DropdownMenuItem>Z Crystals</DropdownMenuItem>
+                <DropdownMenuItem>Care Packages</DropdownMenuItem> */}
+              </DropdownMenuSubContent>
+            </DropdownMenuPortal>
+          </DropdownMenuSub>
           <NavLink to="/about">
             <DropdownMenuItem>About</DropdownMenuItem>
           </NavLink>
         </DropdownMenuGroup>
         <DropdownMenuSeparator />
+
         <DropdownMenuGroup>
           <a target="_blank" rel="noreferrer" href={DONATION_LINK}>
             <DropdownMenuItem>Donate</DropdownMenuItem>
