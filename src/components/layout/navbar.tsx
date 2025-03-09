@@ -1,7 +1,8 @@
 import { NavLink } from "react-router";
-import { ModeToggle } from "./mode-toggle";
 import { useSelectedPokemonStore } from "@/store";
+
 import { LinkMenu } from "./link-menu";
+import { ModeToggle } from "./mode-toggle";
 
 type NavbarLinkProps = {
   to: string;
