@@ -1,8 +1,14 @@
-import { useEffect, useState } from "react";
-import { Toaster, toast } from "sonner";
+import { useEffect, useState, lazy, Suspense } from "react";
+import { toast } from "sonner";
 import { Navbar } from "./navbar";
 import { Footer } from "./footer";
 import { Outlet } from "react-router";
+
+const Toaster = lazy(() =>
+  import("sonner").then((module) => ({
+    default: module.Toaster,
+  }))
+);
 
 export function Layout() {
   const [gaveWarning, setGaveWarning] = useState(false);
@@ -42,7 +48,9 @@ export function Layout() {
         </div>
       </main>
       <Footer />
-      <Toaster visibleToasts={1} />
+      <Suspense fallback={null}>
+        <Toaster visibleToasts={1} />
+      </Suspense>
     </div>
   );
 }
