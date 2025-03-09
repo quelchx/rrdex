@@ -1,4 +1,4 @@
-import { memo, useMemo, Suspense, lazy } from "react";
+import { useMemo, Suspense, lazy } from "react";
 import { usePokedex } from "@/hooks/usePokedex";
 import { useSearchFilterStore, useSearchStore } from "@/store";
 
@@ -8,14 +8,13 @@ import { pokemonColumns } from "@/components/content/pokedex-columns";
 import { FetchError } from "./fetch-error";
 import { LoadingBlocks } from "./loading-blocks";
 
-// lazy load pokedex suggestions
 const LazyPokedexSuggestions = lazy(() =>
   import("./pokedex-suggestions").then((module) => ({
     default: module.PokedexSuggestions,
   }))
 );
 
-export const Pokedex = memo(() => {
+export const Pokedex = () => {
   const { search } = useSearchStore();
   const { searchFilter } = useSearchFilterStore();
   const { data, isLoading, isError } = usePokedex();
@@ -73,6 +72,4 @@ export const Pokedex = memo(() => {
       <PokedexTable columns={pokemonColumns} data={filteredPokemon} />
     </>
   );
-});
-
-Pokedex.displayName = "Pokedex";
+};

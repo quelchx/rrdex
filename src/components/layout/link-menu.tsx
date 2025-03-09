@@ -1,8 +1,8 @@
+import { lazy, Suspense } from "react";
 import { NavLink } from "react-router";
 
 import {
   DropdownMenu,
-  DropdownMenuContent,
   DropdownMenuGroup,
   DropdownMenuItem,
   DropdownMenuLabel,
@@ -13,17 +13,24 @@ import {
   DropdownMenuSubTrigger,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { Button } from "../ui/button";
+
+import { Button } from "@/components/ui/button";
 import { ChevronDown } from "lucide-react";
 import { DONATION_LINK, EMAIL_LINK, GITHUB_LINK } from "@/constants";
 
-function MobileMenuLink({
-  to,
-  children,
-}: {
+const DropdownMenuContent = lazy(() =>
+  import("@/components/ui/dropdown-menu").then((module) => ({
+    default: module.DropdownMenuContent,
+  }))
+);
+
+type MobileNavLinkProps = {
   to: string;
   children: React.ReactNode;
-}) {
+};
+
+function MobileMenuLink(props: MobileNavLinkProps) {
+  const { to, children } = props;
   return (
     <NavLink
       to={to}
@@ -45,46 +52,48 @@ export function LinkMenu() {
           <ChevronDown />
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent className="w-56">
-        <DropdownMenuLabel>Browse Sections</DropdownMenuLabel>
-        <DropdownMenuSeparator />
-        <DropdownMenuGroup>
-          <MobileMenuLink to="/">Pokédex</MobileMenuLink>
-          <MobileMenuLink to="/abilities">Abilities</MobileMenuLink>
-          <MobileMenuLink to="/moves">Moves</MobileMenuLink>
-          <MobileMenuLink to="/tm-locations">TMs & HMs</MobileMenuLink>
-          <MobileMenuLink to="/move-tutors">Move Tutors</MobileMenuLink>
-          <NavLink to="/about">
-            <DropdownMenuItem>About</DropdownMenuItem>
-          </NavLink>
-          <DropdownMenuSub>
-            <DropdownMenuSubTrigger>Coming Soon</DropdownMenuSubTrigger>
-            <DropdownMenuPortal>
-              <DropdownMenuSubContent>
-                <DropdownMenuItem disabled>Overworld Items</DropdownMenuItem>
-                <DropdownMenuItem disabled>Mega Stones</DropdownMenuItem>
-                <DropdownMenuItem disabled>Shops</DropdownMenuItem>
-                <DropdownMenuItem disabled>Z Crystals</DropdownMenuItem>
-                <DropdownMenuItem disabled>Care Packages</DropdownMenuItem>
-              </DropdownMenuSubContent>
-            </DropdownMenuPortal>
-          </DropdownMenuSub>
-        </DropdownMenuGroup>
-        <DropdownMenuSeparator />
+      <Suspense fallback={null}>
+        <DropdownMenuContent className="w-56">
+          <DropdownMenuLabel>Browse Sections</DropdownMenuLabel>
+          <DropdownMenuSeparator />
+          <DropdownMenuGroup>
+            <MobileMenuLink to="/">Pokédex</MobileMenuLink>
+            <MobileMenuLink to="/abilities">Abilities</MobileMenuLink>
+            <MobileMenuLink to="/moves">Moves</MobileMenuLink>
+            <MobileMenuLink to="/tm-locations">TMs & HMs</MobileMenuLink>
+            <MobileMenuLink to="/move-tutors">Move Tutors</MobileMenuLink>
+            <NavLink to="/about">
+              <DropdownMenuItem>About</DropdownMenuItem>
+            </NavLink>
+            <DropdownMenuSub>
+              <DropdownMenuSubTrigger>Coming Soon</DropdownMenuSubTrigger>
+              <DropdownMenuPortal>
+                <DropdownMenuSubContent>
+                  <DropdownMenuItem disabled>Overworld Items</DropdownMenuItem>
+                  <DropdownMenuItem disabled>Mega Stones</DropdownMenuItem>
+                  <DropdownMenuItem disabled>Shops</DropdownMenuItem>
+                  <DropdownMenuItem disabled>Z Crystals</DropdownMenuItem>
+                  <DropdownMenuItem disabled>Care Packages</DropdownMenuItem>
+                </DropdownMenuSubContent>
+              </DropdownMenuPortal>
+            </DropdownMenuSub>
+          </DropdownMenuGroup>
+          <DropdownMenuSeparator />
 
-        <DropdownMenuGroup>
-          <a target="_blank" rel="noreferrer" href={DONATION_LINK}>
-            <DropdownMenuItem>Donate</DropdownMenuItem>
+          <DropdownMenuGroup>
+            <a target="_blank" rel="noreferrer" href={DONATION_LINK}>
+              <DropdownMenuItem>Donate</DropdownMenuItem>
+            </a>
+            <a href={`${GITHUB_LINK}/rrdex`} target="_blank" rel="noreferrer">
+              <DropdownMenuItem>Github</DropdownMenuItem>
+            </a>
+          </DropdownMenuGroup>
+          <DropdownMenuSeparator />
+          <a href={`mailto:${EMAIL_LINK}`}>
+            <DropdownMenuItem>Contact</DropdownMenuItem>
           </a>
-          <a href={`${GITHUB_LINK}/rrdex`} target="_blank" rel="noreferrer">
-            <DropdownMenuItem>Github</DropdownMenuItem>
-          </a>
-        </DropdownMenuGroup>
-        <DropdownMenuSeparator />
-        <a href={`mailto:${EMAIL_LINK}`}>
-          <DropdownMenuItem>Contact</DropdownMenuItem>
-        </a>
-      </DropdownMenuContent>
+        </DropdownMenuContent>
+      </Suspense>
     </DropdownMenu>
   );
 }

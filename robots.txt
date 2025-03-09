@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /public/data
+Allow: /
+
+Sitemap: https://rrdex.up.railway.app
