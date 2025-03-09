@@ -1,54 +1,50 @@
-# React + TypeScript + Vite
+# Radical Red Rom Hack Pokedex
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Welcome to the documentation for the Radical Red Rom Hack Pokedex. This project was built with passion to improve the existing Pokedex available at [dex.radicalred.net](https://dex.radicalred.net) and add extra search functionality.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Comprehensive Pokémon database for Radical Red Rom Hack
+- Advanced search functionality by name, move, ability, and type
+- Clean and minimal design with dark mode support
+- Responsive layout for desktop and mobile devices
 
-## Expanding the ESLint configuration
+## Getting Started
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+To get started with our Pokedex, please navigate through the sections using the sections dropdown menu. Here are some key features to explore:
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+- **Search Pokémon**: Find Pokémon by name, move, ability, or type
+- **View Details**: Get comprehensive information about each Pokémon
+- **Filter Moves**: Filter moves by type, category, and more
+- **Filter Abilities**: Filter abilities by generation and category
+- **(Coming Soon) Compare Stats**: Compare different Pokémon side by side
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+> **Note on Performance**: A lot of data is being loaded in, so some load times may vary. This will improve over time as we implement different optimization techniques.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Data Sources
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+All data was collected through web scraping and by modifying existing data sets. The quality and accuracy of the data will continue to improve over time as I refine the collection methods and sources.
+
+## Development Status
+
+This project was built over a few days and is still under active development. I will do my best to improve and add new features rapidly. The API will be improving over time, and new features will be added based on user feedback and requests.
+
+## Community Resources
+
+These community-maintained resources provide valuable information for Radical Red players:
+
+- [Pokémon Locations & Raid Dens v4.1](https://docs.google.com/spreadsheets/d/15mUFUcN8250hRL7iUOJPX0s1rMcgVuJPuHANioL4o2o/edit?gid=45654363#gid=45654363): Comprehensive guide to finding Pokémon in the wild and in raid dens
+- [Item, TM, and Move Tutor Locations v4.1](https://docs.google.com/spreadsheets/d/16vBrWJDrsw5QsZyiJjD8ACH7079ZCkQ5BaPtioJOPTk/edit?gid=1493231050#gid=1493231050): Find all items, TMs, and move tutors throughout the game
+- [Reddit Radical Red Community](https://www.reddit.com/r/pokemonradicalred/): Join discussions, get tips, and share your experiences with other players
+
+## Contributing
+
+I welcome contributions to the Pokedex. If you find any errors or have suggestions for improvement, please reach out or submit a pull request on our GitHub repository. This was built for the community so any help is appreciated.
+
+## Contact
+
+If you have any questions or feature requests, please don't hesitate to message us. This project was built mainly for educational purposes, and we're always looking to improve it.
+
+## Ready to explore?
+
+Start searching for your favorite Pokémon from the Radical Red Rom Hack.
