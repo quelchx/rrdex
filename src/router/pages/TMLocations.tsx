@@ -22,9 +22,9 @@ export function TMLocationsPage() {
   if (isError || data === undefined) return <FetchError />;
 
   return (
-    <div className="container mx-auto py-2 px-4">
-      <div className="max-w-6xl mx-auto">
-        <div className="flex justify-between items-center mb-6">
+    <div className="container px-4 py-2 mx-auto">
+      <div className="max-w-5xl mx-auto">
+        <div className="flex items-center justify-between mb-6">
           <div>
             <h1 className="text-4xl font-bold page-heading">
               Pokemon TMs & HMs
@@ -45,18 +45,18 @@ export function TMLocationsPage() {
         </div>
 
         <div className="max-h-[70vh] overflow-y-auto pr-2">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             {filteredTMs.map((tm) => (
               <Card
                 key={tm.no}
-                className="border-2 hover:border-primary transition-colors"
+                className="transition-colors border-2 hover:border-primary"
               >
                 <CardContent className="p-4">
                   <div className="flex items-center justify-between mb-2">
-                    <span className="font-mono text-sm bg-muted px-2 py-1 rounded">
+                    <span className="px-2 py-1 font-mono text-sm rounded bg-muted">
                       TM{tm.no}
                     </span>
-                    <h3 className="font-bold text-lg">{tm.name}</h3>
+                    <h3 className="text-lg font-bold">{tm.name}</h3>
                   </div>
                   <p className="text-sm text-muted-foreground">{tm.info}</p>
                 </CardContent>
@@ -65,13 +65,13 @@ export function TMLocationsPage() {
           </div>
 
           {filteredTMs.length === 0 && (
-            <div className="text-center py-8 text-muted-foreground">
+            <div className="py-8 text-center text-muted-foreground">
               No TMs found matching "{searchQuery}"
             </div>
           )}
         </div>
 
-        <div className="mt-4 text-center text-sm text-muted-foreground">
+        <div className="mt-4 text-sm text-center text-muted-foreground">
           Showing {filteredTMs.length} of {data.length} TMs
         </div>
       </div>

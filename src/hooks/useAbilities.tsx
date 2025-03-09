@@ -1,7 +1,7 @@
 import { Ability } from "@/constants/types";
 import { useQuery } from "@tanstack/react-query";
 
-async function getAbilities(): Promise<{ abilities: Ability[] }> {
+async function fetcher(): Promise<{ abilities: Ability[] }> {
   try {
     const response = await fetch("/data/abilities.json");
     return await response.json();
@@ -13,7 +13,7 @@ async function getAbilities(): Promise<{ abilities: Ability[] }> {
 export function useAbilities() {
   return useQuery({
     queryKey: ["abilities"],
-    queryFn: getAbilities,
+    queryFn: fetcher,
     refetchOnMount: false,
     refetchOnWindowFocus: false,
   });

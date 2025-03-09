@@ -3,7 +3,7 @@ import { usePokedexStore } from "@/store";
 import { useQuery } from "@tanstack/react-query";
 import { useEffect } from "react";
 
-async function fetchPokedex(): Promise<Pokemon[]> {
+async function fetcher(): Promise<Pokemon[]> {
   try {
     const response = await fetch("/data/pokedex.json");
     return await response.json();
@@ -16,7 +16,7 @@ export function usePokedex() {
   const { pokedex, setPokedex } = usePokedexStore();
   const { data, isLoading, isError, isFetching } = useQuery({
     queryKey: ["pokedex"],
-    queryFn: fetchPokedex,
+    queryFn: fetcher,
     refetchOnMount: false,
     refetchOnWindowFocus: false,
   });

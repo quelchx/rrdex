@@ -6,7 +6,7 @@ type TMLocation = {
   info: string;
 };
 
-async function getTMLocations(): Promise<TMLocation[]> {
+async function fetcher(): Promise<TMLocation[]> {
   try {
     const response = await fetch("/data/tm-list.json");
     return await response.json();
@@ -16,5 +16,5 @@ async function getTMLocations(): Promise<TMLocation[]> {
 }
 
 export function useTMLocations() {
-  return useQuery({ queryKey: ["tm-locations"], queryFn: getTMLocations });
+  return useQuery({ queryKey: ["tm-locations"], queryFn: fetcher });
 }

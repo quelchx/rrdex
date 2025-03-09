@@ -9,8 +9,8 @@ type PokemonMoveProps = {
 export const PokemonMove = (props: PokemonMoveProps) => {
   const { move } = props;
   return (
-    <div className="border rounded-md p-3 mb-2 hover:bg-muted/50 transition-colors">
-      <div className="flex flex-wrap justify-between items-center gap-2 mb-1">
+    <div className="p-3 mb-2 border rounded-md hover:bg-muted/50 transition-colors">
+      <div className="flex flex-wrap items-center justify-between mb-1 gap-2">
         <div className="flex items-center gap-2">
           {move.level && (
             <Badge variant="outline" className="text-xs">
@@ -26,7 +26,7 @@ export const PokemonMove = (props: PokemonMoveProps) => {
           </Badge>
         </div>
       </div>
-      <div className="flex flex-wrap gap-x-4 gap-y-1 text-sm text-muted-foreground mb-1">
+      <div className="flex flex-wrap mb-1 text-sm gap-x-4 gap-y-1 text-muted-foreground">
         <span>Power: {move.power}</span>
         {move.accuracy && <span>Accuracy: {move.accuracy}</span>}
       </div>

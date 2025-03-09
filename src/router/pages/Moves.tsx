@@ -53,9 +53,9 @@ export function MovesPage() {
   }
 
   return (
-    <div className="container mx-auto py-2 px-4">
-      <div className="max-w-6xl mx-auto">
-        <div className="flex justify-between items-center mb-6">
+    <div className="container px-4 py-2 mx-auto">
+      <div className="max-w-5xl mx-auto">
+        <div className="flex items-center justify-between mb-6">
           <div>
             <h1 className="text-4xl font-bold page-heading">Pokémon Moves</h1>
             <p className="text-muted-foreground">
@@ -65,7 +65,7 @@ export function MovesPage() {
           </div>
         </div>
 
-        <div className="flex flex-col sm:flex-row gap-4 mb-6 px-1">
+        <div className="flex flex-col gap-4 px-1 mb-6 sm:flex-row">
           <div className="relative flex-grow">
             <SearchBar
               searchQuery={searchQuery}
@@ -98,19 +98,19 @@ export function MovesPage() {
           </Select>
         </div>
 
-        <p className="text-sm text-muted-foreground mb-4">
+        <p className="mb-4 text-sm text-muted-foreground">
           Showing {filteredMoves.length} of {data.moves.length} moves
         </p>
 
         <div className="h-[calc(100vh-280px)] overflow-y-auto pr-2 pb-4 custom-scrollbar">
           {filteredMoves.length === 0 ? (
-            <div className="text-center py-10">
+            <div className="py-10 text-center">
               <p className="text-muted-foreground">
                 No moves found matching your search criteria.
               </p>
             </div>
           ) : (
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
               {filteredMoves.map((move) => (
                 <MoveCard key={move.ID} move={move} />
               ))}

@@ -4,15 +4,17 @@ import { NavLink } from "react-router";
 
 export function AboutPage() {
   return (
-    <main className="mx-auto max-w-3xl p-6">
-      <h1 className="mb-6 text-4xl font-bold">Radical Red Rom Hack Pokedex</h1>
+    <main className="max-w-5xl p-6 mx-auto">
+      <h1 className="mb-6 text-4xl font-bold page-heading">
+        Radical Red Rom Hack Pokedex
+      </h1>
       <p className="mb-4">
         Welcome to the documentation for the Radical Red Rom Hack Pokedex. This
         project was built with passion to improve the existing Pokedex available
         at{" "}
         <a
           href="https://dex.radicalred.net/"
-          className="text-primary underline"
+          className="underline text-primary"
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -21,20 +23,20 @@ export function AboutPage() {
         and add extra search functionality.
       </p>
 
-      <h2 className="mb-4 mt-8 text-2xl font-semibold">Features</h2>
-      <ul className="mb-4 list-inside list-disc space-y-1">
+      <h2 className="mt-8 mb-4 text-2xl font-semibold">Features</h2>
+      <ul className="mb-4 space-y-1 list-disc list-inside">
         <li>Comprehensive Pokémon database for Radical Red Rom Hack</li>
         <li>Advanced search functionality by name, move, ability, and type</li>
         <li>Clean and minimal design with dark mode support</li>
         <li>Responsive layout for desktop and mobile devices</li>
       </ul>
 
-      <h2 className="mb-4 mt-8 text-2xl font-semibold">Getting Started</h2>
+      <h2 className="mt-8 mb-4 text-2xl font-semibold">Getting Started</h2>
       <p className="mb-4">
         To get started with our Pokedex, please navigate through the sections
         using the sections dropdown menu. Here are some key features to explore:
       </p>
-      <ul className="mb-4 list-inside list-disc space-y-1">
+      <ul className="mb-4 space-y-1 list-disc list-inside">
         <li>
           <strong>Search Pokémon</strong>: Find Pokémon by name, move, ability,
           or type
@@ -56,7 +58,7 @@ export function AboutPage() {
         </li>
       </ul>
 
-      <div className="my-8 rounded-lg border bg-muted/50 p-4">
+      <div className="p-4 my-8 border rounded-lg bg-muted/50">
         <h3 className="mb-2 font-medium">Note on Performance</h3>
         <p>
           A lot of data is being loaded in, so some load times may vary. This
@@ -65,14 +67,14 @@ export function AboutPage() {
         </p>
       </div>
 
-      <h2 className="mb-4 mt-8 text-2xl font-semibold">Data Sources</h2>
+      <h2 className="mt-8 mb-4 text-2xl font-semibold">Data Sources</h2>
       <p className="mb-4">
         All data was collected through web scraping and by modifying existing
         data sets. The quality and accuracy of the data will continue to improve
         over time as I refine the collection methods and sources.
       </p>
 
-      <h2 className="mb-4 mt-8 text-2xl font-semibold">Development Status</h2>
+      <h2 className="mt-8 mb-4 text-2xl font-semibold">Development Status</h2>
       <p className="mb-4">
         This project was built over a few days and is still under active
         development. I will do my best to improve and add new features rapidly.
@@ -80,7 +82,7 @@ export function AboutPage() {
         based on user feedback and requests.
       </p>
 
-      <h2 className="mb-4 mt-8 text-2xl font-semibold">Community Resources</h2>
+      <h2 className="mt-8 mb-4 text-2xl font-semibold">Community Resources</h2>
       <p className="mb-4">
         These community-maintained resources provide valuable information for
         Radical Red players:
@@ -144,7 +146,7 @@ export function AboutPage() {
         </li>
       </ul>
 
-      <h2 className="mb-4 mt-8 text-2xl font-semibold">Contributing</h2>
+      <h2 className="mt-8 mb-4 text-2xl font-semibold">Contributing</h2>
       <p className="mb-4">
         I welcome contributions to the Pokedex. If you find any errors or have
         suggestions for improvement, please reach out or submit a pull request
@@ -152,14 +154,14 @@ export function AboutPage() {
         is appreciated.
       </p>
 
-      <h2 className="mb-4 mt-8 text-2xl font-semibold">Contact</h2>
+      <h2 className="mt-8 mb-4 text-2xl font-semibold">Contact</h2>
       <p className="mb-4">
         If you have any questions or feature requests, please don&apos;t
         hesitate to message us. This project was built mainly for educational
         purposes, and we&apos;re always looking to improve it.
       </p>
 
-      <div className="mt-12 rounded-lg border bg-primary/5 p-6 text-center">
+      <div className="p-6 mt-12 text-center border rounded-lg bg-primary/5">
         <h3 className="mb-2 text-xl font-medium">Ready to explore?</h3>
         <p className="mb-4">
           Start searching for your favorite Pokémon from the Radical Red Rom

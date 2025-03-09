@@ -195,7 +195,7 @@ export const pokemonColumns: ColumnDef<Pokemon>[] = [
     },
     cell: ({ row }) => {
       return (
-        <StatCell row={row} target="BST" className="font-semibold relative" />
+        <StatCell row={row} target="BST" className="relative font-semibold" />
       );
     },
   },

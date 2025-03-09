@@ -1,7 +1,7 @@
 import { MoveDetails } from "@/constants/types";
 import { useQuery } from "@tanstack/react-query";
 
-async function getMoves(): Promise<{ moves: MoveDetails[] }> {
+async function fetcher(): Promise<{ moves: MoveDetails[] }> {
   try {
     const response = await fetch("/data/moves.json");
     return await response.json();
@@ -13,7 +13,7 @@ async function getMoves(): Promise<{ moves: MoveDetails[] }> {
 export function useMoves() {
   return useQuery({
     queryKey: ["moves"],
-    queryFn: getMoves,
+    queryFn: fetcher,
     refetchOnMount: false,
     refetchOnWindowFocus: false,
   });

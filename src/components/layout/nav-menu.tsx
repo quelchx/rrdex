@@ -16,7 +16,7 @@ import {
 
 import { Button } from "@/components/ui/button";
 import { ChevronDown } from "lucide-react";
-import { DONATION_LINK, EMAIL_LINK, GITHUB_LINK } from "@/constants";
+import { DONATION_LINK, EMAIL_LINK, GITHUB_LINK, NAV_LINKS } from "@/constants";
 
 const DropdownMenuContent = lazy(() =>
   import("@/components/ui/dropdown-menu").then((module) => ({
@@ -43,7 +43,7 @@ function MobileMenuLink(props: MobileNavLinkProps) {
   );
 }
 
-export function LinkMenu() {
+export function NavMenu() {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
@@ -57,19 +57,35 @@ export function LinkMenu() {
           <DropdownMenuLabel>Browse Sections</DropdownMenuLabel>
           <DropdownMenuSeparator />
           <DropdownMenuGroup>
-            <MobileMenuLink to="/">Pokédex</MobileMenuLink>
-            <MobileMenuLink to="/abilities">Abilities</MobileMenuLink>
-            <MobileMenuLink to="/moves">Moves</MobileMenuLink>
-            <MobileMenuLink to="/tm-locations">TMs & HMs</MobileMenuLink>
-            <MobileMenuLink to="/move-tutors">Move Tutors</MobileMenuLink>
-            <NavLink to="/about">
+            {NAV_LINKS.map((link) => {
+              return (
+                link.to !== "/about" && (
+                  <MobileMenuLink key={link.to} to={link.to}>
+                    {link.text}
+                  </MobileMenuLink>
+                )
+              );
+            })}
+            <NavLink
+              to="/overworld-items"
+              className={({ isActive }) =>
+                isActive ? "text-red-600" : "inherit"
+              }
+            >
+              <DropdownMenuItem>Overworld Items</DropdownMenuItem>
+            </NavLink>
+            <NavLink
+              to="/about"
+              className={({ isActive }) =>
+                isActive ? "text-red-600" : "inherit"
+              }
+            >
               <DropdownMenuItem>About</DropdownMenuItem>
             </NavLink>
             <DropdownMenuSub>
               <DropdownMenuSubTrigger>Coming Soon</DropdownMenuSubTrigger>
               <DropdownMenuPortal>
                 <DropdownMenuSubContent>
-                  <DropdownMenuItem disabled>Overworld Items</DropdownMenuItem>
                   <DropdownMenuItem disabled>Mega Stones</DropdownMenuItem>
                   <DropdownMenuItem disabled>Shops</DropdownMenuItem>
                   <DropdownMenuItem disabled>Z Crystals</DropdownMenuItem>

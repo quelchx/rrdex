@@ -32,10 +32,10 @@ export function AbilitiesPage() {
   }
 
   return (
-    <div className="container mx-auto py-2 px-4">
+    <div className="container px-4 py-2 mx-auto">
       <div className="max-w-5xl mx-auto">
         <div className="flex flex-col mb-8">
-          <h1 className="text-4xl font-bold mb-2 page-heading">
+          <h1 className="mb-2 text-4xl font-bold page-heading">
             Pokémon Abilities
           </h1>
           <p className="text-muted-foreground">
@@ -51,20 +51,20 @@ export function AbilitiesPage() {
             placeholder="Search by name, ID, or description..."
           />
         </div>
-        <p className="text-sm text-muted-foreground mb-4">
+        <p className="mb-4 text-sm text-muted-foreground">
           Showing {filteredAbilities.length} of {data.abilities.length}{" "}
           abilities
         </p>
 
         <div className="h-[calc(100vh-250px)] overflow-y-auto pr-2 pb-4 custom-scrollbar">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {filteredAbilities.map((ability) => (
               <Card
                 key={ability.ID}
                 className={`border-2 transition-all duration-200 hover:shadow-md`}
               >
                 <CardHeader className="pb-2">
-                  <div className="flex justify-between items-start">
+                  <div className="flex items-start justify-between">
                     <CardTitle className="text-lg font-bold">
                       {ability.names[0]}
                     </CardTitle>
@@ -79,7 +79,7 @@ export function AbilitiesPage() {
                   </p>
                   {ability.names.length > 1 && (
                     <div className="mt-2">
-                      <p className="text-xs text-muted-foreground mb-1">
+                      <p className="mb-1 text-xs text-muted-foreground">
                         Also known as:
                       </p>
                       <div className="flex flex-wrap gap-1">

@@ -11,7 +11,7 @@ type SearchBarProps = {
 export function SearchBar(props: SearchBarProps) {
   return (
     <>
-      <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground h-4 w-4" />
+      <Search className="absolute w-4 h-4 left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground" />
       <Input
         type="text"
         className={cn("pl-10", props.className)}

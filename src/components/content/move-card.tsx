@@ -29,13 +29,13 @@ export function MoveCard(props: MoveCardProps) {
   return (
     <Card className="border-2 transition-all duration-200 hover:shadow-md">
       <CardHeader className="pb-2">
-        <div className="flex justify-between items-start">
+        <div className="flex items-start justify-between">
           <CardTitle className="text-lg font-bold">{move.name}</CardTitle>
           <Badge variant="outline" className="text-xs">
             #{move.ID}
           </Badge>
         </div>
-        <div className="flex gap-2 mt-1">
+        <div className="flex mt-1 gap-2">
           <Badge className={`${getTypeColor(move.type)}`}>{move.type}</Badge>
           <Badge variant="outline">{splitNames[move.split]}</Badge>
         </div>
@@ -46,8 +46,8 @@ export function MoveCard(props: MoveCardProps) {
         <div className="grid grid-cols-2 gap-x-4 gap-y-2">
           {move.power > 0 && (
             <div className="col-span-1">
-              <div className="flex items-center gap-1 text-sm mb-1">
-                <Zap className="h-4 w-4" />
+              <div className="flex items-center mb-1 text-sm gap-1">
+                <Zap className="w-4 h-4" />
                 <span>Power</span>
               </div>
               <div className={`h-2 bg-gray-200 rounded-md overflow-hidden`}>
@@ -58,13 +58,13 @@ export function MoveCard(props: MoveCardProps) {
                   }}
                 />
               </div>
-              <div className="text-right text-xs mt-1">{move.power}</div>
+              <div className="mt-1 text-xs text-right">{move.power}</div>
             </div>
           )}
 
           <div className="col-span-1">
-            <div className="flex items-center gap-1 text-sm mb-1">
-              <Target className="h-4 w-4" />
+            <div className="flex items-center mb-1 text-sm gap-1">
+              <Target className="w-4 h-4" />
               <span>Accuracy</span>
             </div>
 
@@ -76,12 +76,12 @@ export function MoveCard(props: MoveCardProps) {
                 }}
               />
             </div>
-            <div className="text-right text-xs mt-1">{move.accuracy}%</div>
+            <div className="mt-1 text-xs text-right">{move.accuracy}%</div>
           </div>
 
           <div className="col-span-1">
-            <div className="flex items-center gap-1 text-sm mb-1">
-              <Clock className="h-4 w-4" />
+            <div className="flex items-center mb-1 text-sm gap-1">
+              <Clock className="w-4 h-4" />
               <span>PP</span>
             </div>
             <div className={`h-2 bg-gray-200 rounded-md overflow-hidden`}>
@@ -92,14 +92,14 @@ export function MoveCard(props: MoveCardProps) {
                 }}
               />
             </div>
-            <div className="text-right text-xs mt-1">{move.pp}</div>
+            <div className="mt-1 text-xs text-right">{move.pp}</div>
           </div>
         </div>
 
         <div className="col-span-1">
           <div className="text-sm">
             <span className="font-medium">Target:</span>
-            <span className="text-xs ml-1">
+            <span className="ml-1 text-xs">
               {targetNames.find((target) => target.value === move.target)
                 ?.name || "Unknown"}
             </span>
@@ -122,7 +122,7 @@ export function MoveCard(props: MoveCardProps) {
           {move.secondaryEffectChance > 0 && (
             <div className="text-sm">
               <span className="font-medium">Effect Chance:</span>
-              <span className="text-xs ml-1">
+              <span className="ml-1 text-xs">
                 {move.secondaryEffectChance}%
               </span>
             </div>

@@ -20,13 +20,14 @@ import { Button } from "../ui/button";
 import { CircleX } from "lucide-react";
 
 export function Pokemon() {
+  const scrollRef = useRef<HTMLDivElement>(null);
   const { selectedPokemon } = useSelectedPokemonStore();
   const { setPokemonDialog, resetCurrentPokemon } = useSelectedPokemonStore();
+
   function handleReset() {
     setPokemonDialog(false);
     resetCurrentPokemon();
   }
-  const scrollRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     scrollRef.current?.scrollTo(0, 0);
@@ -35,10 +36,10 @@ export function Pokemon() {
   if (!selectedPokemon) return null;
 
   return (
-    <div className="container mx-auto p-4">
+    <div className="container p-4 mx-auto">
       <div className="max-w-4xl mx-auto">
-        <div className="px-6 pt-6 pb-2 sticky top-0 z-10">
-          <h1 className="text-2xl flex items-center gap-2">
+        <div className="sticky top-0 z-10 px-6 pt-6 pb-2">
+          <h1 className="flex items-center gap-2 text-2xl">
             <Button variant={"ghost"} onClick={handleReset}>
               <CircleX />
             </Button>
@@ -54,180 +55,201 @@ export function Pokemon() {
           </h1>
         </div>
 
-        <ScrollArea
-          ref={scrollRef}
-          type="always"
-          className="h-[70vh] px-6 pb-6"
-        >
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-2">
-            {/* Pokemon Image */}
-            <Card className="col-span-1 overflow-hidden border-none shadow-none">
-              <CardContent className="p-4 flex flex-col items-center">
-                <div className="bg-muted rounded-md p-4 w-full flex justify-center">
-                  <img
-                    loading="lazy"
-                    src={selectedPokemon.sprite || UNKNOWN_SPRITE_URL}
-                    alt={selectedPokemon.name}
-                    width={120}
-                    height={120}
-                    className="pixelated"
-                  />
-                </div>
-                <h3 className="font-semibold my-3">Abilities</h3>
-                <div className="space-y-2">
-                  {selectedPokemon.abilities.map((ability, index) => (
-                    <div
-                      key={index}
-                      className={cn(
-                        "flex flex-col p-2 bg-muted/50 rounded-md",
-                        index === 2 &&
-                          "text-pink-600 font-semibold bg-purple-500/10"
-                      )}
-                    >
-                      <span className="font-semibold text-sm">
-                        {ability.split("-")[0]}
-                      </span>
-                      <span className="text-muted-foreground text-xs">
-                        {ability.split("-")[1]}
-                      </span>
-                    </div>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
-
-            {/* Stats */}
-            <Card className="col-span-1 md:col-span-2 border-none shadow-none">
-              <CardContent className="p-4">
-                <h3 className="font-semibold mb-3">Base Stats</h3>
-                <div className="space-y-3">
-                  {selectedPokemon.stats
-                    .filter((stat) => stat.title !== "BST")
-                    .map((stat) => (
-                      <div key={stat.title} className="space-y-1">
-                        <div className="flex justify-between text-sm">
-                          <span>{stat.title}</span>
-                          <span>{stat.value}</span>
-                        </div>
-                        <div
-                          className={`h-2 bg-gray-200 rounded-md overflow-hidden`}
-                        >
-                          <div
-                            className={`h-full ${getStatColor(
-                              Number.parseInt(stat.value)
-                            )}`}
-                            style={{
-                              width: `${
-                                (Number.parseInt(stat.value) / 255) * 100
-                              }%`,
-                            }}
-                          />
-                        </div>
-                      </div>
-                    ))}
-                  <div className="pt-2 border-t">
-                    <div className="flex justify-between font-semibold">
-                      <span>BST</span>
-                      <span>
-                        {
-                          selectedPokemon.stats.find((s) => s.title === "BST")
-                            ?.value
-                        }
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-          </div>
-
-          {/* Type Effectiveness */}
-          <Card className="my-2">
-            <CardContent className="p-4">
-              <h3 className="font-semibold mb-3">Type Effectiveness</h3>
-              <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-2">
-                {selectedPokemon.coverage.map((item) => (
-                  <div
-                    key={item.type}
-                    className={`p-2 rounded-md text-center ${getMultiplierColor(
-                      item.multiplier
-                    )}`}
-                  >
-                    <div className="text-xs">{item.type}</div>
-                    <div className="font-bold">{item.multiplier}</div>
-                  </div>
-                ))}
-              </div>
-            </CardContent>
-          </Card>
-
-          {/* Evolution */}
-          <Card className="mb-6 border-none shadow-none">
-            <CardContent className="p-4">
-              <h3 className="font-semibold mb-3">Evolution</h3>
-              <div className="space-y-2">
-                {selectedPokemon.evolution.map((evo, index) => (
-                  <div key={index} className="p-2 bg-muted/50 rounded-md">
-                    {evo}
-                  </div>
-                ))}
-              </div>
-              <div className="mt-4 flex justify-center">
-                <ScrollArea
-                  className="whitespace-nowrap rounded-md border"
-                  scrollHideDelay={500}
-                >
-                  <div className="flex gap-2">
-                    {selectedPokemon.familyTree.map((img, index) => (
+        <ScrollArea ref={scrollRef} type="always" className="h-[65vh] px-6">
+          <Tabs defaultValue="overview">
+            <TabsList className="w-full rounded-[2px]">
+              <TabsTrigger value="overview" className="rounded-[2px]">
+                Overview
+              </TabsTrigger>
+              <TabsTrigger value="spread" className="rounded-[2px]">
+                Type Effectiveness
+              </TabsTrigger>
+              <TabsTrigger value="evo" className="rounded-[2px]">
+                Evolution
+              </TabsTrigger>
+              <TabsTrigger value="moves" className="rounded-[2px]">
+                Moves
+              </TabsTrigger>
+            </TabsList>
+            <TabsContent value="overview">
+              <div className="grid grid-cols-1 gap-8 mb-2 md:grid-cols-3">
+                {/* Pokemon Image */}
+                <Card className="col-span-1 overflow-hidden border-none shadow-none">
+                  <CardContent className="flex flex-col items-center p-0">
+                    <div className="flex justify-center w-full p-4 rounded-md bg-muted">
                       <img
-                        key={index}
-                        src={img || UNKNOWN_SPRITE_URL}
-                        alt={`Evolution stage ${index + 1}`}
-                        width={64}
-                        height={64}
+                        loading="lazy"
+                        src={selectedPokemon.sprite || UNKNOWN_SPRITE_URL}
+                        alt={selectedPokemon.name}
+                        width={120}
+                        height={120}
                         className="pixelated"
                       />
+                    </div>
+                    <h3 className="my-3 font-semibold">Abilities</h3>
+                    <div className="space-y-2">
+                      {selectedPokemon.abilities.map((ability, index) => (
+                        <div
+                          key={index}
+                          className={cn(
+                            "flex flex-col p-2 bg-muted/50 rounded-md",
+                            index === 2 &&
+                              "text-pink-600 font-semibold bg-purple-500/10"
+                          )}
+                        >
+                          <span className="text-sm font-semibold">
+                            {ability.split("-")[0]}
+                          </span>
+                          <span className="text-xs text-muted-foreground">
+                            {ability.split("-")[1]}
+                          </span>
+                        </div>
+                      ))}
+                    </div>
+                  </CardContent>
+                </Card>
+
+                {/* Stats */}
+                <Card className="col-span-1 border-none shadow-none md:col-span-2">
+                  <CardContent className="p-0">
+                    <h3 className="mb-3 font-semibold">Base Stats</h3>
+                    <div className="space-y-3">
+                      {selectedPokemon.stats
+                        .filter((stat) => stat.title !== "BST")
+                        .map((stat) => (
+                          <div key={stat.title} className="space-y-1">
+                            <div className="flex justify-between text-sm">
+                              <span>{stat.title}</span>
+                              <span>{stat.value}</span>
+                            </div>
+                            <div
+                              className={`h-2 bg-gray-200 rounded-md overflow-hidden`}
+                            >
+                              <div
+                                className={`h-full ${getStatColor(
+                                  Number.parseInt(stat.value)
+                                )}`}
+                                style={{
+                                  width: `${
+                                    (Number.parseInt(stat.value) / 255) * 100
+                                  }%`,
+                                }}
+                              />
+                            </div>
+                          </div>
+                        ))}
+                      <div className="pt-2 border-t">
+                        <div className="flex justify-between font-semibold">
+                          <span>BST</span>
+                          <span>
+                            {
+                              selectedPokemon.stats.find(
+                                (s) => s.title === "BST"
+                              )?.value
+                            }
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              </div>
+            </TabsContent>
+            <TabsContent value="spread">
+              <Card className="border-none">
+                <CardContent className="p-0">
+                  <div className="grid grid-cols-3 gap-2 sm:grid-cols-4 md:grid-cols-6">
+                    {selectedPokemon.coverage.map((item) => (
+                      <div
+                        key={item.type}
+                        className={`p-2 rounded-md text-center ${getMultiplierColor(
+                          item.multiplier
+                        )}`}
+                      >
+                        <div className="text-xs">{item.type}</div>
+                        <div className="font-bold">{item.multiplier}</div>
+                      </div>
                     ))}
                   </div>
-                  <ScrollBar orientation="horizontal" />
-                </ScrollArea>
-              </div>
-            </CardContent>
-          </Card>
+                </CardContent>
+              </Card>
+            </TabsContent>
+            <TabsContent value="evo">
+              <Card className="border-none shadow-none">
+                <CardContent className="p-0">
+                  <div className="space-y-2">
+                    {selectedPokemon.evolution.map((evo, index) => (
+                      <div key={index} className="p-2 rounded-md bg-muted/50">
+                        {evo}
+                      </div>
+                    ))}
+                  </div>
+                  <div className="flex justify-center mt-4">
+                    <ScrollArea
+                      className="border rounded-md whitespace-nowrap"
+                      scrollHideDelay={500}
+                    >
+                      <div className="flex gap-2">
+                        {selectedPokemon.familyTree.map((img, index) => (
+                          <img
+                            key={index}
+                            src={img || UNKNOWN_SPRITE_URL}
+                            alt={`Evolution stage ${index + 1}`}
+                            width={90}
+                            height={90}
+                            className="pixelated"
+                          />
+                        ))}
+                      </div>
+                      <ScrollBar orientation="horizontal" />
+                    </ScrollArea>
+                  </div>
+                </CardContent>
+              </Card>
+            </TabsContent>
+            <TabsContent value="moves" className="">
+              <Card className="pt-0 border-none shadow-none">
+                <CardContent className="p-0">
+                  <Tabs defaultValue="levelup">
+                    <TabsList className="grid w-full grid-cols-4 mb-4 rounded-[2px]">
+                      <TabsTrigger value="levelup" className="rounded-[2px]">
+                        Level Up
+                      </TabsTrigger>
+                      <TabsTrigger value="tm" className="rounded-[2px]">
+                        TM
+                      </TabsTrigger>
+                      <TabsTrigger className="rounded-[2px]" value="egg">
+                        Egg
+                      </TabsTrigger>
+                      <TabsTrigger className="rounded-[2px]" value="tutor">
+                        Tutor
+                      </TabsTrigger>
+                    </TabsList>
 
-          {/* Moves */}
-          <Card>
-            <CardContent className="p-4">
-              <Tabs defaultValue="levelup">
-                <TabsList className="grid grid-cols-4 mb-4 w-full">
-                  <TabsTrigger value="levelup">Level Up</TabsTrigger>
-                  <TabsTrigger value="tm">TM</TabsTrigger>
-                  <TabsTrigger value="egg">Egg</TabsTrigger>
-                  <TabsTrigger value="tutor">Tutor</TabsTrigger>
-                </TabsList>
+                    <TabsContent value="levelup" className="space-y-2">
+                      {selectedPokemon.levelUpMoves.map((move, index) => (
+                        <PokemonMove key={index} move={move} />
+                      ))}
+                    </TabsContent>
 
-                <TabsContent value="levelup" className="space-y-2">
-                  {selectedPokemon.levelUpMoves.map((move, index) => (
-                    <PokemonMove key={index} move={move} />
-                  ))}
-                </TabsContent>
+                    <TabsContent value="tm" className="space-y-2">
+                      <PokemonMoveSet
+                        moves={selectedPokemon.learnableTechnicalMachines}
+                      />
+                    </TabsContent>
 
-                <TabsContent value="tm" className="space-y-2">
-                  <PokemonMoveSet
-                    moves={selectedPokemon.learnableTechnicalMachines}
-                  />
-                </TabsContent>
+                    <TabsContent value="egg" className="space-y-2">
+                      <PokemonMoveSet moves={selectedPokemon.eggMoves} />
+                    </TabsContent>
 
-                <TabsContent value="egg" className="space-y-2">
-                  <PokemonMoveSet moves={selectedPokemon.eggMoves} />
-                </TabsContent>
-
-                <TabsContent value="tutor" className="space-y-2">
-                  <PokemonMoveSet moves={selectedPokemon.tutorMoves} />
-                </TabsContent>
-              </Tabs>
-            </CardContent>
-          </Card>
+                    <TabsContent value="tutor" className="space-y-2">
+                      <PokemonMoveSet moves={selectedPokemon.tutorMoves} />
+                    </TabsContent>
+                  </Tabs>
+                </CardContent>
+              </Card>
+            </TabsContent>
+          </Tabs>
         </ScrollArea>
       </div>
     </div>

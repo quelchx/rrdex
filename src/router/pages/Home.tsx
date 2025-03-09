@@ -17,9 +17,9 @@ export function HomePage() {
   return (
     <>
       {!isDialogOpen && (
-        <div className="space-y-4 text-center mb-8">
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight">
-            <span className="bg-gradient-to-r from-red-500 via-red-600 to-red-700 bg-clip-text text-transparent">
+        <div className="mb-8 space-y-4 text-center">
+          <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl md:text-6xl">
+            <span className="text-transparent bg-gradient-to-r from-red-500 via-red-600 to-red-700 bg-clip-text">
               Radical Red Pokédex
             </span>
           </h1>
@@ -31,7 +31,7 @@ export function HomePage() {
         </div>
       )}
 
-      <div className="w-full max-w-5xl mx-auto rounded-lg border bg-card p-4 shadow-sm">
+      <div className="w-full max-w-5xl p-4 mx-auto border rounded-lg shadow-sm bg-card">
         {isDialogOpen && selectedPokemon ? (
           <div className="space-y-4">
             <Suspense fallback={<LoadingSpinner />}>
