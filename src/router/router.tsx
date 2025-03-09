@@ -4,7 +4,7 @@ import { BrowserRouter, Routes, Route } from "react-router";
 import { Layout } from "@/components/layout/layout.tsx";
 import { LoadingSpinner } from "@/components/content/loading-spinner.tsx";
 
-import { HomePage } from "./pages/Home.tsx";
+// import { HomePage } from "./pages/Home.tsx";
 
 const AboutPage = lazy(() =>
   import("./pages/About.tsx").then((module) => ({ default: module.AboutPage }))
@@ -30,6 +30,10 @@ const MoveTutorsPage = lazy(() =>
   import("./pages/MoveTutors.tsx").then((module) => ({
     default: module.MoveTutorsPage,
   }))
+);
+
+const HomePage = lazy(() =>
+  import("./pages/Home.tsx").then((module) => ({ default: module.HomePage }))
 );
 
 export function Root() {
