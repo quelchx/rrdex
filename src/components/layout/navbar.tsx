@@ -34,14 +34,14 @@ export function Navbar() {
   return (
     <div className="border-b w-full flex justify-center sticky top-0 z-50 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <header className="w-full max-w-7xl ">
-        <div className="flex h-14 items-center justify-between px-6 py-2">
+        <div className="flex items-center justify-between px-6 py-2 h-14">
           <div className="flex items-center gap-2">
-            {/* <div className="h-6 w-6 rounded-full bg-red-600"></div> */}
+            {/* <div className="w-6 h-6 bg-red-600 rounded-full"></div> */}
             <svg
               xmlns="http://www.w3.org/2000/svg"
               id="Layer_1"
               data-name="Layer 1"
-              className="h-8 w-8"
+              className="w-8 h-8"
               fill="#E3350D"
               viewBox="0 0 980 978.94"
             >
@@ -53,13 +53,13 @@ export function Navbar() {
             </svg>
             <NavLink
               to="/"
-              className="font-semibold hidden sm:inline-block"
+              className="hidden font-semibold sm:inline-block"
               onClick={handleNavigateHome}
             >
               Radical Red Pokédex
             </NavLink>
           </div>
-          <div className="flex items-center gap-4 text-sm">
+          <div className="flex items-center text-sm gap-4">
             <div className="hidden md:flex gap-4">
               <NavbarLink to="/">Pokédex</NavbarLink>
               <NavbarLink to="/abilities">Abilities</NavbarLink>

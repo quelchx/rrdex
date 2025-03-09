@@ -51,16 +51,16 @@ export function SearchSuggestions(props: SearchSuggestionsProps) {
   return (
     <div
       ref={suggestionsRef}
-      className="absolute top-12 z-10 w-full mt-1 dark:bg-neutral-900 dark:text-white bg-white text-black rounded-lg shadow-lg border overflow-hidden"
+      className="absolute z-10 w-full mt-1 overflow-hidden text-black bg-white border rounded-lg shadow-lg top-12 dark:bg-neutral-900 dark:text-white"
     >
-      <div className="max-h-36 z-10 overflow-auto scrollbar">
+      <div className="z-10 overflow-auto max-h-36 scrollbar">
         {suggestions.map((suggestion, index) => (
           <div
             key={index}
-            className="flex items-center px-4 py-3 hover:bg-gray-50 cursor-pointer dark:hover:bg-neutral-800 dark:text-white"
+            className="flex items-center px-4 py-3 cursor-pointer hover:bg-gray-50 dark:hover:bg-neutral-800 dark:text-white"
             onClick={() => onSuggestionClick(suggestion)}
           >
-            <Search className="h-4 w-4 text-muted-foreground mr-3" />
+            <Search className="w-4 h-4 mr-3 text-muted-foreground" />
             <span className="text-sm">{highlightMatch(suggestion)}</span>
           </div>
         ))}

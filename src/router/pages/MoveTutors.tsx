@@ -3,7 +3,6 @@ import { FetchError } from "@/components/content/fetch-error";
 import { LoadingBlocks } from "@/components/content/loading-blocks";
 import { useMoveTutors } from "@/hooks/useMoveTutors";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 import { Switch } from "@/components/ui/switch";
 import { Label } from "@/components/ui/label";
@@ -15,13 +14,14 @@ import {
   SelectContent,
   SelectItem,
 } from "@/components/ui/select";
-import { Search } from "lucide-react";
+
 import {
   Tooltip,
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
+import { SearchBar } from "@/components/content/search-bar";
 
 export function MoveTutorsPage() {
   const { data, isLoading, isError } = useMoveTutors();
@@ -36,7 +36,6 @@ export function MoveTutorsPage() {
 
   const filteredData = useMemo(() => {
     if (!data) return [];
-
     return data.filter((tutor) => {
       if (!showPostGame && tutor.isPostGame) return false;
       if (filterType !== "all" && tutor.location !== filterType) return false;
@@ -58,17 +57,15 @@ export function MoveTutorsPage() {
   if (isError || data === undefined) return <FetchError />;
 
   return (
-    <div className="container mx-auto py-2 px-4">
+    <div className="container px-4 py-2 mx-auto">
       <div className="max-w-6xl mx-auto">
-        <div className="flex justify-between items-center">
+        <div className="flex flex-col items-start justify-between pb-2 lg:flex-row lg:pb-0 lg:items-center">
           <h1 className="text-4xl font-bold page-heading">Move Tutors</h1>
           <div className="flex items-center gap-2">
             <TooltipProvider>
               <Tooltip>
                 <TooltipTrigger asChild>
-                  <Badge className="rounded-none" variant={"default"}>
-                    Non Restricted
-                  </Badge>
+                  <Badge variant={"default"}>Non Restricted</Badge>
                 </TooltipTrigger>
                 <TooltipContent>
                   <p>Moves are available regardless of game mode</p>
@@ -81,7 +78,7 @@ export function MoveTutorsPage() {
                   <Badge
                     variant={"secondary"}
                     className={
-                      "bg-purple-500/20 text-purple-500 hover:bg-purple-500/30 rounded-none"
+                      "bg-purple-500/20 text-purple-500 hover:bg-purple-500/30"
                     }
                   >
                     Restricted
@@ -100,14 +97,12 @@ export function MoveTutorsPage() {
           locations and moves.
         </p>
 
-        <div className="flex flex-col md:flex-row gap-4 my-4 mb-6">
+        <div className="flex flex-col my-4 mb-6 md:flex-row gap-4">
           <div className="relative flex-1">
-            <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
-            <Input
-              placeholder="Search by location, person, move..."
-              className="pl-8"
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
+            <SearchBar
+              searchQuery={searchTerm}
+              setSearchQuery={setSearchTerm}
+              placeholder="Search for a move tutor"
             />
           </div>
 
@@ -136,7 +131,7 @@ export function MoveTutorsPage() {
         </div>
 
         {filteredData.length === 0 ? (
-          <div className="text-center py-10">
+          <div className="py-10 text-center">
             <p className="text-muted-foreground">
               No move tutors found matching your search.
             </p>
@@ -149,7 +144,7 @@ export function MoveTutorsPage() {
                 className={tutor.isPostGame ? "border-amber-500/50" : ""}
               >
                 <CardHeader className="pb-2">
-                  <div className="flex justify-between items-start">
+                  <div className="flex items-start justify-between">
                     <CardTitle className="text-lg font-medium">
                       {tutor.person}
                     </CardTitle>
@@ -173,7 +168,7 @@ export function MoveTutorsPage() {
                   </div>
                   <div>
                     <span className="text-sm font-medium">Moves:</span>
-                    <div className="mt-1 flex flex-wrap gap-1">
+                    <div className="flex flex-wrap mt-1 gap-1">
                       {tutor.moves.map((move, idx) => (
                         <Badge
                           key={idx}

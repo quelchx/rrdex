@@ -59,7 +59,7 @@ export function PokedexTable<TData, TValue>(
 
   return (
     <>
-      <div className="flex items-center gap-3 pb-4 pt-2">
+      <div className="flex items-center pt-2 pb-4 gap-3">
         <PokedexSearch />
         <PokedexSearchFilter />
         <PokedexViewOptions table={table} />

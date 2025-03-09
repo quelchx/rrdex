@@ -35,16 +35,16 @@ export function Pokemon() {
   if (!selectedPokemon) return null;
 
   return (
-    <div className="container mx-auto p-4">
+    <div className="container p-4 mx-auto">
       <div className="max-w-4xl mx-auto">
-        <div className="px-6 pt-6 pb-2 sticky top-0 z-10">
-          <h1 className="text-2xl flex items-center gap-2">
+        <div className="sticky top-0 z-10 px-6 pt-6 pb-2">
+          <h1 className="flex items-center text-2xl gap-2">
             <Button variant={"ghost"} onClick={handleReset}>
               <CircleX />
             </Button>
             <span>#{selectedPokemon.dexEntryNumber}</span>
             <span className="font-black">{selectedPokemon.name}</span>
-            <div className="flex gap-1 ml-auto">
+            <div className="flex ml-auto gap-1">
               {selectedPokemon.type.map((type) => (
                 <Badge key={type} className={cn(getTypeColor(type), "p-2")}>
                   {type}
@@ -59,11 +59,11 @@ export function Pokemon() {
           type="always"
           className="h-[70vh] px-6 pb-6"
         >
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-2">
+          <div className="mb-2 grid grid-cols-1 md:grid-cols-3 gap-6">
             {/* Pokemon Image */}
-            <Card className="col-span-1 overflow-hidden border-none shadow-none">
-              <CardContent className="p-4 flex flex-col items-center">
-                <div className="bg-muted rounded-md p-4 w-full flex justify-center">
+            <Card className="overflow-hidden border-none shadow-none col-span-1">
+              <CardContent className="flex flex-col items-center p-4">
+                <div className="flex justify-center w-full p-4 bg-muted rounded-md">
                   <img
                     loading="lazy"
                     src={selectedPokemon.sprite || UNKNOWN_SPRITE_URL}
@@ -73,7 +73,7 @@ export function Pokemon() {
                     className="pixelated"
                   />
                 </div>
-                <h3 className="font-semibold my-3">Abilities</h3>
+                <h3 className="my-3 font-semibold">Abilities</h3>
                 <div className="space-y-2">
                   {selectedPokemon.abilities.map((ability, index) => (
                     <div
@@ -84,10 +84,10 @@ export function Pokemon() {
                           "text-pink-600 font-semibold bg-purple-500/10"
                       )}
                     >
-                      <span className="font-semibold text-sm">
+                      <span className="text-sm font-semibold">
                         {ability.split("-")[0]}
                       </span>
-                      <span className="text-muted-foreground text-xs">
+                      <span className="text-xs text-muted-foreground">
                         {ability.split("-")[1]}
                       </span>
                     </div>
@@ -97,9 +97,9 @@ export function Pokemon() {
             </Card>
 
             {/* Stats */}
-            <Card className="col-span-1 md:col-span-2 border-none shadow-none">
+            <Card className="border-none shadow-none col-span-1 md:col-span-2">
               <CardContent className="p-4">
-                <h3 className="font-semibold mb-3">Base Stats</h3>
+                <h3 className="mb-3 font-semibold">Base Stats</h3>
                 <div className="space-y-3">
                   {selectedPokemon.stats
                     .filter((stat) => stat.title !== "BST")
@@ -144,7 +144,7 @@ export function Pokemon() {
           {/* Type Effectiveness */}
           <Card className="my-2">
             <CardContent className="p-4">
-              <h3 className="font-semibold mb-3">Type Effectiveness</h3>
+              <h3 className="mb-3 font-semibold">Type Effectiveness</h3>
               <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-2">
                 {selectedPokemon.coverage.map((item) => (
                   <div
@@ -164,7 +164,7 @@ export function Pokemon() {
           {/* Evolution */}
           <Card className="mb-6 border-none shadow-none">
             <CardContent className="p-4">
-              <h3 className="font-semibold mb-3">Evolution</h3>
+              <h3 className="mb-3 font-semibold">Evolution</h3>
               <div className="space-y-2">
                 {selectedPokemon.evolution.map((evo, index) => (
                   <div key={index} className="p-2 bg-muted/50 rounded-md">
@@ -172,9 +172,9 @@ export function Pokemon() {
                   </div>
                 ))}
               </div>
-              <div className="mt-4 flex justify-center">
+              <div className="flex justify-center mt-4">
                 <ScrollArea
-                  className="whitespace-nowrap rounded-md border"
+                  className="border whitespace-nowrap rounded-md"
                   scrollHideDelay={500}
                 >
                   <div className="flex gap-2">
@@ -199,7 +199,7 @@ export function Pokemon() {
           <Card>
             <CardContent className="p-4">
               <Tabs defaultValue="levelup">
-                <TabsList className="grid grid-cols-4 mb-4 w-full">
+                <TabsList className="w-full mb-4 grid grid-cols-4">
                   <TabsTrigger value="levelup">Level Up</TabsTrigger>
                   <TabsTrigger value="tm">TM</TabsTrigger>
                   <TabsTrigger value="egg">Egg</TabsTrigger>

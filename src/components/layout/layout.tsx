@@ -40,9 +40,9 @@ export function Layout() {
   }, [windowWidth, gaveWarning]);
 
   return (
-    <div className="min-h-screen bg-background justify-center items-center flex flex-col">
+    <div className="flex flex-col items-center justify-center min-h-screen bg-background">
       <Navbar />
-      <main className="flex-1 container py-8 md:py-12">
+      <main className="container flex-1 py-8 md:py-12">
         <div className="flex flex-col items-center justify-center w-full">
           <Outlet />
         </div>
