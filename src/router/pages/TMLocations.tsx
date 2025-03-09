@@ -19,16 +19,24 @@ export function TMLocationsPage() {
   }, [data, searchQuery]);
 
   if (isLoading) return <LoadingBlocks />;
-  if (isError) return <FetchError />;
+  if (isError || data === undefined) return <FetchError />;
 
   return (
-    data && (
-      <div className="container mx-auto p-4">
-        <h1 className="text-3xl font-bold mb-6 text-center">
-          Radical Red TM Finder
-        </h1>
+    <div className="container mx-auto p-4">
+      <div className="max-w-6xl mx-auto">
+        <div className="flex justify-between items-center mb-6">
+          <div>
+            <h1 className="text-4xl font-bold page-heading">
+              Pokemon TMs & HMs
+            </h1>
+            <p className="text-muted-foreground">
+              Browse through all Pokémon TMs & HMs in this ROM hack and discover
+              their locations.
+            </p>
+          </div>
+        </div>
 
-        <div className="relative max-w-md mx-auto mb-8">
+        <div className="relative mx-auto mb-8">
           <SearchBar
             searchQuery={searchQuery}
             setSearchQuery={setSearchQuery}
@@ -67,6 +75,6 @@ export function TMLocationsPage() {
           Showing {filteredTMs.length} of {data.length} TMs
         </div>
       </div>
-    )
+    </div>
   );
 }

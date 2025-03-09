@@ -1,0 +1,315 @@
+[
+  {
+    "location": "Viridian Forest",
+    "person": "Bug Catcher",
+    "cost": "1 Oran Berry",
+    "isPostGame": false,
+    "moves": [
+      {
+        "name": "Bug Bite",
+        "restricted": false
+      }
+    ]
+  },
+  {
+    "location": "Cerulean City House next to Nugget Bridge",
+    "person": "Old Man",
+    "cost": "1500",
+    "isPostGame": false,
+    "moves": [
+      {
+        "name": "Fire Fang",
+        "restricted": false
+      },
+      {
+        "name": "Ice Fang",
+        "restricted": false
+      },
+      {
+        "name": "Thunder Fang",
+        "restricted": false
+      }
+    ]
+  },
+  {
+    "location": "Vermilion City Fan Club",
+    "person": "Tamer",
+    "cost": "2500",
+    "isPostGame": false,
+    "moves": [
+      { "name": "Flame Charge", "restricted": true },
+      {
+        "name": "Trailblaze",
+        "restricted": true
+      },
+      {
+        "name": "Powerup Punch",
+        "restricted": true
+      },
+      {
+        "name": "Charge Beam",
+        "restricted": true
+      },
+      {
+        "name": "Work Up",
+        "restricted": true
+      },
+      {
+        "name": "Hone Claws",
+        "restricted": true
+      }
+    ]
+  },
+  {
+    "location": "Pewter City Museum (Requires Cut HM)",
+    "person": "Scientist",
+    "cost": "2500",
+    "isPostGame": false,
+    "moves": [{ "name": "Rock Polish", "restricted": true }]
+  },
+  {
+    "location": "Saffron City House Left of Silph Co.",
+    "person": "Ace Trainer",
+    "cost": "7500",
+    "isPostGame": false,
+    "moves": [
+      { "name": "Drill Run", "restricted": false },
+      { "name": "Blaze Kick", "restricted": false },
+      {
+        "name": "Pain Split",
+        "restricted": false
+      },
+      {
+        "name": "Hex",
+        "restricted": false
+      },
+      {
+        "name": "Mystical Fire",
+        "restricted": false
+      },
+      { "name": "Leaf Blade", "restricted": false },
+      {
+        "name": "Power Gem",
+        "restricted": false
+      },
+      {
+        "name": "Rock Blast",
+        "restricted": false
+      },
+      {
+        "name": "Pin Missle",
+        "restricted": false
+      },
+      {
+        "name": "Icicle Spear",
+        "restricted": false
+      },
+      {
+        "name": "Tail Slap",
+        "restricted": false
+      },
+      {
+        "name": "Body Slam",
+        "restricted": false
+      },
+      {
+        "name": "Foul Play",
+        "restricted": false
+      },
+      {
+        "name": "Alluring Voice",
+        "restricted": false
+      },
+      {
+        "name": "Focus Punch",
+        "restricted": false
+      },
+      {
+        "name": "Psychic Fangs",
+        "restricted": false
+      }
+    ]
+  },
+  {
+    "location": "Fuchsia City Eastern Gate",
+    "person": "Super Nerd",
+    "cost": "0",
+    "isPostGame": false,
+    "moves": [
+      {
+        "name": "Swords Dance",
+        "restricted": true
+      },
+      {
+        "name": "Nasty Plot",
+        "restricted": true
+      },
+      {
+        "name": "Bulk Up",
+        "restricted": true
+      },
+      {
+        "name": "Calm Mind",
+
+        "restricted": true
+      },
+      {
+        "name": "Meteor Beam",
+        "restricted": true
+      },
+      {
+        "name": "Iro Defense",
+        "restricted": true
+      }
+    ]
+  },
+  {
+    "location": "Fuchsia City Near Kangaskhan Pen",
+    "person": "Bug Catcher",
+    "cost": "0",
+    "isPostGame": false,
+    "moves": [
+      {
+        "name": "Substitute",
+        "restricted": true
+      }
+    ]
+  },
+  {
+    "location": "Cinnibar Island Lab - Research Room",
+    "person": "Super Nerd",
+    "cost": "0",
+    "isPostGame": false,
+    "moves": [
+      {
+        "name": "Sunny Day",
+        "restricted": true
+      },
+      {
+        "name": "Rain Dance",
+        "restricted": true
+      },
+      {
+        "name": "Snowscape",
+        "restricted": true
+      },
+      {
+        "name": "Sandstorm",
+        "restricted": true
+      }
+    ]
+  },
+  {
+    "location": "Cinnibar Island Lab - Testing Room",
+    "person": "Super Nerd",
+    "cost": "10000",
+    "isPostGame": false,
+    "moves": [
+      {
+        "name": "Power Whip",
+        "restricted": false
+      },
+      {
+        "name": "Bug Buzz",
+        "restricted": false
+      },
+      {
+        "name": "Phantom Force",
+        "restricted": false
+      },
+      {
+        "name": "Flare Blitz",
+        "restricted": false
+      },
+      {
+        "name": "Stored Power",
+        "restricted": false
+      },
+      {
+        "name": "Tailwind",
+        "restricted": true
+      },
+      {
+        "name": "Megahorn",
+        "restricted": false
+      },
+      {
+        "name": "Stealth Rock",
+        "restricted": true
+      },
+      {
+        "name": "Spikes",
+        "restricted": true
+      },
+      {
+        "name": "Toxic Spikes",
+        "restricted": true
+      },
+      {
+        "name": "Solar Beam",
+        "restricted": false
+      },
+      {
+        "name": "Solar Blade",
+        "restricted": false
+      }
+    ]
+  },
+  {
+    "location": "Victory Road near Raid Den and exit",
+    "person": "Super Nerd",
+    "restricted": true,
+    "cost": "25000 (first time) - 0 (after)",
+    "isPostGame": false,
+    "moves": [
+      {
+        "name": "Dragon Dance",
+        "restricted": true
+      }
+    ]
+  },
+  {
+    "location": "Pallet Town Player's House",
+    "person": "Mother",
+    "cost": "0",
+    "isPostGame": true,
+    "moves": [
+      {
+        "name": "Celebrate",
+        "restricted": false
+      }
+    ]
+  },
+  {
+    "location": "Two Island Cape Brink",
+    "person": "Racheal",
+    "cost": "0 - (only once)",
+    "isPostGame": true,
+    "moves": [
+      {
+        "name": "Dark Hole",
+        "restricted": false
+      }
+    ]
+  },
+  {
+    "location": "Two Island Joyful Game Corner",
+    "person": "Ace Trainer",
+    "cost": "0",
+    "isPostGame": true,
+    "moves": [
+      {
+        "name": "Frenzy Plant",
+        "restricted": false
+      },
+      {
+        "name": "Blast Burn",
+        "restricted": false
+      },
+      {
+        "name": "Hydro Cannon",
+        "restricted": false
+      }
+    ]
+  }
+]

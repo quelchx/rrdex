@@ -14,5 +14,7 @@ export function useAbilities() {
   return useQuery({
     queryKey: ["abilities"],
     queryFn: getAbilities,
+    refetchOnMount: false,
+    refetchOnWindowFocus: false,
   });
 }

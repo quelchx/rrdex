@@ -31,7 +31,6 @@ export function MovesPage() {
       const matchesSearch =
         move.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
         move.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        move.ID.toString().includes(searchQuery) ||
         move.type.toLowerCase().includes(searchQuery.toLowerCase());
 
       if (activeTab === "all") return matchesSearch;
@@ -39,7 +38,6 @@ export function MovesPage() {
       if (activeTab === "special") return matchesSearch && move.split === 1;
       if (activeTab === "status") return matchesSearch && move.split === 2;
 
-      // Filter by type
       return matchesSearch && move.type.toLowerCase() === activeTab;
     });
   }, [data, searchQuery, activeTab]);
@@ -55,14 +53,14 @@ export function MovesPage() {
   }
 
   return (
-    <div className="container mx-auto py-8 px-4">
+    <div className="container mx-auto py-2 px-4">
       <div className="max-w-6xl mx-auto">
         <div className="flex justify-between items-center mb-6">
           <div>
-            <h1 className="text-4xl font-bold">Pokémon Moves</h1>
+            <h1 className="text-4xl font-bold page-heading">Pokémon Moves</h1>
             <p className="text-muted-foreground">
-              Browse through all Pokémon moves and discover their effects in
-              Radical Red.
+              Browse through all Pokémon moves in this ROM hack and discover
+              their effects in Radical Red.
             </p>
           </div>
         </div>
@@ -105,11 +103,19 @@ export function MovesPage() {
         </p>
 
         <div className="h-[calc(100vh-280px)] overflow-y-auto pr-2 pb-4 custom-scrollbar">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {filteredMoves.map((move) => (
-              <MoveCard key={move.ID} move={move} />
-            ))}
-          </div>
+          {filteredMoves.length === 0 ? (
+            <div className="text-center py-10">
+              <p className="text-muted-foreground">
+                No moves found matching your search criteria.
+              </p>
+            </div>
+          ) : (
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              {filteredMoves.map((move) => (
+                <MoveCard key={move.ID} move={move} />
+              ))}
+            </div>
+          )}
         </div>
       </div>
     </div>
