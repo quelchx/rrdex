@@ -1,0 +1,602 @@
+[
+  {
+    "no": "001",
+    "name": "Close Combat",
+    "info": "Cerulean Cave, 2F, in the south east part of the floor."
+  },
+  {
+    "no": "002",
+    "name": "Dragon Claw",
+    "info": "Route 14, in the small patch of grass above the Bikers."
+  },
+  {
+    "no": "003",
+    "name": "Flip Turn",
+    "info": "Cerulean City's gym, from Misty after defeating her."
+  },
+  {
+    "no": "004",
+    "name": "Seed Bomb",
+    "info": "Route 12, in the grassy area below Fisherman's house."
+  },
+  {
+    "no": "005",
+    "name": "Roar",
+    "info": "Route 4, after Mt. Moon, right of the two Black Belts, in between the\n        multiple ledges."
+  },
+  {
+    "no": "006",
+    "name": "Toxic",
+    "info": "Celadon City's Game Corner for $17 500."
+  },
+  {
+    "no": "007",
+    "name": "Heat Wave",
+    "info": "Cinnabar Island's Pokémon Mansion 3F."
+  },
+  {
+    "no": "008",
+    "name": "Zen Headbutt",
+    "info": "Saffron City's Silph Co. 7F, in the middle-right room. (Keycard\n        required)"
+  },
+  {
+    "no": "009",
+    "name": "Bullet Seed",
+    "info": "Mt. Moon 1F, west from the entrance."
+  },
+  {
+    "no": "010",
+    "name": "Hidden Power",
+    "info": "Saffron City's Silph Co. 1F, on the upper right corner of the room\n        behind a plant."
+  },
+  {
+    "no": "011",
+    "name": "Supercell Slam",
+    "info": "Indigo Plateau, before entering the building, from soupercell after\n        defeating him."
+  },
+  {
+    "no": "012",
+    "name": "Taunt",
+    "info": "Celadon City's Rocket Hideout B2F inside the warp maze."
+  },
+  {
+    "no": "013",
+    "name": "Ice Beam",
+    "info": "Celadon City's Game Corner for $30 000."
+  },
+  {
+    "no": "014",
+    "name": "Blizzard",
+    "info": "Cinnabar Island's Pokémon Mansion B1F."
+  },
+  {
+    "no": "015",
+    "name": "Electroweb",
+    "info": "Viridian Forest, follow the accessible path around the forest's end\n        without rock break."
+  },
+  {
+    "no": "016",
+    "name": "Light Screen",
+    "info": "Celadon City's Game Corner for $17 500."
+  },
+  {
+    "no": "017",
+    "name": "Protect",
+    "info": "Celadon City's Game Corner for $15 000."
+  },
+  {
+    "no": "018",
+    "name": "Hydro Pump",
+    "info": "Route 15, above the ledge near the Raid Den."
+  },
+  {
+    "no": "019",
+    "name": "Giga Drain",
+    "info": "Celadon City's gym, from Erika after defeating her."
+  },
+  {
+    "no": "020",
+    "name": "Hyper Voice",
+    "info": "Celadon City's Game Corner for $15 000."
+  },
+  {
+    "no": "021",
+    "name": "Icy Wind",
+    "info": "Cerulean City's Pokémart for $5000."
+  },
+  {
+    "no": "022",
+    "name": "Weather Ball",
+    "info": "Cinnabar Island's Pokémon Mansion B1F."
+  },
+  {
+    "no": "023",
+    "name": "Iron Head",
+    "info": "Rock Tunnel 1F, from Lavender Town's side."
+  },
+  {
+    "no": "024",
+    "name": "Thunderbolt",
+    "info": "Celadon City's Game Corner for $30 000."
+  },
+  {
+    "no": "025",
+    "name": "Thunder",
+    "info": "Power Plant, south east corner."
+  },
+  {
+    "no": "026",
+    "name": "Earthquake",
+    "info": "Saffron City, from the Dumbass Mudkip Kid after defeating him for the\n        first time."
+  },
+  {
+    "no": "027",
+    "name": "Return",
+    "info": "Route 12, from a Lass in the northern gate upstairs."
+  },
+  {
+    "no": "028",
+    "name": "Dig",
+    "info": "Cerulean City, from Team Rocket Grunt."
+  },
+  {
+    "no": "029",
+    "name": "Psychic",
+    "info": "Saffron City, in Mr. Psychic's house in the south east."
+  },
+  {
+    "no": "030",
+    "name": "Shadow Ball",
+    "info": "Lavender Town, from Morty after defeating him in Fuji's house."
+  },
+  {
+    "no": "031",
+    "name": "Brick Break",
+    "info": "S.S. Anne, 1F, second room starting from the left."
+  },
+  {
+    "no": "032",
+    "name": "Aura Sphere",
+    "info": "Safari Zone - Western Area."
+  },
+  {
+    "no": "033",
+    "name": "Reflect",
+    "info": "Celadon City's Game Corner for $15 000."
+  },
+  {
+    "no": "034",
+    "name": "Teleport",
+    "info": "Route 3, in the large grassy patch with a Lass around."
+  },
+  {
+    "no": "035",
+    "name": "Flamethrower",
+    "info": "Celadon City's Game Corner for $30 000."
+  },
+  {
+    "no": "036",
+    "name": "Sludge Bomb",
+    "info": "Fuchsia City's gym, from Koga after defeating him."
+  },
+  {
+    "no": "037",
+    "name": "High Horsepower",
+    "info": "Victory Road 2F, in the central-south part of the floor, below the\n        heightened platform."
+  },
+  {
+    "no": "038",
+    "name": "Fire Blast",
+    "info": "Cinnabar Island's gym, from Blaine after defeating him."
+  },
+  {
+    "no": "039",
+    "name": "Rock Tomb",
+    "info": "Pewter City's gym, from Brock after defeating him."
+  },
+  {
+    "no": "040",
+    "name": "Low Kick",
+    "info": "Route 4's eastern side, from the left Black Belt."
+  },
+  {
+    "no": "041",
+    "name": "Liquidation",
+    "info": "Saffron City's Silph Co. 4F, on a table."
+  },
+  {
+    "no": "042",
+    "name": "Facade",
+    "info": "Route 10, east of the exit near Lavender Town."
+  },
+  {
+    "no": "043",
+    "name": "Defog",
+    "info": "Route 25, in the grassy maze."
+  },
+  {
+    "no": "044",
+    "name": "Rest",
+    "info": "Diglett's Cave - Entrance from Route 11."
+  },
+  {
+    "no": "045",
+    "name": "Draining Kiss",
+    "info": "Route 24, on the heightened platform."
+  },
+  {
+    "no": "046",
+    "name": "Thief",
+    "info": "Diglett's Cave - Entrance below Pewter City."
+  },
+  {
+    "no": "047",
+    "name": "Steel Wing",
+    "info": "Cerulean City's Pokémart for $10 000."
+  },
+  {
+    "no": "048",
+    "name": "Hurricane",
+    "info": "Route 12, on a small islet right below the gate. (Surf HM required)"
+  },
+  {
+    "no": "049",
+    "name": "Leech Life",
+    "info": "Celadon City's Rocket Hideout B4F."
+  },
+  {
+    "no": "050",
+    "name": "Overheat",
+    "info": "Victory Road 3F, northwest, by a rock on a narrow path west of the\n        raised platform."
+  },
+  {
+    "no": "051",
+    "name": "Roost",
+    "info": "From Falkner after defeating him in Pewter City's Museum."
+  },
+  {
+    "no": "052",
+    "name": "Focus Blast",
+    "info": "Route 20, on an islet in the middle of the Route."
+  },
+  {
+    "no": "053",
+    "name": "Energy Ball",
+    "info": "Celadon City's Game Corner for $25 000."
+  },
+  {
+    "no": "054",
+    "name": "Grassy Glide",
+    "info": "Safari Zone - Center Area, on a small islet to the north of the\n        entrance."
+  },
+  {
+    "no": "055",
+    "name": "Expanding Force",
+    "info": "Safari Zone - West Area, on the south-side elevated platform."
+  },
+  {
+    "no": "056",
+    "name": "Air Slash",
+    "info": "Celadon City's Game Corner for $17 500."
+  },
+  {
+    "no": "057",
+    "name": "Temper Flare",
+    "info": "Route 2's eastern side. (Cut HM required)"
+  },
+  {
+    "no": "058",
+    "name": "Rising Voltage",
+    "info": "Safari Zone - Eastern Area."
+  },
+  {
+    "no": "059",
+    "name": "Dragon Pulse",
+    "info": "Safari Zone - North Area."
+  },
+  {
+    "no": "060",
+    "name": "Drain Punch",
+    "info": "Saffron City's Dojo, from Chuck after defeating him."
+  },
+  {
+    "no": "061",
+    "name": "Will-O-Wisp",
+    "info": "Lavender Town's Pokémon Tower, 6F."
+  },
+  {
+    "no": "062",
+    "name": "Iron Tail",
+    "info": "Route 7's grass patch."
+  },
+  {
+    "no": "063",
+    "name": "Venoshock",
+    "info": "Route 6, in the north western corner."
+  },
+  {
+    "no": "064",
+    "name": "Explosion",
+    "info": "Celadon City's Game Corner for $15 000."
+  },
+  {
+    "no": "065",
+    "name": "Shadow Claw",
+    "info": "Celadon City's Game Corner for $25 000."
+  },
+  {
+    "no": "066",
+    "name": "Steel Beam",
+    "info": "(POST-GAME)Two Island, close to the\n        Game Corner."
+  },
+  {
+    "no": "067",
+    "name": "Poltergeist",
+    "info": "Victory Road 1F, northwest, north item of the boulder 'puzzle'."
+  },
+  {
+    "no": "068",
+    "name": "Dual Chop",
+    "info": "Silph. Co 11F, from Brendan after defeating the Rocket Admins."
+  },
+  {
+    "no": "069",
+    "name": "Stomping Tantrum",
+    "info": "S.S. Anne 2F, in the third room from the right."
+  },
+  {
+    "no": "070",
+    "name": "Triple Axel",
+    "info": "Seafoam Islands B1F, heightened platform in the middle of the floor."
+  },
+  {
+    "no": "071",
+    "name": "Stone Edge",
+    "info": "Pewter City's gym, from Brock after defeating him in a rematch."
+  },
+  {
+    "no": "072",
+    "name": "Draco Barrage",
+    "info": "(POST-GAME)Viridian City, from\n        Claire after defeating her in a rematch."
+  },
+  {
+    "no": "073",
+    "name": "Thunder Wave",
+    "info": "Saffron City's Silph Co. 2F, from a lady near some cardboard boxes."
+  },
+  {
+    "no": "074",
+    "name": "Gyro Ball",
+    "info": "Celadon City's Game Corner for $20 000."
+  },
+  {
+    "no": "075",
+    "name": "Knock Off",
+    "info": "Celadon City's Game Corner for $20 000."
+  },
+  {
+    "no": "076",
+    "name": "Earth Power",
+    "info": "Safari Zone - Eastern Area."
+  },
+  {
+    "no": "077",
+    "name": "Thunder Punch",
+    "info": "Route 24, right of the Nugget Bridge, accessed from Route 25."
+  },
+  {
+    "no": "078",
+    "name": "Low Sweep",
+    "info": "Mt. Moon B2F, accessed from the third ladder on the first floor."
+  },
+  {
+    "no": "079",
+    "name": "Dark Pulse",
+    "info": "Celadon City's Game Corner for $30 000."
+  },
+  {
+    "no": "080",
+    "name": "Rock Slide",
+    "info": "Rock Tunnel B1F, from a youngster in the room with multiple crossroads."
+  },
+  {
+    "no": "081",
+    "name": "X-Scissor",
+    "info": "Viridian Forest. (Rock Smash HM required)"
+  },
+  {
+    "no": "082",
+    "name": "Sleep Talk",
+    "info": "Celadon City's Game Corner for $15 000."
+  },
+  {
+    "no": "083",
+    "name": "Scald",
+    "info": "Celadon City's Game Corner for $25 000."
+  },
+  {
+    "no": "084",
+    "name": "Poison Jab",
+    "info": "Celadon City's Game Corner for $25 000."
+  },
+  {
+    "no": "085",
+    "name": "Future Sight",
+    "info": "Route 13, in front of a Picnicker."
+  },
+  {
+    "no": "086",
+    "name": "Grass Knot",
+    "info": "Celadon City's gym, from Erika after defeating her in a rematch."
+  },
+  {
+    "no": "087",
+    "name": "Aerial Ace",
+    "info": "Cerulean City's Pokémart for $5000."
+  },
+  {
+    "no": "088",
+    "name": "Pluck",
+    "info": "Cerulean City's Pokémart for $5000."
+  },
+  {
+    "no": "089",
+    "name": "U-Turn",
+    "info": "Route 25's east end, from Bugsy after defeating him."
+  },
+  {
+    "no": "090",
+    "name": "Gunk Shot",
+    "info": "Cinnabar Mansion 1F, locked behind a door near the stairs at the\n        entrance."
+  },
+  {
+    "no": "091",
+    "name": "Flash Cannon",
+    "info": "Celadon City's Game Corner for $25 000."
+  },
+  {
+    "no": "092",
+    "name": "Volt Switch",
+    "info": "Vermilion City's gym, from Lt. Surge after defeating him."
+  },
+  {
+    "no": "093",
+    "name": "Dragon Tail",
+    "info": "Celadon City's Game Corner for $15 000."
+  },
+  {
+    "no": "094",
+    "name": "Scale Shot",
+    "info": "(POST-GAME)One Island - Mt. Ember,\n        northeast after moving boulders."
+  },
+  {
+    "no": "095",
+    "name": "Cosmic Power",
+    "info": "(POST-GAME)Three Island, Berry\n        Forest, by Surfing in the part at the end of the forest."
+  },
+  {
+    "no": "096",
+    "name": "Bulldoze",
+    "info": "Route 5, in the middle fenced area."
+  },
+  {
+    "no": "097",
+    "name": "Frost Breath",
+    "info": "(POST-GAME)Seafoam Islands, in the\n        Sandshrew race area."
+  },
+  {
+    "no": "098",
+    "name": "Fire Punch",
+    "info": "Route 11, on the bottom right side in a narrow path, near the old man\n        below the gate."
+  },
+  {
+    "no": "099",
+    "name": "Wild Charge",
+    "info": "Route 10, right of Power Plant's entrance."
+  },
+  {
+    "no": "100",
+    "name": "Dual Wingbeat",
+    "info": "Route 16, north-western part of the Route."
+  },
+  {
+    "no": "101",
+    "name": "Ice Punch",
+    "info": "Route 9, in the bottom left corner, near the Hiker."
+  },
+  {
+    "no": "102",
+    "name": "Dazzling Gleam",
+    "info": "Celadon City's Game Corner for $30 000."
+  },
+  {
+    "no": "103",
+    "name": "Sludge Wave",
+    "info": "(POST-GAME)Rock Tunnel's entrance\n        near Power Plant."
+  },
+  {
+    "no": "104",
+    "name": "Psyshock",
+    "info": "Route 7/8 Underground Path, near the western staircase."
+  },
+  {
+    "no": "105",
+    "name": "Psychic Noise",
+    "info": "Celadon City's Rocket Hideout B3F."
+  },
+  {
+    "no": "106",
+    "name": "Acrobatics",
+    "info": "Route 8, near the Underground Path, between the two ledges below the old\n        man."
+  },
+  {
+    "no": "107",
+    "name": "Terrain Pulse",
+    "info": "CANNOT BE FOUND."
+  },
+  {
+    "no": "108",
+    "name": "Snarl",
+    "info": "Cerulean City's Pokémart for $5000."
+  },
+  {
+    "no": "109",
+    "name": "Superpower",
+    "info": "Power Plant, next to Dumbass Jojo Fan in the central room."
+  },
+  {
+    "no": "110",
+    "name": "Scorching Sands",
+    "info": "Celadon City's Game Corner for $12 500."
+  },
+  {
+    "no": "111",
+    "name": "Vacuum Wave",
+    "info": "Cerulean City's Pokémart for $5000."
+  },
+  {
+    "no": "112",
+    "name": "Misty Explosion",
+    "info": "(POST-GAME)One Island, Mt. Ember,\n        from a Hiker."
+  },
+  {
+    "no": "113",
+    "name": "Play Rough",
+    "info": "Celadon Dept. Store 3F, from the clerk, for $15 000."
+  },
+  {
+    "no": "114",
+    "name": "Heat Crash",
+    "info": "Route 17, south of the gate, right above the grass patch."
+  },
+  {
+    "no": "115",
+    "name": "Body Press",
+    "info": "Saffron City's Silph Co. 5F, in the south room on the west side.\n        (Keycard required)"
+  },
+  {
+    "no": "116",
+    "name": "Trick Room",
+    "info": "Saffron City's gym, from Sabrina after defeating her."
+  },
+  {
+    "no": "117",
+    "name": "Brave Bird",
+    "info": "Celadon City's hotel, after getting the Mega Ring and defeating the two\n        Beauties there."
+  },
+  {
+    "no": "118",
+    "name": "Steel Roller",
+    "info": "CANNOT BE FOUND."
+  },
+  {
+    "no": "119",
+    "name": "Draco Meteor",
+    "info": "Viridian City's gym, from Clair after defeating her."
+  },
+  {
+    "no": "120",
+    "name": "Ice Spinner",
+    "info": "Viridian City, on the other side of the small pond (Surf HM required)."
+  }
+]

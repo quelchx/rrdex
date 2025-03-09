@@ -19,6 +19,12 @@ const MovesPage = lazy(() =>
   import("./pages/Moves.tsx").then((module) => ({ default: module.MovesPage }))
 );
 
+const TMLocationsPage = lazy(() =>
+  import("./pages/TMLocations.tsx").then((module) => ({
+    default: module.TMLocationsPage,
+  }))
+);
+
 export function Root() {
   return (
     <BrowserRouter>
@@ -46,6 +52,14 @@ export function Root() {
             element={
               <Suspense fallback={<LoadingSpinner />}>
                 <MovesPage />
+              </Suspense>
+            }
+          />
+          <Route
+            path="tm-locations"
+            element={
+              <Suspense fallback={<LoadingSpinner />}>
+                <TMLocationsPage />
               </Suspense>
             }
           />

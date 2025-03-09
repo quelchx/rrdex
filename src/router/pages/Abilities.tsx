@@ -1,12 +1,11 @@
 import { useMemo, useState } from "react";
-import { Search } from "lucide-react";
 import { useAbilities } from "@/hooks/useAbilities";
 
-import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { FetchError } from "@/components/content/fetch-error";
 import { LoadingBlocks } from "@/components/content/loading-blocks";
+import { SearchBar } from "@/components/content/search-bar";
 
 export function AbilitiesPage() {
   const [searchQuery, setSearchQuery] = useState("");
@@ -45,19 +44,13 @@ export function AbilitiesPage() {
           </div>
 
           <div className="relative mb-6">
-            <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-              <Search className="h-5 w-5 text-muted-foreground" />
-            </div>
-            <Input
-              type="text"
+            <SearchBar
+              searchQuery={searchQuery}
+              setSearchQuery={setSearchQuery}
               placeholder="Search by name, ID, or description..."
-              className="pl-10"
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
             />
           </div>
           <p className="text-sm text-muted-foreground mb-4">
-            {/* change */}
             Showing {filteredAbilities.length} of {data.abilities.length}{" "}
             abilities
           </p>

@@ -1,21 +1,7 @@
+import { MoveDetails } from "@/constants/types";
 import { useQuery } from "@tanstack/react-query";
 
-// Keeping this type here because its only accessed in this file
-type PokemonMove = {
-  ID: number;
-  name: string;
-  power: number;
-  type: string;
-  accuracy: number;
-  pp: number;
-  secondaryEffectChance: number;
-  target: number;
-  priority: number;
-  split: number;
-  description: string;
-};
-
-async function getMoves(): Promise<{ moves: PokemonMove[] }> {
+async function getMoves(): Promise<{ moves: MoveDetails[] }> {
   try {
     const response = await fetch("/data/moves.json");
     return await response.json();
