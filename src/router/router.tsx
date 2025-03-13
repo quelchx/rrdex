@@ -42,6 +42,12 @@ const OverWorldItemsPage = lazy(() =>
   }))
 );
 
+const MegaStones = lazy(() =>
+  import("./pages/MegaStones.tsx").then((module) => ({
+    default: module.MegaStones,
+  }))
+);
+
 export function Root() {
   return (
     <BrowserRouter>
@@ -93,6 +99,14 @@ export function Root() {
             element={
               <Suspense fallback={<LoadingSpinner />}>
                 <OverWorldItemsPage />
+              </Suspense>
+            }
+          />
+          <Route
+            path="mega-stones"
+            element={
+              <Suspense fallback={<LoadingSpinner />}>
+                <MegaStones />
               </Suspense>
             }
           />

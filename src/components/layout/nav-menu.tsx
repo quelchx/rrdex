@@ -86,7 +86,6 @@ export function NavMenu() {
               <DropdownMenuSubTrigger>Coming Soon</DropdownMenuSubTrigger>
               <DropdownMenuPortal>
                 <DropdownMenuSubContent>
-                  <DropdownMenuItem disabled>Mega Stones</DropdownMenuItem>
                   <DropdownMenuItem disabled>Shops</DropdownMenuItem>
                   <DropdownMenuItem disabled>Z Crystals</DropdownMenuItem>
                   <DropdownMenuItem disabled>Care Packages</DropdownMenuItem>
