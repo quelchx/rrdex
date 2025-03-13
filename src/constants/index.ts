@@ -56,5 +56,6 @@ export const NAV_LINKS = [
   { to: "/moves", text: "Moves" },
   { to: "/tm-locations", text: "Locations" },
   { to: "/move-tutors", text: "Move Tutors" },
+  { to: "/mega-stones", text: "Mega Stones" },
   { to: "/about", text: "About" },
 ];

@@ -1,0 +1,250 @@
+[
+  {
+    "name": "Venusaurite",
+    "description": "Upstairs in northern gate on Route 16, from \r\nScientist upon showing Venusaur."
+  },
+  {
+    "name": "Charizardite X",
+    "description": "(Swapped with Charizardite Y in Hardcore)\r\nUpstairs in northern gate on Route 16, from \r\nScientist after showing Charizard."
+  },
+  {
+    "name": "Sceptilite",
+    "description": "From Brendan after defeating him on Route 23."
+  },
+  {
+    "name": "Blastoisinite",
+    "description": "Upstairs in northern gate on Route 16, from \r\nScientist upon showing Blastoise."
+  },
+  {
+    "name": "Blazikenite",
+    "description": "From May after defeating her on Cinnabar Island, \r\nin front of the Pokémon Mansion."
+  },
+  {
+    "name": "Swampertite",
+    "description": "From the Dumbass Mudkip Kid in Saffron City, \r\nafter defeating him, then talking to him with a \r\nSwampert follower."
+  },
+  {
+    "name": "Lucarionite",
+    "description": "In Celadon City, from the guy close to the \r\nPokémon Center having a Lucario if you have a \r\nLucario follower. (Soul Badge needed)"
+  },
+  {
+    "name": "Alakazite",
+    "description": "Celadon City's Department Store, from a little\r\ngirl on the rooftop."
+  },
+  {
+    "name": "Sablenite",
+    "description": "Lavender Town's Pokémon Tower in the 3rd floor, \r\nnorth side of the room."
+  },
+  {
+    "name": "Kangaskhanite",
+    "description": "Saffron City's Silph Co. 7th floor, in the bottom \r\nleft part of the floor, near a Scientist."
+  },
+  {
+    "name": "Audinite",
+    "description": "Saffron City's Silph Co. 6th floor, at the south \r\nwest part of the floor, near a Scientist."
+  },
+  {
+    "name": "Garbodorite",
+    "description": "Saffron City's Silph Co. 4th floor, in the far \r\nwestern room, Keycard is required to enter."
+  },
+  {
+    "name": "Absolite",
+    "description": "Route 17, on the south side near a sign post \r\nbetween two ponds."
+  },
+  {
+    "name": "Gardevoirite",
+    "description": "(Swapped with Cameruptite in Hardcore) From \r\nSabrina after defeating her and showing a Pokémon \r\nwith 31 IVs in all stats. (or a shiny in MGM/Hardcore)"
+  },
+  {
+    "name": "Kinglerite",
+    "description": "Route 21, on an islet."
+  },
+  {
+    "name": "Altarianite",
+    "description": "Route 18, near the grass."
+  },
+  {
+    "name": "Drednawite",
+    "description": "Route 19, on a small islet on the south side of the \r\nRoute. (Surf HM required)"
+  },
+  {
+    "name": "Sharpedonite",
+    "description": "Route 12, from the Fisherman in a house if you \r\ntalk to him with a Sharpedo follower."
+  },
+  {
+    "name": "Heracronite",
+    "description": "Safari Zone Eastern Area."
+  },
+  {
+    "name": "Toxtricitite",
+    "description": "From Koga after defeating him and showing him \r\na Pokémon with at least 150 EVs in Spe.\r\n(or 125 Base Spe in MGM/Hardcore)"
+  },
+  {
+    "name": "Pidgeotite",
+    "description": "Safari Zone North Area, up north."
+  },
+  {
+    "name": "Lopunnite",
+    "description": "Safari Zone Western Area, at the south."
+  },
+  {
+    "name": "Glalitite",
+    "description": "Route 20, from Pryce after defeating him."
+  },
+  {
+    "name": "Beedrillite",
+    "description": "Safari Zone North Area, in the eastern part of \r\nthe area."
+  },
+  {
+    "name": "Laprasite",
+    "description": "Seafoam Islands B2F, north eastern part of the \r\nfloor."
+  },
+  {
+    "name": "Abomasite",
+    "description": "Seafoam Islands B2F, southern part of the floor."
+  },
+  {
+    "name": "Medichamite",
+    "description": "Route 20 (Cinnabar Island side), on a small islet \r\nbelow a stationary female Swimmer."
+  },
+  {
+    "name": "Aggronite",
+    "description": "In the Pokémon Lab, from Jasmine after defeating \r\nher."
+  },
+  {
+    "name": "Latiasite",
+    "description": "In Pokémon Lab's rightmost room, from Scientist \r\nat left table when showing Latias or Latios."
+  },
+  {
+    "name": "Latiosite",
+    "description": "In Pokémon Lab's rightmost room, from Scientist \r\nat left table when showing Latios or Latias."
+  },
+  {
+    "name": "Cameruptite",
+    "description": "(Swapped with Gardevoirite in Hardcore)\r\nCinnabar Island's Pokémon Mansion 1F, accessed \r\nby falling through the hole on 3F."
+  },
+  {
+    "name": "Steelixite",
+    "description": "From Jasmine after defeating her and showing her \r\na Pokémon with 150 EVs in Def.\r\n(125 Base Def in MGM/Hardcore)"
+  },
+  {
+    "name": "Tyranitarite",
+    "description": "Route 24, on a small islet."
+  },
+  {
+    "name": "Charizardite Y",
+    "description": "(Swapped with Charizardite X in Hardcore) From \r\nBlaine after defeating him and showing a Pokémon \r\nwith 150 EVs in SpA. (125 Base SpA in MGM/Hardcore)"
+  },
+  {
+    "name": "Houndoominite",
+    "description": "Cerulean Cave 1F, from Archer after defeating \r\nhim in battle."
+  },
+  {
+    "name": "Mawilite",
+    "description": "Cerulean Cave 1F, from Ariana after defeating \r\nher in battle."
+  },
+  {
+    "name": "Pinsirite",
+    "description": "Route 6, south west of the pond."
+  },
+  {
+    "name": "Mewtwonite Y",
+    "description": "From Giovanni after defeating him in Cerulean \r\nCave."
+  },
+  {
+    "name": "Machampite",
+    "description": "Power Plant, from Dumbass Jojo Fan after \r\ndefeating him."
+  },
+  {
+    "name": "Ampharosite",
+    "description": "Power Plant, in the north east corner."
+  },
+  {
+    "name": "Slowbronite",
+    "description": "Route 12, on an islet just south of the sleeping \r\nSnorlax."
+  },
+  {
+    "name": "Coalossite",
+    "description": "Rock Tunnel 1F. (Rock Smash HM needed)"
+  },
+  {
+    "name": "Butterfrite",
+    "description": "Viridian Forest. (Rock Smash HM required)"
+  },
+  {
+    "name": "Salamencite",
+    "description": "From Lance after defeating Giovanni in Cerulean \r\nCave."
+  },
+  {
+    "name": "Scizorite",
+    "description": "Route 22, below the pond and a ledge in the \r\ncenter. (Surf HM required)"
+  },
+  {
+    "name": "Orbeetlite",
+    "description": "Route 2, above Diglett's Cave. (Rock Smash HM \r\nrequired)"
+  },
+  {
+    "name": "Garchompite",
+    "description": "Cerulean Cave B1F, in the north east area of the \r\nfloor."
+  },
+  {
+    "name": "Snorlaxite",
+    "description": "Route 23, to the north of the Route, above the \r\nVolcano badge check gate."
+  },
+  {
+    "name": "Aerodactylite",
+    "description": "Pewter City, from Brock after defeating him in a \r\nrematch."
+  },
+  {
+    "name": "Metagrossite",
+    "description": "Victory Road 2F, near a Juggler at the northeast \r\npart of the floor."
+  },
+  {
+    "name": "Gyaradosite",
+    "description": "Cerulean City, from Misty after defeating her \r\nin a rematch."
+  },
+  {
+    "name": "Manectite",
+    "description": "Vermilion City, from Lt. Surge after defeating \r\nhim in a rematch."
+  },
+  {
+    "name": "Gengarite",
+    "description": "Lavender Town in Fuji's House, from Morty after \r\ngetting the Mega Ring if you show him a \r\nPokémon with max happiness."
+  },
+  {
+    "name": "Galladite",
+    "description": "From Chuck after defeating him, and showing \r\nhim a Pokémon with at least 150 EVs in Atk.\r\n(125 Base Atk in MGM/Hardcore)"
+  },
+  {
+    "name": "Centiskite",
+    "description": "Route 8, from Ace Trainer Cole after defeating \r\nhim, only after getting the Mega Ring."
+  },
+  {
+    "name": "Copperajite",
+    "description": "On islet below Vermilion City Gym. \r\n(Surf HM required)"
+  },
+  {
+    "name": "Sandacondite",
+    "description": "Route 15, from Ace Trainer Haley after defeating \r\nher."
+  },
+  {
+    "name": "Applite",
+    "description": "Celadon City's Hotel, after getting the Mega Ring \r\nand defeating the two Beauties in there."
+  },
+  {
+    "name": "Banettite",
+    "description": "Cinnabar Island's Pokémon Mansion B1F, south \r\nwestern part of the floor."
+  },
+  {
+    "name": "Alcremite",
+    "description": "From a woman in a Saffron City house, after bring \r\nto her the ingredients for a cake. (x1 Rawst Berry, \r\nx1 Aspear Berry, x2 Moomoo Milk)"
+  },
+  {
+    "name": "Mewtwonite X",
+    "description": "(POST-GAME) One Island, Treasure Beach, from \r\nRed after defeating him on the beach.\r\n(Requires 4+ win streak in the Battle Simulator)"
+  },
+  {
+    "name": "Diancite",
+    "description": "Cerulean Cave 2F, in the north east area of the \r\nfloor, accessed by going up the north east ladder \r\non 1F."
+  }
+]
